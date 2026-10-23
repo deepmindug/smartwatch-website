@@ -472,6 +472,16 @@ ul.bullets {
 .splitFill .splitMedia {
   height: 100%;
   min-height: 360px;
+  position: relative;
+}
+
+/* Out of the flow, so a tall (portrait) picture fills the copy's height instead of setting it. */
+.splitFill .splitMedia > img,
+.splitFill .splitMedia > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .splitCopy {
@@ -1173,10 +1183,16 @@ ul.bullets {
   }
 
   /* Stacked, it goes back to a 4 : 3 frame. */
+  /* Stacked, the picture shows whole at its own shape. */
   .splitFill .splitMedia {
     height: auto;
     min-height: 0;
-    aspect-ratio: 4 / 3;
+  }
+
+  .splitFill .splitMedia > img,
+  .splitFill .splitMedia > video {
+    position: static;
+    height: auto;
   }
 
   .cols3,

@@ -300,10 +300,10 @@ export const img = {
     height: 333,
   },
   truckConvoyHighway: {
-    src: '/images/heritage-road.webp',
-    alt: 'A vintage saloon loaded with jerrycans beside a signpost as a canvas-covered truck passes on a savannah road',
-    width: 1168,
-    height: 880,
+    src: '/images/heritage-evolution.webp',
+    alt: 'Fleet tracking through the years: a rotary phone and paper map, then satellite GPS on a desktop window, then an AI dashboard with a live map on a smartphone',
+    width: 880,
+    height: 1168,
   },
   yardSupervisorTablet: {
     src: '/images/yard-supervisor-tablet.webp',
