@@ -103,10 +103,10 @@ export const img = {
     fit: 'contain',
   },
   highwayAerial: {
-    src: '/images/highway-aerial.webp',
-    alt: 'Container truck tracked along a highway from above',
-    width: 736,
-    height: 552,
+    src: '/images/fleet-control-room.webp',
+    alt: 'Boardroom screen showing a live fleet map, vehicle list and alerts, with a phone on the table showing a remote vehicle lock',
+    width: 1168,
+    height: 880,
   },
   highwayPair: {
     src: '/images/highway-pair.webp',
