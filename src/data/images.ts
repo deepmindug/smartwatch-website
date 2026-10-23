@@ -301,7 +301,7 @@ export const img = {
   },
   truckConvoyHighway: {
     src: '/images/heritage-evolution.webp',
-    alt: 'Fleet tracking through the years: a rotary phone and paper map, then satellite GPS on a desktop window, then an AI dashboard with a live map on a smartphone',
+    alt: 'Fleet tracking through the years: a rotary phone and paper map, then satellite GPS over a map of Africa on a desktop window, then an AI dashboard with a live map on a smartphone',
     width: 880,
     height: 1168,
   },
