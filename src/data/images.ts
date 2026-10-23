@@ -115,10 +115,10 @@ export const img = {
     height: 400,
   },
   fleetSunset: {
-    src: '/images/fleet-sunset.webp',
-    alt: 'Row of haulage trucks parked at sunset',
-    width: 736,
-    height: 414,
+    src: '/images/engine-telematics-link.webp',
+    alt: 'Line drawing of a phone showing engine health, alerts and a service wrench, linked wirelessly to a sensor on a truck engine',
+    width: 1168,
+    height: 880,
   },
   portDusk: {
     src: '/images/port-dusk.webp',
