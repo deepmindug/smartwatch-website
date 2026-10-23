@@ -303,34 +303,85 @@
     flex: 1;
   }
 
-  /* On phones the video is a portrait 3:4 frame. */
+  /* On phones the video is a landscape 4:3 frame, the same as on desktop, so the film's opening
+     title card reads in full instead of being cut off at the sides. */
   .media {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
   }
 
-  /* The brand film is composed around its centre, so keep the middle of it in the narrower frame. */
+  /* The brand film is composed around its centre. */
   .video {
     object-position: center;
   }
 
+  /* A compact alert and badge share the bottom edge, clear of the title in the middle. */
   .alert {
-    left: 12px;
-    bottom: 12px;
-    padding: 10px 12px;
+    left: 10px;
+    bottom: 10px;
+    padding: 7px 10px;
+    gap: 8px;
+    border-radius: 10px;
   }
 
-  /* Stacked above the alert card, which spans most of the narrow frame. */
+  .alertDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .alertTitle {
+    font-size: 11px;
+  }
+
+  .alertMeta {
+    font-size: 10px;
+  }
+
   .cert {
-    right: 12px;
-    bottom: 76px;
-    width: 140px;
-    border-radius: 5px;
+    right: 10px;
+    bottom: 10px;
+    width: 104px;
+    border-radius: 4px;
   }
 
   .certTick {
-    top: -7px;
-    right: -7px;
-    width: 22px;
-    height: 22px;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* The narrowest phones: a touch smaller still, so the alert and badge never meet. */
+@media (max-width: 380px) {
+  .alert {
+    left: 8px;
+    bottom: 8px;
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .alertTitle {
+    font-size: 10px;
+  }
+
+  .alertMeta {
+    font-size: 9px;
+  }
+
+  .cert {
+    right: 8px;
+    bottom: 8px;
+    width: 90px;
+  }
+}
+
+/* Very small phones (320px): the alert keeps only its headline. */
+@media (max-width: 340px) {
+  .alertMeta {
+    display: none;
+  }
+
+  .cert {
+    width: 80px;
   }
 }
