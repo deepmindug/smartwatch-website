@@ -137,6 +137,12 @@ export const img = {
     width: 1168,
     height: 880,
   },
+  whySketch: {
+    src: '/images/why-smartwatch-sketch.webp',
+    alt: 'Pen sketch of fleet tracking since 2011: a paper map, early tracker and phone, a 2011 calendar and a tablet map, linked by routes across East African hills to a city, a satellite and a mast',
+    width: 1168,
+    height: 880,
+  },
   insuranceShield: {
     src: '/images/insurance-shield.webp',
     alt: 'Glowing green check on a black shield ringed by data lines, beside a car key and a phone showing a protected policy dashboard',
