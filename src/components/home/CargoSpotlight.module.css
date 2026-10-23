@@ -78,10 +78,16 @@
 
 .mediaWrap {
   min-width: 0;
+  align-self: stretch;
+  position: relative;
 }
 
+/* The film stands exactly as tall as the copy beside it, cropped from the centre of its square frame. */
 .media {
   box-shadow: 0 32px 64px -32px rgba(0, 0, 0, 0.5);
+  position: absolute !important;
+  inset: 0;
+  aspect-ratio: auto !important;
 }
 
 
@@ -99,6 +105,11 @@
   /* On one column the square film leads, above the copy. */
   .mediaWrap {
     order: -1;
+  }
+
+  .media {
+    position: relative !important;
+    aspect-ratio: 1 / 1 !important;
   }
 }
 
