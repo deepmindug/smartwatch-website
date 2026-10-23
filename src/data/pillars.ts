@@ -102,6 +102,11 @@ export const pillars: Pillar[] = [
       'Constant maintenance and performance reporting',
     ],
     image: img.device,
+    video: {
+      src: '/images/live-map-tracking.mp4',
+      poster: '/images/live-map-tracking-poster.webp',
+      alt: 'Live city map with tracked vehicles moving along the streets, each labelled with its driver’s name',
+    },
     imageLabel: 'live map with vehicle pins',
   },
   {
