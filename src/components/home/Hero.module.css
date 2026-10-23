@@ -192,17 +192,16 @@
 }
 
 /*
- * The KRA "Approved KRA Vendor" badge: KRA's own artwork as supplied, with the site's green tick pinned
- * to its corner. It sits in the bottom-right corner, clear of the film's titles, and lands just after
- * the video does, so the eye catches it.
+ * The KRA "Approved KRA Vendor" badge: the first thing on the video, KRA's own artwork as supplied, with
+ * the site's green tick pinned to its corner. It lands just after the video does, so the eye catches it.
  */
 .cert {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  top: 20px;
+  left: 20px;
   z-index: 1;
   display: block;
-  width: 190px;
+  width: 236px;
   max-width: calc(100% - 52px);
   /* Matches the badge's own rounded red frame. */
   border-radius: 7px;
@@ -221,7 +220,7 @@
 @keyframes certIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(-8px);
   }
 }
 
@@ -303,85 +302,33 @@
     flex: 1;
   }
 
-  /* On phones the video is a landscape 4:3 frame, the same as on desktop, so the film's opening
-     title card reads in full instead of being cut off at the sides. */
+  /* On phones the video is a portrait 3:4 frame. */
   .media {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
   }
 
-  /* The brand film is composed around its centre. */
+  /* Keep the truck's e-lock, on the right of the footage, in the narrower frame. */
   .video {
-    object-position: center;
+    object-position: 72% center;
   }
 
-  /* A compact alert and badge share the bottom edge, clear of the title in the middle. */
   .alert {
-    left: 10px;
-    bottom: 10px;
-    padding: 7px 10px;
-    gap: 8px;
-    border-radius: 10px;
-  }
-
-  .alertDot {
-    width: 8px;
-    height: 8px;
-  }
-
-  .alertTitle {
-    font-size: 11px;
-  }
-
-  .alertMeta {
-    font-size: 10px;
+    left: 12px;
+    bottom: 12px;
+    padding: 10px 12px;
   }
 
   .cert {
-    right: 10px;
-    bottom: 10px;
-    width: 104px;
-    border-radius: 4px;
+    top: 14px;
+    left: 12px;
+    width: 176px;
+    border-radius: 5px;
   }
 
   .certTick {
-    top: -6px;
-    right: -6px;
-    width: 18px;
-    height: 18px;
-  }
-}
-
-/* The narrowest phones: a touch smaller still, so the alert and badge never meet. */
-@media (max-width: 380px) {
-  .alert {
-    left: 8px;
-    bottom: 8px;
-    padding: 6px 8px;
-    gap: 6px;
-  }
-
-  .alertTitle {
-    font-size: 10px;
-  }
-
-  .alertMeta {
-    font-size: 9px;
-  }
-
-  .cert {
-    right: 8px;
-    bottom: 8px;
-    width: 90px;
-  }
-}
-
-/* Very small phones (320px): the alert keeps only its headline. */
-@media (max-width: 340px) {
-  .alertMeta {
-    display: none;
-  }
-
-  .cert {
-    width: 80px;
+    top: -7px;
+    right: -7px;
+    width: 22px;
+    height: 22px;
   }
 }

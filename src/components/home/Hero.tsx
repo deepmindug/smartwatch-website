@@ -9,7 +9,7 @@ import CursorCard from '../ui/cursor-card'
 import StaggerText from '../ui/stagger-text'
 import s from './Hero.module.css'
 
-/** The muted, looping Smartwatch brand film (1080p); its title card is the poster until it plays. */
+/** A muted, looping clip of a car on a city street; the poster stands in until it plays. */
 const video = { src: '/videos/hero.mp4', poster: '/videos/hero-poster.webp' }
 
 /** How long each key word in the lead stays underlined; hovering one previews its product. */
