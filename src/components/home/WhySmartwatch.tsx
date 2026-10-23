@@ -19,6 +19,7 @@ export default function WhySmartwatch() {
           }}
           ratio="16 / 9"
           radius={20}
+          className={s.media}
         />
         <div className={s.copy}>
           <div className="eyebrow eyebrow--rule">Why Smartwatch</div>

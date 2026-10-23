@@ -11,6 +11,12 @@
 }
 
 /* The film runs the full height of the copy beside it, cropped to fill. */
+.grid > .media {
+  align-self: stretch;
+  height: 100%;
+  aspect-ratio: auto !important;
+  min-height: 360px;
+}
 
 .copy {
   display: flex;
@@ -53,6 +59,11 @@
   }
 
   /* Stacked, it goes back to a widescreen frame. */
+  .grid > .media {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9 !important;
+  }
 }
 
 @media (max-width: 520px) {

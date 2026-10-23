@@ -147,11 +147,10 @@ export const img = {
     fit: 'contain',
   },
   laptopTracking: {
-    src: '/images/laptop-tracking.webp',
-    alt: 'Laptop showing a tracked vehicle on a live map',
-    width: 500,
-    height: 500,
-    fit: 'contain',
+    src: '/images/remote-immobiliser.webp',
+    alt: 'Phone showing the engine disabled from GPS tracking, beside a tracker and relay, with a laptop map of the vehicle',
+    width: 1168,
+    height: 880,
   },
   routePlanning: {
     src: '/images/route-planning.webp',
@@ -445,10 +444,10 @@ export const img = {
     height: 880,
   },
   governmentFleetParked: {
-    src: '/images/government-fleet-uganda.webp',
-    alt: 'Fleet officer checking a tablet beside a line of white government pickups and buses outside an office compound',
-    width: 1400,
-    height: 1045,
+    src: '/images/government-fleet.svg',
+    alt: 'Illustration of a government building on a city map, with budget, utilisation, green-goals and compliance cards, EV chargers, car keys and a phone showing a QR code',
+    width: 1600,
+    height: 1200,
   },
   installerLaptop: {
     src: '/images/installer-laptop.webp',
