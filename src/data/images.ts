@@ -42,10 +42,10 @@ export const img = {
     height: 1056,
   },
   cargo: {
-    src: '/images/cargo-Large.webp',
-    alt: 'Articulated truck carrying a container on an open road',
-    width: 700,
-    height: 440,
+    src: '/images/truck-route-map.webp',
+    alt: 'Illustrated truck following a green tracked route across a city map, with a live location pin above the cab',
+    width: 1600,
+    height: 1200,
   },
   food: {
     src: '/images/newfood.webp',
