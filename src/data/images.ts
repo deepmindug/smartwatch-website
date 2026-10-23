@@ -480,10 +480,10 @@ export const img = {
     height: 1000,
   },
   engineChecklist: {
-    src: '/images/engine-checklist.webp',
-    alt: 'Service checklist on a clipboard resting on an open engine bay',
-    width: 736,
-    height: 1097,
+    src: '/images/engine-service-diagnostics.webp',
+    alt: 'Service checklist and a tablet showing oil pressure, battery voltage and next service due, resting on an open engine bay',
+    width: 1168,
+    height: 880,
   },
   containerTrucksAssets: {
     src: '/images/container-trucks-assets.webp',
