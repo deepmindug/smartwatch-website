@@ -84,13 +84,6 @@
   box-shadow: 0 32px 64px -32px rgba(0, 0, 0, 0.5);
 }
 
-/* The night photo is wide; on the tall panel keep the e-lock on the container doors in the middle
-   and zoom in on it, so the tracking device is the focus. */
-.media img {
-  object-position: 39% center;
-  transform: scale(1.4);
-  transform-origin: 50% 53%;
-}
 
 @media (max-width: 900px) {
   .section {
@@ -103,20 +96,9 @@
     gap: 36px;
   }
 
-  /* On one column the photo leads as a wide strip rather than a tall portrait. */
+  /* On one column the square film leads, above the copy. */
   .mediaWrap {
     order: -1;
-  }
-
-  .media {
-    aspect-ratio: 16 / 9 !important;
-  }
-
-  /* The strip is wide enough to show the whole truck, so the lock sits at its own spot in the frame. */
-  .media img {
-    object-position: center;
-    transform: scale(1.6);
-    transform-origin: 44% 53%;
   }
 }
 

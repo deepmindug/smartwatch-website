@@ -36,7 +36,18 @@ export default function CargoSpotlight() {
           </div>
         </div>
         <div className={s.mediaWrap}>
-          <Media image={cargoFeature.image} ratio="4 / 5" radius={20} dark className={s.media} />
+          <Media
+            image={cargoFeature.image}
+            video={{
+              src: '/videos/cargo-spotlight.mp4',
+              poster: '/videos/cargo-spotlight-poster.webp',
+              alt: 'An e-lock glows on a container as the truck travels, tracked routes spread across East Africa, and an officer clears the lock at a bonded warehouse',
+            }}
+            ratio="1 / 1"
+            radius={20}
+            dark
+            className={s.media}
+          />
         </div>
       </Reveal>
     </section>
