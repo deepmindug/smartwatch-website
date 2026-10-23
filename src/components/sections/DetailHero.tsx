@@ -26,7 +26,13 @@ export default function DetailHero({ page }: { page: DetailPage }) {
   return (
     <section
       ref={ref}
-      className={cx(s.hero, photo && s.heroPhoto, photo && 'on-photo', hero.compact && s.heroCompact)}
+      className={cx(
+        s.hero,
+        photo && s.heroPhoto,
+        photo && 'on-photo',
+        hero.compact && s.heroCompact,
+        hero.balanced && s.heroBalanced,
+      )}
       style={photo ? { backgroundImage: `url(${hero.media!.src})` } : undefined}
       data-band={light ? 'light' : 'dark'}
     >
@@ -80,7 +86,7 @@ export default function DetailHero({ page }: { page: DetailPage }) {
           )}
         </div>
         {!photo && (
-          <div data-enter-media>
+          <div data-enter-media className={s.heroMediaSlot}>
             <Media
               image={hero.media}
               video={hero.video}

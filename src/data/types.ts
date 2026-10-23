@@ -199,6 +199,8 @@ export type DetailPage = {
     globe?: GlobeSlide
     /** A smaller headline and lead, for a long title that should sit level with the hero image. */
     compact?: boolean
+    /** A wider image column and a headline sized so the copy stands as tall as the image beside it. */
+    balanced?: boolean
     /** A short catch phrase typed out above the page label; `highlight` is set in green. */
     announce?: { text: string; highlight?: string }
     /** Leaves the hero off: the page opens on its title alone, and the image still serves menus and cards. */

@@ -15,11 +15,12 @@ export const page: DetailPage = {
     intro:
       'We have been working with insurance companies for over 10 years to deliver telematics solutions and services that solve business problems, automate processes, reduce customer churn, reduce risk, and add revenue through services.',
     tone: 'dark',
+    balanced: true,
     media: {
       src: '/images/insurance-shield.webp',
       alt: 'Glowing green check on a black shield ringed by data lines, beside a car key and a phone showing a protected policy dashboard',
       width: 1000,
-      height: 747,
+      height: 750,
     },
   },
   sections: [
