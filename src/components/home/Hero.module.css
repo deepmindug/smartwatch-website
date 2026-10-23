@@ -201,7 +201,7 @@
   left: 20px;
   z-index: 1;
   display: block;
-  width: 236px;
+  width: 172px;
   max-width: calc(100% - 52px);
   /* Matches the badge's own rounded red frame. */
   border-radius: 7px;
@@ -232,10 +232,10 @@
 
 .certTick {
   position: absolute;
-  top: -9px;
-  right: -9px;
-  width: 26px;
-  height: 26px;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
   overflow: visible;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   fill: var(--accent);
@@ -321,7 +321,7 @@
   .cert {
     top: 14px;
     left: 12px;
-    width: 176px;
+    width: 132px;
     border-radius: 5px;
   }
 
