@@ -34,6 +34,8 @@ export type Img = {
   fit?: 'cover' | 'contain'
   /** Where a cropped photo keeps its focus, as a CSS object-position (e.g. 'center 25%'). */
   focus?: string
+  /** A transparent cut-out shown without the pale panel behind it, so it blends into the page. */
+  bare?: boolean
 }
 
 /** A muted, looping clip that autoplays in place of a still image. */

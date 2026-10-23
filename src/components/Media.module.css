@@ -24,3 +24,12 @@
   object-fit: contain;
   padding: 6%;
 }
+
+/* A transparent cut-out that sits straight on the page: no panel behind it, and less padding so it reads larger. */
+.bare {
+  background: transparent;
+}
+
+.bare .img {
+  padding: 2%;
+}

@@ -133,7 +133,7 @@ export const pillars: Pillar[] = [
       'Identify top and bottom performers',
       'Reduce fuel waste and environmental impact',
     ],
-    image: img.deliveryTruck3d,
+    image: img.fuelNozzle,
     imageLabel: 'fuel performance chart',
   },
   {
@@ -145,7 +145,7 @@ export const pillars: Pillar[] = [
     headline: 'Enhance operational efficiency and prevent fleet theft.',
     body: 'Maintenance tools, driver controls, and GPS tracking that lower both insurance and fuel costs for fleet owners.',
     points: ['Recovery of stolen vehicles', 'Driver behavior coaching', 'Most efficient routes reduce wear and tear'],
-    image: img.truckTipper,
+    image: img.insuranceShield,
     imageLabel: 'vehicle recovery map',
   },
 ]

@@ -132,12 +132,19 @@ export const img = {
     width: 540,
     height: 360,
   },
+  insuranceShield: {
+    src: '/images/insurance-shield.webp',
+    alt: 'Glowing green check on a black shield ringed by data lines, beside a car key and a phone showing a protected policy dashboard',
+    width: 1000,
+    height: 750,
+  },
   fuelNozzle: {
-    src: '/images/fuel-nozzle.webp',
-    alt: 'Fuel nozzle with a drop of diesel',
-    width: 300,
-    height: 300,
+    src: '/images/fuel-nozzle-hd.webp',
+    alt: 'Green fuel pump nozzle releasing a single drop of diesel',
+    width: 1190,
+    height: 1029,
     fit: 'contain',
+    bare: true,
   },
   gpsHandheld: {
     src: '/images/gps-handheld.webp',

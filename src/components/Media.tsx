@@ -64,7 +64,7 @@ export default function Media({
   }
   const contain = image.fit === 'contain'
   return (
-    <div className={cx(s.frame, ratio && s.cover, contain && s.contain, className)} style={style}>
+    <div className={cx(s.frame, ratio && s.cover, contain && s.contain, image.bare && s.bare, className)} style={style}>
       <img
         src={image.src}
         alt={decorative ? '' : image.alt}
