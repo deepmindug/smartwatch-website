@@ -530,10 +530,10 @@ export const img = {
     height: 920,
   },
   tabletFleetDashboard: {
-    src: '/images/tablet-fleet-dashboard.webp',
-    alt: 'Fleet status dashboard open on a tablet',
-    width: 700,
-    height: 440,
+    src: '/images/driver-safety-scorecard.webp',
+    alt: 'Fleet manager tapping a driver safety scorecard on a tablet, with a forecast of the driver’s score against the threshold',
+    width: 1024,
+    height: 688,
   },
   newsroomTeam: {
     src: '/images/newsroom-team.webp',
