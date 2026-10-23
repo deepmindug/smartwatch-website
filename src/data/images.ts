@@ -523,10 +523,10 @@ export const img = {
     fit: 'contain',
   },
   taxiParkAerial: {
-    src: '/images/taxi-park-aerial.webp',
-    alt: 'Aerial view of minibus taxis packed into a city taxi park',
-    width: 736,
-    height: 920,
+    src: '/images/track-vehicles.svg',
+    alt: 'Illustrated city map tracing a vehicle from point A to point B, with time spent at a stop, other fleet vehicles and a utilisation dashboard',
+    width: 1600,
+    height: 1200,
   },
   tabletFleetDashboard: {
     src: '/images/driver-safety-scorecard.webp',
