@@ -192,16 +192,17 @@
 }
 
 /*
- * The KRA "Approved KRA Vendor" badge: the first thing on the video, KRA's own artwork as supplied, with
- * the site's green tick pinned to its corner. It lands just after the video does, so the eye catches it.
+ * The KRA "Approved KRA Vendor" badge: KRA's own artwork as supplied, with the site's green tick pinned
+ * to its corner. It sits in the bottom-right corner, clear of the film's titles, and lands just after
+ * the video does, so the eye catches it.
  */
 .cert {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  right: 20px;
+  bottom: 20px;
   z-index: 1;
   display: block;
-  width: 236px;
+  width: 190px;
   max-width: calc(100% - 52px);
   /* Matches the badge's own rounded red frame. */
   border-radius: 7px;
@@ -220,7 +221,7 @@
 @keyframes certIn {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(8px);
   }
 }
 
@@ -307,9 +308,9 @@
     aspect-ratio: 3 / 4;
   }
 
-  /* Keep the truck's e-lock, on the right of the footage, in the narrower frame. */
+  /* The brand film is composed around its centre, so keep the middle of it in the narrower frame. */
   .video {
-    object-position: 72% center;
+    object-position: center;
   }
 
   .alert {
@@ -318,10 +319,11 @@
     padding: 10px 12px;
   }
 
+  /* Stacked above the alert card, which spans most of the narrow frame. */
   .cert {
-    top: 14px;
-    left: 12px;
-    width: 176px;
+    right: 12px;
+    bottom: 76px;
+    width: 140px;
     border-radius: 5px;
   }
 
