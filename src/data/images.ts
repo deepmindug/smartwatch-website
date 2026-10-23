@@ -337,10 +337,10 @@ export const img = {
     height: 552,
   },
   partnerHands: {
-    src: '/images/partner-hands.webp',
-    alt: 'Partners stacking hands over a table of reports',
-    width: 500,
-    height: 333,
+    src: '/images/partner-handshake.webp',
+    alt: 'A Smartwatch team member shaking hands with a new partner in an office, with a fleet of vans parked outside',
+    width: 1168,
+    height: 880,
   },
   partnerFistBump: {
     src: '/images/expert-community-map.webp',
