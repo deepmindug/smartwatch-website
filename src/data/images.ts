@@ -48,10 +48,10 @@ export const img = {
     height: 1200,
   },
   food: {
-    src: '/images/newfood.webp',
-    alt: 'Refrigerated truck being loaded with pallets',
-    width: 700,
-    height: 440,
+    src: '/images/food-cold-chain.webp',
+    alt: 'Packed produce boxes on a cold-room conveyor at 2.8 °C, with a phone showing a QR code for tracking the shipment',
+    width: 1168,
+    height: 880,
   },
   umaCertificate: {
     src: '/images/uma-certificate-framed.webp',
