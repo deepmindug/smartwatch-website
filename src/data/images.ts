@@ -82,11 +82,10 @@ export const img = {
     height: 367,
   },
   truckRefrigerated: {
-    src: '/images/truck-refrigerated.webp',
-    alt: 'Refrigerated box truck for temperature-controlled cargo',
-    width: 628,
-    height: 397,
-    fit: 'contain',
+    src: '/images/mixed-fleet-telematics.webp',
+    alt: 'Onboard computer on a dashboard linked to a mixed fleet of van, pickup, truck and car, with route, speed, service and licence-renewal reminders',
+    width: 1168,
+    height: 880,
   },
   truckTipper: {
     src: '/images/truck-tipper.webp',
