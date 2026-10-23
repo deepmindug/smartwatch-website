@@ -256,7 +256,7 @@ export const img = {
   },
   fuelTheftAlerts: {
     src: '/images/fuel-theft-refuel-alert.webp',
-    alt: 'Truck refuelling at a fuel station while a phone shows a sudden fuel-level drop and a fuel theft alert',
+    alt: 'Fuel level sensor on a truck’s tank during refuelling, while a phone shows a sudden fuel-level drop and a fuel theft alert',
     width: 1168,
     height: 880,
   },
