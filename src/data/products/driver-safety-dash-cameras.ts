@@ -9,6 +9,7 @@ export const page: DetailPage = {
   name: 'Driver Safety Dash Cameras',
   short: 'AI video, people counting, instant alerts.',
   icon: 'dashcam',
+  cardImage: img.dashcamInstantAlert,
   hero: {
     eyebrow: 'Products · Driver Safety Dash Cameras',
     title: 'Protect your fleet and profits with an all-in-one safety solution.',

@@ -132,6 +132,12 @@ export const img = {
     width: 540,
     height: 360,
   },
+  dashcamInstantAlert: {
+    src: '/images/dashcam-instant-alert.webp',
+    alt: 'AI dash camera view of a city crossing, counting four pedestrians and raising an instant safety alert on the driver’s phone',
+    width: 1168,
+    height: 880,
+  },
   insuranceShield: {
     src: '/images/insurance-shield.webp',
     alt: 'Glowing green check on a black shield ringed by data lines, beside a car key and a phone showing a protected policy dashboard',
