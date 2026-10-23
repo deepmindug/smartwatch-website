@@ -167,8 +167,8 @@ export const img = {
   highwayInterchange: {
     src: '/images/highway-interchange.webp',
     alt: 'Haulage truck crossing a highway interchange, seen from above',
-    width: 380,
-    height: 380,
+    width: 1600,
+    height: 1200,
   },
   portContainerYard: {
     src: '/images/port-container-yard.webp',
