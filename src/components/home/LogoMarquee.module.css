@@ -1,0 +1,107 @@
+/*
+ * A full-width strip, as the client's old site ran it: logos straight on the page with no tiles,
+ * about six across a desktop screen, drifting at roughly 50px a second so each one can be read.
+ * --per-logo is one logo's pitch (width plus gap) divided by that speed; each breakpoint keeps the
+ * ratio, so the pace holds as the logos shrink.
+ */
+.row {
+  --item-w: 200px;
+  --item-h: 100px;
+  --gap: 48px;
+  --pitch: 248;
+  --per-logo: 5s;
+
+  overflow: hidden;
+  /* Dissolve the ends into the page instead of cutting logos off at the screen edge. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+/* The track itself stays still; every logo moves on the same clock instead. Sliding one track that is
+   thousands of pixels wide made it a single huge GPU layer, which phones with smaller graphics chips
+   (a Galaxy A32, for one) quietly fail to draw, so the whole row came up blank. Small per-logo layers
+   draw everywhere, and because they share one duration and start together they move as one row. */
+.track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.track .item {
+  animation-name: slide;
+  animation-duration: calc(var(--count) * var(--per-logo));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.reverse .item {
+  animation-direction: reverse;
+}
+
+.row:hover .item,
+.row:focus-within .item,
+.track.paused .item {
+  animation-play-state: paused;
+}
+
+.item {
+  /* The gap is a margin, not a flex gap, so the two copies measure exactly 50% each. */
+  margin-right: var(--gap);
+  flex: 0 0 auto;
+  width: var(--item-w);
+  height: var(--item-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-width: 100%;
+  /* Roomy enough that a two-line lockup still sets at a readable size. */
+  max-height: 80%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* One full set's width: the count times one logo's pitch, so the second copy lands where the first began. */
+@keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-1px * var(--count) * var(--pitch)), 0, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .row {
+    --item-w: 160px;
+    --item-h: 80px;
+    --gap: 36px;
+    --pitch: 196;
+    --per-logo: 4s;
+  }
+}
+
+@media (max-width: 520px) {
+  .row {
+    --item-w: 130px;
+    --item-h: 66px;
+    --gap: 28px;
+    --pitch: 158;
+    --per-logo: 3.2s;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+}
+
+/* Reduced motion (Android's "Remove animations", often on in power saving) slows the rows to half speed
+   rather than stopping them; the section's pause button still holds them still. */
+@media (prefers-reduced-motion: reduce) {
+  .track .item {
+    animation-duration: calc(var(--count) * var(--per-logo) * 2);
+  }
+}

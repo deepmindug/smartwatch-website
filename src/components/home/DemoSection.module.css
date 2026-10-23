@@ -1,0 +1,112 @@
+.section {
+  background: var(--surface-alt);
+  padding: 96px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.intro {
+  font-size: 17px;
+  color: var(--ink-2);
+}
+
+.awards {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.awardsLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* The KPMG badge and the KRA lockup as two white tiles of one height, each linking to the awards. */
+.awardTiles {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.awardTile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
+  transition: border-color 0.15s;
+}
+
+.awardTile:hover {
+  border-color: #e3e9e1;
+}
+
+/* Up to 240px, but it gives way on narrow phones so the two tiles stay side by side. */
+.awardTileWide {
+  width: auto;
+  flex: 0 1 240px;
+  min-width: 0;
+  padding: 12px 14px;
+}
+
+/* The framed UMA certificate, kept whole at the tile's width. */
+.awardCert {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* KRA's "Approved KRA Vendor" badge, scaled to the tile's width. */
+.awardBadge {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.awardImage {
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding: 56px 0;
+  }
+}

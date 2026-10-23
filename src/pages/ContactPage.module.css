@@ -1,0 +1,284 @@
+.page {
+  flex: 1;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.band {
+  padding: 88px 0 48px;
+}
+
+.bandInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.bandInner h1 {
+  max-width: 760px;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 560px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 56px;
+}
+
+.router {
+  display: grid;
+  /* Three across on desktop, two on tablets, one on phones, without a breakpoint of its own. */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.cardLink:hover {
+  border-color: #e3e9e1;
+  color: var(--ink);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cardBody {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+.cardMore {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-text);
+  margin-top: auto;
+  overflow-wrap: anywhere;
+}
+
+.support {
+  padding-top: 80px;
+}
+
+.supportCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.supportActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.officesSection {
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.officesHead {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 21 / 8;
+  background: var(--surface);
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.offices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.office {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.officeRole {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.officeCity {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.officeAddr {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+
+.officePhones {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.officeTel {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.officeWhatsApp {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 7px 14px;
+  border: 1.5px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+.officeWhatsApp:hover {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.demo {
+  padding: 32px 0 96px;
+}
+
+.demoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.demoCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demoTitle {
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.demoLead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+@media (max-width: 900px) {
+  .band {
+    padding: 56px 0 88px;
+  }
+
+  .panel {
+    margin-top: -28px;
+  }
+
+  .support,
+  .officesSection {
+    padding-top: 56px;
+  }
+
+  .map {
+    aspect-ratio: 4 / 3;
+  }
+
+  .demo {
+    padding: 16px 0 64px;
+  }
+
+  .demoGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .band {
+    padding: 48px 0 40px;
+  }
+
+  .office,
+  .card {
+    padding: 20px;
+  }
+
+  .support,
+  .officesSection {
+    padding-top: 48px;
+  }
+}
+
+@media (pointer: coarse) {
+  .officeTel,
+  .cardMore {
+    display: inline-block;
+    padding: 6px 0;
+    margin: -6px 0;
+  }
+}

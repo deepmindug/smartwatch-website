@@ -1,0 +1,33 @@
+.slot {
+  --stripe: 12px;
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--stripe-a) 0 var(--stripe),
+    var(--stripe-b) var(--stripe) calc(var(--stripe) * 2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  text-align: center;
+  padding: 8px;
+}
+
+.dark {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 var(--stripe),
+      rgba(255, 255, 255, 0.08) var(--stripe) calc(var(--stripe) * 2)
+    ),
+    var(--band);
+  color: var(--on-band-muted);
+}
+
+.label {
+  line-height: 1.3;
+}

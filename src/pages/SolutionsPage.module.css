@@ -1,0 +1,99 @@
+.page {
+  flex: 1;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.band {
+  padding: 88px 0 56px;
+}
+
+.bandInner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 820px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.gridWrap {
+  padding-bottom: 96px;
+}
+
+/* Customer story band, as the design closes the page. */
+.story {
+  background: var(--surface-alt);
+  padding: 96px 0;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.storyCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+@media (max-width: 900px) {
+  .band {
+    padding: 56px 0 88px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gridWrap {
+    padding-bottom: 64px;
+  }
+
+  .story {
+    padding: 64px 0;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .band {
+    padding: 48px 0 64px;
+  }
+
+  .story {
+    padding: 56px 0;
+  }
+}

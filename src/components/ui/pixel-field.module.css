@@ -1,0 +1,28 @@
+/* Fills its positioned parent, behind the content, and never takes the pointer. */
+.root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* The template's faint line grid: 1px teal lines every 60px at 3%, shown at half strength. */
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(0, 189, 143, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 189, 143, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* The 960 × 480 block field, stretched over the whole area with hard pixel edges, as in the template. */
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+}

@@ -1,0 +1,822 @@
+/*
+ * The two-slide hero. Brand green #4FB848 and button navy #163864 carry it: green for the key words,
+ * the shield, the tagline bar, the spotlight and the progress; navy for the announcement's shade and
+ * the glassy controls. Both slides share one grid cell, so the hero is as tall as the taller slide.
+ */
+.slider {
+  --wipe: 1.1s;
+  --ease: cubic-bezier(0.7, 0, 0.2, 1);
+  --rise: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --px: 0;
+  --py: 0;
+  --cx: 50%;
+  --cy: 50%;
+  position: relative;
+  overflow: hidden;
+  background: #022e64;
+  color: var(--white);
+  isolation: isolate;
+  touch-action: pan-y;
+}
+
+.track {
+  display: grid;
+}
+
+/* ---------- Slides and the wipe ---------- */
+
+.slide {
+  grid-area: 1 / 1;
+  position: relative;
+  min-height: clamp(600px, calc(100svh - 150px), 780px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  visibility: hidden;
+  z-index: 0;
+  clip-path: circle(0% at var(--ox, 50%) var(--oy, 50%));
+}
+
+/* The incoming slide opens as a circle from where the change began. */
+.active {
+  visibility: visible;
+  z-index: 2;
+  clip-path: circle(150% at var(--ox, 50%) var(--oy, 50%));
+  transition: clip-path var(--wipe) var(--ease);
+}
+
+/* Until the first change the opening slide is simply there. */
+.slider:not([data-moved]) .active {
+  transition: none;
+}
+
+/* The outgoing slide stays put underneath, easing back, until the wipe has covered it. */
+.leaving {
+  visibility: visible;
+  z-index: 1;
+  clip-path: circle(150% at var(--ox, 50%) var(--oy, 50%));
+}
+
+.leaving .bgWrap {
+  transform: scale(0.94);
+  filter: brightness(0.6);
+  transition:
+    transform var(--wipe) var(--ease),
+    filter var(--wipe) var(--ease);
+}
+
+/* ---------- Backgrounds: slow settle, parallax ---------- */
+
+.bgWrap {
+  position: absolute;
+  inset: -24px;
+  translate: calc(var(--px) * -14px) calc(var(--py) * -10px);
+  transition: translate 0.6s var(--rise);
+  z-index: -2;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active .bg {
+  animation: settle 9s var(--rise) both;
+}
+
+@keyframes settle {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The night photo's truck and lit e-lock sit left of the copy. */
+.bgPhoto {
+  background-position: right 55%;
+}
+
+.bgAnnounce {
+  background-position: right center;
+  background-color: #022e64;
+}
+
+/* The brand black falls in from the right behind the copy, clearing before the truck. */
+.shadePhoto {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(270deg, rgba(10, 11, 9, 0.68) 0%, rgba(10, 11, 9, 0.6) 46%, transparent 58%);
+}
+
+/* The announcement art is already navy on its left; a navy wash keeps the copy crisp. */
+.shadeAnnounce {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(2, 46, 100, 0.88) 0%, rgba(22, 56, 100, 0.55) 38%, transparent 60%);
+}
+
+/* ---------- Fluid colour on the announcement ---------- */
+
+.blobs {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Soft gradient discs rather than blurred shapes: they drift on transforms alone, so they stay cheap. */
+.blobs span {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+.blobs span:nth-child(1) {
+  width: 640px;
+  height: 640px;
+  left: -260px;
+  top: -10%;
+  background: radial-gradient(closest-side, rgba(79, 184, 72, 0.3), transparent);
+}
+
+.blobs span:nth-child(2) {
+  width: 760px;
+  height: 560px;
+  left: 6%;
+  bottom: -320px;
+  background: radial-gradient(closest-side, rgba(22, 56, 100, 0.9), transparent);
+  animation-duration: 20s;
+  animation-delay: -6s;
+}
+
+.blobs span:nth-child(3) {
+  width: 520px;
+  height: 520px;
+  left: 22%;
+  top: -220px;
+  background: radial-gradient(closest-side, rgba(79, 184, 72, 0.18), transparent);
+  animation-duration: 13s;
+  animation-delay: -3s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, -30px) scale(1.12);
+  }
+  100% {
+    transform: translate(-30px, 40px) scale(0.94);
+  }
+}
+
+/* ---------- Layout ---------- */
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  padding-top: 72px;
+  padding-bottom: 96px;
+  width: 100%;
+}
+
+.innerPhoto .copy {
+  grid-column: 2;
+}
+
+.innerAnnounce {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  padding-bottom: 132px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 660px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+}
+
+.eyebrow::after {
+  content: '';
+  width: 56px;
+  height: 7px;
+  background:
+    radial-gradient(circle, var(--green) 2.6px, transparent 3.2px) right center / 7px 7px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)) left center / calc(100% - 9px) 1px no-repeat;
+}
+
+.title {
+  color: var(--white);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 580px;
+  text-wrap: pretty;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}
+
+.headline {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.shieldWrap {
+  flex: 0 0 auto;
+}
+
+.shield {
+  display: block;
+  width: clamp(48px, 5vw, 76px);
+  height: auto;
+  margin-top: 6px;
+  filter: drop-shadow(0 8px 24px rgba(79, 184, 72, 0.45));
+}
+
+.check {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+}
+
+.active .check {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.6s var(--rise) 0.9s;
+}
+
+.announceTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4.6vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: var(--white);
+  text-wrap: balance;
+}
+
+.lit {
+  color: var(--green);
+  text-shadow: 0 0 28px rgba(79, 184, 72, 0.45);
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--white);
+  max-width: 600px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.demo {
+  margin: -14px 0 -14px -18px;
+}
+
+/* ---------- Words and lines rising in ---------- */
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.08em 0 0.12em;
+  margin: -0.08em 0 -0.12em;
+  vertical-align: top;
+}
+
+.word {
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+.active .word {
+  transform: none;
+  transition: transform 0.9s var(--rise) calc(0.35s + var(--d) * 0.07s);
+}
+
+[data-anim] {
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(6px);
+}
+
+.active [data-anim] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 0.8s var(--rise) calc(0.3s + var(--d) * 0.09s),
+    transform 0.9s var(--rise) calc(0.3s + var(--d) * 0.09s),
+    filter 0.8s var(--rise) calc(0.3s + var(--d) * 0.09s);
+}
+
+/* ---------- The KRA badge: floats, tilts to the pointer, catches the light ---------- */
+
+/* The KRA badge is one size on both announcement slides. */
+.badgeWrap {
+  align-self: start;
+  justify-self: end;
+  width: min(100%, 260px);
+  perspective: 900px;
+}
+
+.badge {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 18px 22px;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.4);
+  transform: rotateX(calc(var(--py) * -7deg)) rotateY(calc(var(--px) * 9deg));
+  transition: transform 0.5s var(--rise);
+  animation: float 6s ease-in-out infinite;
+}
+
+.badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes float {
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.85) 50%, transparent 65%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.active .shine {
+  animation: shine 1.4s var(--rise) 1.2s both;
+}
+
+.badge:hover .shine {
+  animation: shine 1.1s var(--rise) both;
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* ---------- Tagline bar ---------- */
+
+.tagline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 18px max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  padding-right: 96px;
+  background: linear-gradient(90deg, #4fb848, #5cc455);
+  color: var(--white);
+  font-size: clamp(15px, 1.4vw, 20px);
+  clip-path: polygon(0 0, calc(100% - 64px) 0, 100% 100%, 0 100%);
+  transform: translateX(-104%);
+}
+
+.tagline strong {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.active .tagline {
+  transform: none;
+  transition: transform 1s var(--rise) 0.8s;
+}
+
+/* ---------- Pointer spotlight ---------- */
+
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(420px circle at var(--cx) var(--cy), rgba(79, 184, 72, 0.2), transparent 65%);
+  mix-blend-mode: screen;
+  transition: opacity 0.5s ease;
+}
+
+.slider:hover .glow {
+  opacity: 1;
+}
+
+/* ---------- Controls ---------- */
+
+.controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 22px;
+  pointer-events: none;
+}
+
+.controls > * {
+  pointer-events: auto;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(22, 56, 100, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    width 0.5s var(--rise),
+    background 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.dotActive {
+  width: 56px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.progress {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--green);
+  transform-origin: left center;
+  animation: progress 7.5s linear both;
+}
+
+.slider[data-paused] .progress {
+  animation-play-state: paused;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.magnet {
+  display: inline-flex;
+  transition: transform 0.35s var(--rise);
+}
+
+.arrow {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(22, 56, 100, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s var(--rise);
+}
+
+/* A green fill wells up from the bottom on hover. */
+.arrow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--green);
+  transform: translateY(101%);
+  transition: transform 0.45s var(--rise);
+}
+
+.arrow:hover {
+  border-color: var(--green);
+}
+
+.arrow:hover::before {
+  transform: none;
+}
+
+.arrow:active {
+  transform: scale(0.92);
+}
+
+.arrow:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+
+.arrowIcon {
+  position: relative;
+  transition: transform 0.35s var(--rise);
+}
+
+.arrow:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+.arrow:hover .arrowBack {
+  transform: translateX(-3px);
+}
+
+/* The secondary button: frosted, with a light sweep and an arrow that slides on hover. */
+.ghost {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.ghost::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+
+.ghost:hover {
+  background: rgba(79, 184, 72, 0.22);
+  border-color: var(--green);
+}
+
+.ghost:hover::after {
+  transform: translateX(120%);
+  transition: transform 0.8s var(--rise);
+}
+
+.ghost:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+/* ---------- The globe slide ---------- */
+
+.globeBg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(90% 90% at 70% 50%, #1d4a80 0%, #163864 42%, #0a1c38 100%);
+}
+
+/* A faint chart grid behind everything. */
+.globeBg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(70% 80% at 65% 50%, #000 0%, transparent 85%);
+  mask-image: radial-gradient(70% 80% at 65% 50%, #000 0%, transparent 85%);
+}
+
+.globeStage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  z-index: 0;
+  /* The globe fades out under the copy on its left. */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 12%);
+}
+
+.innerGlobe {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  padding-bottom: 132px;
+  pointer-events: none;
+}
+
+.innerGlobe .copy,
+.globeBadge {
+  pointer-events: auto;
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 900px) {
+  .slide {
+    min-height: 0;
+    justify-content: flex-start;
+  }
+
+  .inner,
+  .innerAnnounce {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 48px;
+    padding-bottom: 104px;
+  }
+
+  .innerAnnounce {
+    padding-bottom: 220px;
+  }
+
+  .innerPhoto .copy {
+    grid-column: 1;
+  }
+
+  .bgPhoto {
+    background-position: 40% center;
+  }
+
+  .shadePhoto {
+    background: linear-gradient(180deg, rgba(10, 11, 9, 0.7), rgba(10, 11, 9, 0.84));
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  .bgAnnounce {
+    background-position: 78% bottom;
+  }
+
+  .shadeAnnounce {
+    background: linear-gradient(
+      180deg,
+      rgba(2, 46, 100, 0.92) 0%,
+      rgba(2, 46, 100, 0.78) 50%,
+      rgba(2, 46, 100, 0.1) 100%
+    );
+  }
+
+  .badgeWrap {
+    justify-self: start;
+    width: min(100%, 200px);
+  }
+
+  .badge {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .tagline {
+    padding: 14px 64px 14px 20px;
+    font-size: 14px;
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .controls {
+    top: 16px;
+    bottom: auto;
+    justify-content: flex-end;
+  }
+
+  /* The arrows float in a column just above the WhatsApp button, while the slideshow is on screen. */
+  .arrows {
+    position: fixed;
+    right: 24px;
+    bottom: 92px;
+    z-index: 79;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0s 0.3s;
+  }
+
+  .slider[data-inview] .arrows {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .arrows .arrow {
+    width: 48px;
+    height: 48px;
+    background: rgba(22, 56, 100, 0.85);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .globeStage {
+    top: auto;
+    bottom: 44px;
+    width: 100%;
+    height: 400px;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+  }
+
+  .innerGlobe {
+    padding-bottom: 430px;
+  }
+}
+
+/* ---------- Reduced motion: the slides swap, nothing drifts ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bgWrap {
+    transition: none !important;
+    translate: none;
+  }
+
+  .active .bg,
+  .badge,
+  .blobs span {
+    animation: none !important;
+  }
+
+  .badge {
+    transform: none;
+  }
+}
+
+/* On small phones the WhatsApp button sits 16px in and is 52px, so the column follows it. */
+@media (max-width: 520px) {
+  .arrows {
+    right: 18px;
+    bottom: 80px;
+  }
+}

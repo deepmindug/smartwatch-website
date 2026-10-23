@@ -1,0 +1,677 @@
+/*
+ * The footer on the template's near-black ground, with its slowly shifting teal block field behind it.
+ * Type in white throughout, with the brand green for the demo button, link hovers and the hover
+ * underlines. The legal line sits
+ * under a hairline on the same ground, with no strip of its own.
+ *
+ * Everything hangs on one twelve-column grid: the statement takes seven columns, and the ways to
+ * reach us take the last four, directly over the WhatsApp column, so the right-hand side reads as a
+ * single contact rail.
+ */
+.footer {
+  --footer-bg: #010204;
+  --footer-ink: #ffffff;
+  --footer-text: #ffffff;
+  --on-band: var(--footer-ink);
+  --on-band-muted: var(--footer-text);
+  --on-band-faint: var(--footer-text);
+  --on-band-accent: var(--green);
+  --on-band-line: rgba(255, 255, 255, 0.09);
+  --on-band-line-2: rgba(255, 255, 255, 0.18);
+  --h2: var(--footer-ink);
+  --heading: var(--footer-ink);
+  --heading-plain: var(--footer-ink);
+  --accent-text: var(--footer-ink);
+  --accent-text-hover: var(--footer-ink);
+  --focus: var(--green);
+  /* The demo button: green with white type; its corner frame in the footer's quiet tones. */
+  --btn-bg: var(--green);
+  --btn-fg: #ffffff;
+  --btn-bg-hover: #43a03d;
+  --ink-3: var(--footer-text);
+  --line-2: rgba(255, 255, 255, 0.22);
+
+  position: relative;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  overflow: hidden;
+}
+
+.footer[data-pinned] {
+  position: sticky;
+  bottom: min(0px, calc(100vh - var(--header-h) - var(--footer-h, 0px)));
+  bottom: min(0px, calc(100svh - var(--header-h) - var(--footer-h, 0px)));
+  z-index: 0;
+}
+
+/* Faded, scaled and sharpened by the reveal. */
+.reveal {
+  transform-origin: 50% 100%;
+  will-change: opacity, transform, filter;
+}
+
+.upper {
+  position: relative;
+  padding: 56px 0 48px;
+}
+
+.upper > :global(.container) {
+  position: relative;
+}
+
+/*
+ * Background: the pixel field, brightest behind the top right where the contact rail sits, easing
+ * out towards the statement and fading away before the link columns, so small type always reads on
+ * near-black.
+ */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* Full strength across the top, easing off towards the link columns so small type stays clear. */
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 45%, rgba(0, 0, 0, 0.35) 80%, rgba(0, 0, 0, 0.2) 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 45%, rgba(0, 0, 0, 0.35) 80%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+/* Top row: the statement on the left, the ways to reach us on the right. */
+
+.top {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 32px;
+  align-items: end;
+  padding-bottom: 40px;
+}
+
+/* The pitch spans the whole row in three equal-sided columns: the statement on the left, KRA's badge in
+   the centre column, so it sits on the page's centre line, and the right column left empty for the
+   contact rail, which shares the same row. */
+.pitch {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px minmax(0, 1fr);
+  column-gap: 32px;
+  row-gap: 20px;
+  align-items: center;
+}
+
+.pitch > .logo {
+  grid-column: 1 / -1;
+}
+
+.pitchText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  /* The same width as the header's logo. */
+  width: 220px;
+  height: auto;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.statement {
+  font-size: clamp(32px, 3.4vw, 46px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  max-width: 14em;
+}
+
+.statementHi {
+  color: inherit;
+}
+
+.tagline {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--footer-text);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+.kraBadge {
+  grid-column: 2;
+  justify-self: center;
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  /* Matches the badge's own rounded red frame. */
+  border-radius: 6px;
+  box-shadow: 0 16px 36px -14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s;
+}
+
+.kraBadge img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.kraBadge:hover {
+  transform: translateY(-2px);
+}
+
+.kraBadge:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+
+.reach {
+  grid-column: 9 / span 4;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+}
+
+/* The green button inside its animated corner frame. The frame sits outside the button, so it is
+   pulled back to line the button up with the numbers below. */
+.footer .demo {
+  --accent-glow: rgba(var(--green-rgb), 0.16);
+  margin: -14px -18px 14px;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--on-band);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.phoneCountry {
+  width: 32px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--footer-text);
+}
+
+.muted {
+  color: var(--footer-text);
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* Numbers and the email underline on hover and focus. */
+.phone,
+.muted {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.2s;
+}
+
+.phone:hover,
+.phone:focus-visible,
+a.muted:hover,
+a.muted:focus-visible {
+  color: var(--green);
+  text-decoration-color: var(--green);
+}
+
+/* Link columns, under a hairline. */
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 48px 32px;
+  padding-top: 36px;
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  background: var(--on-band-line);
+}
+
+.col {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Company's labels are short, so it gives a column to the contact rail on its right. */
+.col:nth-child(3) {
+  grid-column: span 2;
+}
+
+.col:nth-child(4) {
+  grid-column: span 4;
+}
+
+.colHeading {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--footer-ink);
+  margin-bottom: 10px;
+}
+
+.colLink {
+  color: var(--footer-text);
+  transition: color 0.2s;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  /* Hugs its text so the slide-in underline runs the width of the words, not the column. */
+  align-self: flex-start;
+}
+
+.colLink:hover,
+.colLink:focus-visible {
+  color: var(--green);
+}
+
+/* The slide-in underline is the brand green throughout the footer. */
+.footer :global(.line-hover)::before {
+  background: var(--green);
+}
+
+/* A phone number never breaks mid-way; on a narrow column it drops under its country as a whole. */
+.number {
+  white-space: nowrap;
+}
+
+.region {
+  margin-top: 10px;
+  align-self: flex-start;
+  border: 1px solid var(--on-band-line-2);
+  color: var(--footer-text);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* The legal line and social links, under a hairline on the same ground. */
+
+.bottom {
+  position: relative;
+}
+
+.legal {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px 32px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--footer-text);
+  align-items: center;
+  padding: 22px 0 26px;
+  border-top: 1px solid var(--on-band-line);
+}
+
+.legalLeft {
+  display: flex;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.legalLink {
+  color: var(--footer-text);
+  transition: color 0.2s;
+}
+
+.legalLink:hover,
+.legalLink:focus-visible {
+  color: var(--green);
+}
+
+.social {
+  display: flex;
+  gap: 24px;
+}
+
+/* Tablets: twelve columns' worth of gaps would be wider than a phone, so the grids drop to one and two columns. */
+@media (max-width: 900px) {
+  .upper {
+    padding: 64px 0 56px;
+  }
+
+  /* Stacked layout: the field keeps to the top of the footer, behind the logo and statement. */
+  .backdrop {
+    height: 640px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+  }
+
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+    padding-bottom: 52px;
+  }
+
+  .pitch,
+  .reach {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* One column: the badge follows the tagline, left-aligned with it. */
+  .pitch {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .kraBadge {
+    grid-column: auto;
+    justify-self: start;
+    max-width: 180px;
+    margin-top: 4px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 48px;
+  }
+
+  .col,
+  .col:nth-child(3),
+  .col:nth-child(4) {
+    grid-column: auto;
+  }
+}
+
+/* Phones keep two link columns: the labels are short, and one long column would double the scroll. */
+@media (max-width: 520px) {
+  .upper {
+    padding: 52px 0 48px;
+  }
+
+  .logo {
+    margin-bottom: 16px;
+  }
+
+  .top {
+    row-gap: 36px;
+    padding-bottom: 44px;
+  }
+
+  .grid {
+    gap: 40px 20px;
+    padding-top: 40px;
+  }
+
+  .legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (pointer: coarse) {
+  .phone,
+  a.muted {
+    padding: 6px 0;
+    margin: -6px 0;
+  }
+
+  .col {
+    gap: 15px;
+  }
+
+  /* Single-letter social links ("X") widen sideways too. */
+  .social .legalLink {
+    padding-inline: 8px;
+    margin-inline: -8px;
+  }
+}
+
+/* ---------- Logo card, KRA glass badge (Oct 2026) ---------- */
+
+/* The colour logo sits on a white card with 8px corners and generous white space around it. */
+.logoCard {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: inline-flex;
+  padding: 22px 34px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 18px 40px -22px rgba(0, 0, 0, 0.8);
+}
+
+.logoCard .logo {
+  margin-bottom: 0;
+}
+
+/* Statement and tagline span the two left columns now the badge sits below them. */
+.pitchText {
+  grid-column: 1 / span 2;
+}
+
+/* Frosted "Apple glass" card in two layers, both with 8px corners: the outer layer holds KRA's logo,
+   and a second, lighter layer inside it carries the statement. Each is translucent white over a blur
+   of the field, with a hairline rim. */
+.kraGlass {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: stretch;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 20px 44px -24px rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  color: #ffffff;
+  overflow: hidden;
+  transition:
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kraGlass:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+.kraGlass:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+
+.kraLogo {
+  display: block;
+  align-self: center;
+  width: 150px;
+  height: auto;
+  flex-shrink: 0;
+  margin: 22px 32px 22px 30px;
+}
+
+.kraPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.kraText {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #ffffff;
+  text-align: center;
+  white-space: pre-line;
+}
+
+@media (max-width: 520px) {
+  .kraLogo {
+    width: 116px;
+    margin: 12px 14px;
+  }
+
+  .kraPanel {
+    padding: 10px 14px;
+  }
+
+  .kraText {
+    font-size: 13px;
+  }
+}
+
+/* Phones: the text layer sits under the logo across the full width, so the line keeps to two rows. */
+@media (max-width: 520px) {
+  .kraGlass {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kraLogo {
+    margin: 20px 24px;
+  }
+
+  .kraPanel {
+    padding: 14px 18px;
+  }
+}
+
+/* ---------- Footer balance, logo size, fuller field, centred phones (Oct 2026) ---------- */
+
+/* The pitch takes the first eight of twelve columns, so the statement runs wide and meets the
+   contact rail in the last four; nothing is left floating on the right. */
+.pitch {
+  grid-column: 1 / span 8;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pitchText,
+.logoCard,
+.kraGlass {
+  grid-column: 1;
+}
+
+.statement {
+  max-width: none;
+  /* Fill the line before wrapping, so the statement runs the width of the pitch. */
+  text-wrap: wrap;
+}
+
+.tagline {
+  max-width: 62ch;
+}
+
+/* The logo matches the header's: 220px, never squeezed by its card. */
+.logoCard .logo {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* The field stays strong down the whole footer; only a light veil under the link columns. */
+.backdrop {
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.75) 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+@media (max-width: 900px) {
+  .pitch {
+    grid-column: auto;
+  }
+
+  /* Stacked layout: the field fills the whole footer, not just its top. */
+  .backdrop {
+    height: auto;
+    inset: 0;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, rgba(0, 0, 0, 0.75) 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 60%, rgba(0, 0, 0, 0.75) 100%);
+  }
+
+  /* The top of the footer centres on one column; the link columns below stay left-aligned. */
+  .top {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .pitch {
+    justify-items: center;
+  }
+
+  .logoCard,
+  .kraGlass {
+    justify-self: center;
+  }
+
+  .statement,
+  .tagline {
+    margin-inline: auto;
+  }
+
+  .statement {
+    text-wrap: balance;
+  }
+
+  /* On one column the statement balances itself, so the wide-screen line break is dropped. */
+  .statementBreak {
+    display: none;
+  }
+
+  .reach {
+    align-items: center;
+  }
+
+  .footer .demo {
+    margin: -14px 0 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* The same width the header's logo shrinks to on a phone. */
+  .logoCard .logo {
+    width: min(220px, calc(100vw - 204px));
+  }
+
+  .logoCard {
+    padding: 18px 26px;
+  }
+}
+
+/* A soft fade at the foot of the field, so it melts into the copyright line instead of stopping on it. */
+.backdrop {
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.7) 85%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.7) 85%, transparent 100%);
+}
+
+@media (max-width: 900px) {
+  .backdrop {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 65%, rgba(0, 0, 0, 0.7) 90%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 65%, rgba(0, 0, 0, 0.7) 90%, transparent 100%);
+  }
+}

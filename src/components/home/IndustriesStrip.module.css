@@ -1,0 +1,63 @@
+.section {
+  padding-top: 96px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.headCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+/* A grey hairline and a green dot trail the eyebrow. */
+.headCopy :global(.eyebrow) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headCopy :global(.eyebrow)::after {
+  content: '';
+  width: 56px;
+  height: 7px;
+  background:
+    radial-gradient(circle, var(--accent) 2.6px, transparent 3.2px) right center / 7px 7px no-repeat,
+    linear-gradient(var(--tint-300), var(--tint-300)) left center / calc(100% - 9px) 1px no-repeat;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 64px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding-top: 56px;
+  }
+}

@@ -1,0 +1,334 @@
+/* White ground washed with pale green behind the video, a navy headline whose key phrase is brand
+   green (large enough to clear contrast), green underlines on the three key words, a green button. */
+.hero {
+  background:
+    radial-gradient(60% 70% at 88% 45%, var(--green-100), transparent 70%),
+    radial-gradient(40% 50% at 0% 100%, var(--green-50), transparent 70%), var(--white);
+  color: var(--ink);
+  padding: 88px 0 96px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.title {
+  color: var(--heading);
+}
+
+.titleLead {
+  color: var(--heading);
+}
+
+.titleKey {
+  color: var(--green);
+}
+
+/* The product being fronted, as a slim pill above the headline. */
+.pill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px 5px 5px;
+  border-radius: 999px;
+  background: var(--green-50);
+  border: 1px solid var(--green-200);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.pill:hover {
+  background: var(--green-100);
+  border-color: var(--green-300);
+  color: var(--ink);
+}
+
+.pillTag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pillText {
+  text-wrap: pretty;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 540px;
+  text-wrap: pretty;
+}
+
+/* The three key words inside the hero sentence; the active one is underlined. */
+
+/* Only the words themselves are emphasised; the commas and the "and" stay in the
+   lead's own weight and colour, as punctuation should. Each word links to its product, but
+   keeps its green on hover: the cursor card and its green wash already say so. */
+.word,
+.word:hover {
+  position: relative;
+  white-space: nowrap;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+/* The underline collapses to the right as a word goes inactive and grows from the
+   left as the next one takes over, so the line reads as one stroke moving along. */
+.word::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease;
+}
+
+.wordOn::after {
+  opacity: 1;
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* The corner frame sits outside the pill; pull it back so the pill lines up with the copy. */
+.cta {
+  margin: -14px -18px;
+}
+
+.mediaWrap {
+  min-width: 0;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface);
+  /* Keeps the rounded clip honest in Safari over the playing video. */
+  isolation: isolate;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.alert {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 32px -12px rgba(var(--shadow-rgb), 0.3);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 1;
+}
+
+.alertDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.alertText {
+  display: flex;
+  flex-direction: column;
+}
+
+.alertTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.alertMeta {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/*
+ * The KRA "Approved KRA Vendor" badge: the first thing on the video, KRA's own artwork as supplied, with
+ * the site's green tick pinned to its corner. It lands just after the video does, so the eye catches it.
+ */
+.cert {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  display: block;
+  width: 236px;
+  max-width: calc(100% - 52px);
+  /* Matches the badge's own rounded red frame. */
+  border-radius: 7px;
+  box-shadow: 0 12px 32px -12px rgba(var(--shadow-rgb), 0.35);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  animation: certIn 0.5s 0.9s backwards cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cert:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -12px rgba(var(--shadow-rgb), 0.42);
+}
+
+@keyframes certIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.certBadge {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.certTick {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 26px;
+  height: 26px;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  fill: var(--accent);
+  stroke: var(--white);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.certTick path {
+  fill: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert {
+    animation: none;
+    transition: none;
+  }
+
+  .cert:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 56px 0 96px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pill {
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 40px 0 64px;
+  }
+
+  .copy {
+    gap: 22px;
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  /* The one call to action spans the column, as a phone's primary button does. */
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta {
+    display: flex;
+  }
+
+  .cta > a {
+    flex: 1;
+  }
+
+  /* On phones the video is a portrait 3:4 frame. */
+  .media {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Keep the truck's e-lock, on the right of the footage, in the narrower frame. */
+  .video {
+    object-position: 72% center;
+  }
+
+  .alert {
+    left: 12px;
+    bottom: 12px;
+    padding: 10px 12px;
+  }
+
+  .cert {
+    top: 14px;
+    left: 12px;
+    width: 176px;
+    border-radius: 5px;
+  }
+
+  .certTick {
+    top: -7px;
+    right: -7px;
+    width: 22px;
+    height: 22px;
+  }
+}

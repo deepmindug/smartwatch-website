@@ -1,0 +1,345 @@
+/*
+ * The platform band is the pale neutral ground with white cards on it. Green moves with the visitor:
+ * each tab glows where the pointer is, and the selected product's green runs through the ring, the
+ * number tile, the ticks and the panel's wash.
+ */
+.section {
+  background: var(--surface);
+  color: var(--ink);
+  padding: 96px 0;
+}
+
+/* Each product fades in as the carousel moves on. */
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.intro h2 {
+  color: var(--heading);
+}
+
+/* The infrastructure bento sits between the intro and the product tabs; extra room below it
+   marks the step from the shared stack to the products built on it. */
+.infra {
+  margin-bottom: 24px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.tab {
+  /* Above the gliding highlight, which sits at the strip's origin. */
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 16px;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition:
+    background 0.2s,
+    border-color 0.25s;
+}
+
+/* A glow in the tab's own accent follows the pointer across it; the tab is its own stacking
+   context (z-index above), so the glow sits between the white card and its text. */
+.tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    180px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(var(--accent-rgb), 0.2),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.tab:hover {
+  border-color: rgba(var(--accent-rgb), 0.55);
+}
+
+.tab:hover::before {
+  opacity: 1;
+}
+
+.tab:hover .tabNum {
+  background: var(--accent-solid);
+  color: var(--on-accent);
+}
+
+/* The selected tab paints nothing of its own: the white pane glides in underneath it. */
+.tabOn,
+.tabOn:hover {
+  background: transparent;
+  border-color: transparent;
+}
+
+.tabGlow {
+  border-radius: 14px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+/* The ring takes the selected product's accent and cross-fades as the selection moves. */
+.tabGlow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 1.5px var(--accent);
+  transition: box-shadow 0.5s;
+}
+
+.tabNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.tabOn .tabNum {
+  background: var(--accent-solid);
+  color: var(--on-accent);
+}
+
+.tabName {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.strap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: -16px;
+}
+
+.strapText {
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+/* The panel sits in a soft wash of the selected accent, and its image carries the accent as a frame. */
+.detail {
+  position: relative;
+  isolation: isolate;
+  animation: swap 0.5s ease both;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.detail::before {
+  content: '';
+  position: absolute;
+  inset: -32px -24px;
+  z-index: -1;
+  border-radius: 32px;
+  background: radial-gradient(70% 90% at 85% 50%, rgba(var(--accent-rgb), 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.detailMedia {
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb), 0.4),
+    0 28px 60px -30px rgba(var(--accent-rgb), 0.5);
+  transition: box-shadow 0.5s;
+}
+
+.detailCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.detailTitle {
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.detailBody {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/*
+ * Phones: the seven tabs run as one row that scrolls sideways under the thumb, bleeding to the
+ * screen edges so the next tab peeks in; the strip keeps the selected tab in view itself.
+ */
+@media (max-width: 680px) {
+  .tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 4px var(--gutter) 8px;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    min-width: 156px;
+    scroll-snap-align: start;
+  }
+
+  .strap {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .inner {
+    gap: 36px;
+  }
+
+  .detail {
+    gap: 24px;
+  }
+
+  .detail::before {
+    inset: -20px -12px;
+  }
+
+  .detailBody {
+    font-size: 16px;
+  }
+}
+
+/* ---------- Tab tweaks (Oct 2026) ----------
+   Text centred in each card, the current card filled with the brand green with white type and
+   green highlights (the number tile and a bar along the bottom), and no hover effect. */
+.tab {
+  align-items: center;
+  text-align: center;
+}
+
+.tab::before {
+  display: none;
+}
+
+.tab:hover {
+  border-color: var(--line);
+}
+
+.tab:hover .tabNum {
+  background: var(--surface);
+  color: var(--navy);
+}
+
+.tabGlow {
+  background-color: var(--green);
+  box-shadow: none;
+}
+
+/* A short white bar centred along the bottom of the current card. */
+.tabGlow::after {
+  box-shadow: none;
+  inset: auto 50% 0 auto;
+  width: 44px;
+  height: 3px;
+  transform: translateX(50%);
+  border-radius: 3px 3px 0 0;
+  background: var(--white);
+}
+
+.tabOn,
+.tabOn:hover {
+  color: var(--white);
+}
+
+.tabOn .tabNum,
+.tabOn:hover .tabNum {
+  background: rgba(255, 255, 255, 0.24);
+  color: var(--white);
+}
+
+@media (max-width: 680px) {
+  .tab {
+    align-items: center;
+  }
+}
+
+/* The product photo: no frame, no shadow and no green glow behind it. */
+.detail::before {
+  display: none;
+}
+
+.detailMedia {
+  box-shadow: none;
+  border: 0;
+}

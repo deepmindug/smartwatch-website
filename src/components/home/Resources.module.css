@@ -1,0 +1,141 @@
+.section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--ink);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  transition: border-color 0.15s;
+}
+
+.feature:hover {
+  color: var(--ink);
+  border-color: #e3e9e1;
+}
+
+/* The cut-out dash camera sits straight on the panel, with just enough room to breathe. */
+.feature .featureMedia img {
+  padding: 4% 6%;
+}
+
+.featureBody {
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featureTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.featureText {
+  font-size: 15px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  color: var(--ink);
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  transition: border-color 0.15s;
+}
+
+.post:hover {
+  color: var(--accent-text);
+  border-color: #e3e9e1;
+}
+
+.thumb {
+  padding: 0;
+}
+
+.postBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* The post's kind is a green chip, the one spot of colour on the white card. */
+.kind {
+  align-self: flex-start;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-accent);
+  background: var(--accent-solid);
+}
+
+.postTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .featureTitle {
+    font-size: 20px;
+  }
+
+  .post {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 12px;
+  }
+}

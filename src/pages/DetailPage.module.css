@@ -1,0 +1,37 @@
+.page {
+  background: var(--white);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 56px;
+  color: var(--ink-2);
+}
+
+/* Without a hero the page opens on its title alone, full width, at the size of the section titles. */
+.pageTitle {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 72px var(--gutter) 8px;
+}
+
+.pageTitle h1 {
+  margin: 0;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-wrap: pretty;
+  color: var(--green);
+}
+
+@media (max-width: 900px) {
+  .body {
+    padding-bottom: 40px;
+  }
+}

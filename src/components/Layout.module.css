@@ -1,0 +1,10 @@
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* The page sits above the footer and is opaque, so the footer can wait pinned beneath it and be
+     uncovered as the page scrolls away (the footer reveal). */
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+}

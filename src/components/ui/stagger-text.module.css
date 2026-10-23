@@ -1,0 +1,22 @@
+/*
+ * Word masks for the vendored stagger-text: each word rises from beneath its own clip.
+ * The masks are inline-blocks aligned to the top of the line so the line box keeps the
+ * heading's own line-height; the padding gives ascenders and descenders room inside the
+ * clip and the matching negative margin hands that room back to the layout.
+ */
+
+.text {
+  display: inline;
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.1em 0 0.16em;
+  margin: -0.1em 0 -0.16em;
+}
+
+.word {
+  display: inline-block;
+}

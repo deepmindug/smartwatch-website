@@ -1,0 +1,170 @@
+.root {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px -8px rgba(var(--shadow-rgb), 0.45);
+  animation: fade-in-up 0.25s ease both;
+}
+
+/* While the card is open the cross turns in. */
+.badgeOpen svg {
+  animation: wa-spin-in 0.25s ease both;
+}
+
+@keyframes wa-spin-in {
+  from {
+    transform: rotate(-90deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.card {
+  width: 320px;
+  max-width: calc(100vw - 48px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow-pop);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fade-in-up 0.2s ease both;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cardBody {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1.5px solid var(--line-2);
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: var(--ink);
+}
+
+.line:hover {
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.lineCountry {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lineNumber {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.line:hover .lineNumber {
+  color: inherit;
+}
+
+@media (max-width: 520px) {
+  .root {
+    right: 16px;
+    bottom: 16px;
+    gap: 10px;
+  }
+
+  .badge {
+    width: 52px;
+    height: 52px;
+  }
+
+  .card {
+    width: 232px;
+    max-width: calc(100vw - 32px);
+    padding: 14px;
+    gap: 8px;
+  }
+}
+
+/* The badge is the control that opens and closes the card, on every screen size. WhatsApp's own green. */
+.toggle {
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle:hover {
+  background: #1ebe5d;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+/* Open: a navy close button with a white cross. */
+.toggle[aria-expanded='true'],
+.toggle[aria-expanded='true']:hover {
+  background: var(--navy-btn);
+}
+
+.toggle[aria-expanded='true']:hover {
+  background: var(--navy-btn-hover);
+}
+
+/* Narrow phones: each line stacks so the numbers stay inside their pills. */
+@media (max-width: 420px) {
+  .card {
+    padding: 18px;
+  }
+
+  .cardTitle {
+    font-size: 17px;
+  }
+
+  /* The country sits above its number, so the full number always fits. */
+  .line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 10px 18px;
+    border-radius: 18px;
+  }
+
+  .lineCountry {
+    font-size: 14px;
+  }
+
+  .lineNumber {
+    font-size: 17px;
+  }
+}

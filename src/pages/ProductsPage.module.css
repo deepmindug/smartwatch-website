@@ -1,0 +1,122 @@
+.page {
+  flex: 1;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* White, with a soft pale-green glow at the right edge, as on every other hero. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  color: var(--ink);
+  padding: 88px 0 96px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -14vw;
+  width: 62vw;
+  height: 160%;
+  background: radial-gradient(closest-side, var(--green-100) 0%, var(--green-50) 42%, transparent 100%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.heroInner h1 {
+  max-width: 820px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* The KPMG badge and the KRA seal, side by side behind a hairline, under the hero's buttons. */
+.badges {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.seal {
+  padding-left: 24px;
+  border-left: 1px solid var(--line-2);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink-3);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge:hover {
+  color: var(--ink);
+}
+
+.badgeImage {
+  width: 64px;
+  background: var(--white);
+  padding: 4px;
+}
+
+.panel {
+  margin-top: -40px;
+  padding-top: 0;
+}
+
+.hardwareLink {
+  padding-top: 32px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 56px 0 96px;
+  }
+
+  .panel {
+    margin-top: -28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding: 48px 0 72px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Stacked on a phone, the seal loses its hairline. */
+  .seal {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

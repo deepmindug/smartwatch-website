@@ -1,0 +1,146 @@
+.section {
+  padding-top: 96px;
+}
+
+/* A rounded white panel with a hairline: navy headings, grey body, green accents. */
+.panel {
+  background: var(--band);
+  border: 1px solid var(--line);
+  color: var(--on-band);
+  border-radius: 28px;
+  padding: 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 56px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--on-band-muted);
+  max-width: 560px;
+}
+
+/* The checklist, redrawn for the band: a pale green tick with deep green type. */
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--on-band-line);
+}
+
+.points li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--on-band);
+}
+
+.points li::before {
+  content: '✓';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--check-bg);
+  color: var(--check-fg);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* The corner frame sits outside the pill; pull it back so the pill lines up with the copy. */
+.cta {
+  margin: -14px -18px;
+}
+
+.mediaWrap {
+  min-width: 0;
+}
+
+.media {
+  box-shadow: 0 32px 64px -32px rgba(0, 0, 0, 0.5);
+}
+
+/* The night photo is wide; on the tall panel keep the e-lock on the container doors in the middle
+   and zoom in on it, so the tracking device is the focus. */
+.media img {
+  object-position: 39% center;
+  transform: scale(1.4);
+  transform-origin: 50% 53%;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 64px;
+  }
+
+  .panel {
+    grid-template-columns: 1fr;
+    padding: 36px 28px;
+    gap: 36px;
+  }
+
+  /* On one column the photo leads as a wide strip rather than a tall portrait. */
+  .mediaWrap {
+    order: -1;
+  }
+
+  .media {
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  /* The strip is wide enough to show the whole truck, so the lock sits at its own spot in the frame. */
+  .media img {
+    object-position: center;
+    transform: scale(1.6);
+    transform-origin: 44% 53%;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding-top: 56px;
+  }
+
+  .panel {
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .cta {
+    display: flex;
+  }
+
+  .cta > a {
+    flex: 1;
+  }
+}

@@ -1,0 +1,68 @@
+.section {
+  background: var(--surface-alt);
+  padding: 96px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* The film runs the full height of the copy beside it, cropped to fill. */
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.whys {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.why {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.whyTitle {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.whyBody {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Stacked, it goes back to a widescreen frame. */
+}
+
+@media (max-width: 520px) {
+  .whys {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding: 56px 0;
+  }
+}

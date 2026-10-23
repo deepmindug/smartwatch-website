@@ -1,0 +1,21 @@
+/*
+ * Chrome for the vendored highlight grid: the container anchors the highlight, which sits under
+ * the cells (they raise themselves above it) and eases between positions and sizes. Colour and
+ * radius come from the caller.
+ */
+
+.root {
+  position: relative;
+}
+
+.highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}

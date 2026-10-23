@@ -1,0 +1,448 @@
+/*
+ * Chrome for the vendored mega-menu navbar: the sticky bar, triggers, floating panel and
+ * mobile drawer. The bar takes the colour of the section under it (data-theme): the band's
+ * deep green over dark bands, white over light ones. data-solid marks a scrolled page and adds the hairline.
+ * The panels' columns, promo card and contact popover live in Header.module.css.
+ */
+
+/*
+ * Sticky header. Menus are floating white cards that hang beneath the bar; the open item
+ * is underlined. The bar is white over light bands and the band's tone over dark ones; data-solid only adds
+ * the hairline once the page has scrolled.
+ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-h);
+  background: transparent;
+  --hdr-fg: var(--ink);
+  --hdr-fg-muted: var(--ink-3);
+  --hdr-hover: var(--surface);
+  /* No transition: the text colour and the logo swap the instant the theme changes, so the
+     background must change with them, or white text sits on a still-white bar mid-fade. */
+}
+
+/* Dark bands paint the bar in their tone outright: the bar sits above the hero in the flow, over the page's
+   white body, so a transparent bar would put white text on white at the top of a dark-hero page. */
+.header[data-theme='dark'] {
+  --hdr-fg: var(--white);
+  --hdr-fg-muted: var(--white);
+  --hdr-hover: rgba(255, 255, 255, 0.12);
+  --focus: var(--white);
+  background: #163864;
+}
+
+.header[data-theme='dark'][data-solid] {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.header[data-theme='light'] {
+  background: var(--white);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.bar {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 36px;
+}
+
+.logo img {
+  width: 220px;
+  height: auto;
+}
+
+/* Primary nav: plain labels, full bar height so the active underline sits on the bar's edge. */
+
+.nav {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  height: var(--header-h);
+}
+
+.navItem {
+  position: relative;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--hdr-fg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.navItem:hover {
+  color: var(--hdr-fg);
+  opacity: 0.75;
+}
+
+/* Over the white page the label turns deep green on hover instead of fading. */
+.header:not([data-theme='dark']) .navItem:hover {
+  color: var(--accent-text-hover);
+  opacity: 1;
+}
+
+.navItemOpen,
+.navItemOpen:hover {
+  opacity: 1;
+}
+
+.navItemOpen::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* On a green bar the underline takes the band's pale green accent. */
+.header[data-theme='dark'] .navItemOpen::after {
+  background: var(--green);
+}
+
+.caret {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.navItemOpen .caret {
+  transform: rotate(180deg);
+}
+
+/* Utility cluster: Contact with popover, then the demo pill. */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Mobile menu button */
+
+.burger {
+  display: none;
+  /* A 44px target, pulled out so the icon still sits at the gutter's edge. */
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.burger:hover {
+  background: var(--hdr-hover);
+}
+
+.burgerLine,
+.burgerLine::before,
+.burgerLine::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--hdr-fg);
+  border-radius: 2px;
+  transform-origin: center;
+  transition:
+    transform 0.2s,
+    background 0.25s;
+}
+
+.burgerLine {
+  position: relative;
+}
+
+.burgerLine::before,
+.burgerLine::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.burgerLine::before {
+  top: -6px;
+}
+
+.burgerLine::after {
+  top: 6px;
+}
+
+.burgerOpen {
+  background: transparent;
+}
+
+.burgerOpen::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burgerOpen::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Floating menu cards */
+
+.menu {
+  animation: fade-in-down 0.2s ease both;
+  position: absolute;
+  top: calc(var(--header-h) + 12px);
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 32px;
+  padding: 32px;
+  box-shadow: 0 30px 80px -20px rgba(var(--shadow-rgb), 0.45);
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+}
+
+/*
+ * Invisible bridge across the gap between the bar and the panel. Without it the pointer
+ * passes over the page on its way down, the header takes a mouseleave and the menu closes
+ * under the cursor. The panel only exists while open, so this never blocks the page.
+ */
+.menu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -16px;
+  height: 16px;
+}
+
+.menuWide {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1360px, calc(100% - 48px));
+}
+
+.menuNarrow {
+  width: 920px;
+  max-width: calc(100% - 48px);
+}
+
+/* Mobile drawer: full-height panel under the bar with a pinned action footer */
+
+.drawer {
+  animation: fade-in-down 0.22s ease both;
+  position: fixed;
+  left: 0;
+  right: 0;
+  /* --drawer-top is the bar's measured bottom edge (set by the component); dvh tracks the browser chrome. */
+  top: var(--drawer-top, var(--header-h));
+  height: calc(100vh - var(--drawer-top, var(--header-h)));
+  height: calc(100dvh - var(--drawer-top, var(--header-h)));
+  background: var(--white);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  z-index: 60;
+}
+
+.drawerScroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px var(--gutter) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerGroup {
+  border-bottom: 1px solid var(--line);
+}
+
+.drawerToggle {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+
+.drawerGroup .drawerToggle {
+  border-bottom: 0;
+}
+
+.drawerGroup .drawerToggle[aria-expanded='true'] .caret {
+  transform: rotate(180deg);
+}
+
+.drawerList {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 12px 12px;
+}
+
+.drawerLink {
+  color: var(--ink-2);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 8px 0;
+}
+
+.drawerLink:hover {
+  color: var(--accent-text-hover);
+}
+
+.drawerFooter {
+  min-height: 74px;
+  flex-shrink: 0;
+  border-top: 1px solid var(--line);
+  /* Clears the home indicator on phones without a hardware button. */
+  padding: 0 var(--gutter) env(safe-area-inset-bottom, 0px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--white);
+}
+
+/* Mobile accordion: rows animate between 0fr and 1fr, so the panel stays mounted. */
+
+.caretOpen {
+  transform: rotate(180deg);
+}
+
+.drawerPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.drawerPanelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-bottom: 12px;
+}
+
+.drawerPanelClip {
+  overflow: hidden;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 1240px) {
+  .nav {
+    gap: 22px;
+  }
+
+  .logo {
+    margin-right: 24px;
+  }
+
+  .actions {
+    gap: 16px;
+  }
+
+  .menu {
+    padding: 24px;
+    gap: 24px;
+    border-radius: 24px;
+  }
+}
+
+/* Short laptop screens: the panel scrolls inside itself rather than running off the bottom. */
+@media (max-height: 760px) {
+  .menu {
+    max-height: calc(100vh - var(--header-h) - 40px);
+    max-height: calc(100dvh - var(--header-h) - 40px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav,
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+}
+
+/* Phones: the logo keeps its 200px width where it fits, and shrinks only as far as needed
+   to keep the demo pill and menu button on screen. */
+@media (max-width: 520px) {
+  .logo {
+    flex-shrink: 1;
+    min-width: 0;
+    margin-right: 12px;
+  }
+
+  .logo img {
+    max-width: 100%;
+  }
+}
+
+/* The narrowest phones: the logo, demo pill and menu button no longer fit one row at full size,
+   which pushed the menu button past the screen edge and let every page scroll sideways. */
+@media (max-width: 360px) {
+  .logo {
+    margin-right: 8px;
+    min-width: 0;
+  }
+
+  .actions {
+    gap: 4px;
+  }
+}
+
+@media (pointer: coarse) {
+  .drawerLink {
+    padding: 11px 0;
+  }
+}

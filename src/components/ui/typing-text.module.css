@@ -1,0 +1,35 @@
+/* Ghost and typed line share one grid cell, so the box is the full line's size from the start. */
+.root {
+  display: inline-grid;
+}
+
+.ghost,
+.typed {
+  grid-area: 1 / 1;
+}
+
+.ghost {
+  visibility: hidden;
+  padding-right: 4px;
+}
+
+.mark {
+  color: var(--green);
+}
+
+/* A thin bar that blinks like a text cursor. */
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: currentColor;
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

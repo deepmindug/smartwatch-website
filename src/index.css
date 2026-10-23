@@ -1,0 +1,701 @@
+/*
+ * Colour follows the Smartwatch Solutions Brand Guidelines v1.0 (July 2022). The manual's swatches
+ * are CMYK; neither the hex codes printed beside them nor a native-value colour pick on a wide-gamut
+ * Mac gives their sRGB values directly (a P3 screen reads the green as 91,141,75 — that same colour
+ * in sRGB, which is what CSS ships, is 74,143,66). design/brand-colours.py renders the swatches the
+ * way Preview does and converts them to sRGB: green #4a8f42 and navy #1b2845, the two primaries,
+ * plus the universal grey and black. The secondaries (cyan, yellow, pale lime) are left out on
+ * purpose; the site runs on the primaries and lighter tints of the green only, and the logo is
+ * converted through the same pipeline so the mark and the bands are one green.
+ *
+ * Green leads, exactly as the manual shows it, and the brand green is the darkest green on the site:
+ * nothing steps below it. It is the flat fill of the bands (announcement bar, stats, cargo spotlight,
+ * CTA band, footer — the manual's own divider pages are this green with white type), of every chip,
+ * tick, icon, stroke and tab, of green type and of the hero's key phrase. White on it, and it on
+ * white, is 3.96:1: fine for large type and graphics, short of AA (4.5:1) for small text. That is the
+ * client's explicit call, matching their collateral. Green links hover to navy. Navy is the heading
+ * colour, the "Smart" half of the wordmark, and, at the client's request, the fill of every button.
+ * Neutrals are faintly green. Headings: Century Gothic (Questrial fallback). Body: Open Sans.
+ */
+
+:root {
+  /* Brand green (the manual's swatch, in sRGB), the darkest green used, and its lighter tints on the same hue */
+  --green: #4fb848;
+  --green-50: #f3f9f3;
+  --green-100: #e8f4e7;
+  --green-200: #d3e9d0;
+  --green-300: #b3daaf;
+  --green-400: #85c37e;
+
+  /* Brand navy (the manual's swatch, in sRGB), and a deeper step of the same hue for button hovers */
+  --navy: #1b2845;
+  --navy-900: #111a2e;
+
+  /* Button navy, its hover step, and the dark header. */
+  --navy-btn: #163864;
+  --navy-btn-hover: #0f2747;
+  --navy-btn-rgb: 22, 56, 100;
+
+  /* Neutral charcoal: every h2, megamenu titles, and all type that sits on the brand green. */
+  --charcoal: #212529;
+
+  /* Neutral ladder, faintly green: hairlines, tiles, inactive nodes */
+  --tint-100: #f4f7f3;
+  --tint-200: #e3e9e1;
+  --tint-300: #cdd6ca;
+  --tint-400: #9aa897;
+
+  /* Universal colours (the manual's swatches); body copy is its "70 percent shade of black" */
+  --black: #0a0b09;
+  --grey: #5c5c5a;
+  --black-70: #4d4d4d;
+  --white: #ffffff;
+
+  /* RGB channels for alpha use: rgba(var(--green-rgb), 0.16) */
+  --green-rgb: 79, 184, 72;
+  --green-300-rgb: 179, 218, 175;
+  --navy-rgb: 27, 40, 69;
+  --shadow-rgb: 25, 25, 25;
+
+  /* The accent is the brand green everywhere: fills, chips and green type alike. Green type hovers to navy. */
+  --accent: var(--green);
+  --accent-solid: var(--green);
+  --accent-rgb: var(--green-rgb);
+  --on-accent: var(--white);
+  --accent-text: var(--navy);
+  --accent-text-hover: var(--navy-btn);
+
+  /* Text and neutrals on the white page */
+  --ink: var(--navy);
+  --ink-2: var(--black-70);
+  --ink-3: var(--grey);
+  --heading: var(--navy);
+  --heading-plain: var(--navy);
+  --line: var(--tint-200);
+  --line-2: var(--tint-300);
+  --surface: var(--tint-100);
+  --surface-2: #f9fbf8;
+  --surface-alt: var(--green-50);
+  --stripe-a: #e9eee7;
+  --stripe-b: #f3f6f2;
+
+  /* Cards: white with a hairline, and a green stroke along the top of the ones that should catch the eye */
+  --card-bg: var(--white);
+  --card-line: var(--line);
+  /* No coloured stroke on cards: no green line along card tops or between a photo and its copy. */
+  --card-accent: transparent;
+
+  /* Bands and panels that used to be brand green are plain now: a white surface with a hairline,
+     navy titles and grey body text. Only a photo hero keeps white type (see the photo tokens below). */
+  --band: var(--white);
+  --on-band: var(--ink);
+  --on-band-muted: var(--ink-3);
+  --on-band-faint: var(--ink-3);
+  --on-band-accent: var(--accent-text);
+  --on-band-line: var(--line);
+  --on-band-line-2: var(--line-2);
+
+  /* Buttons are the brand navy with white labels (14.6:1); ticks are green with a white mark. */
+  --btn-bg: var(--navy-btn);
+  --btn-bg-hover: var(--navy-btn-hover);
+  --h2: var(--charcoal);
+  --focus: var(--navy-btn);
+  --btn-fg: var(--white);
+  --check-bg: var(--green);
+  --check-fg: var(--white);
+
+  --font: 'Open Sans', system-ui, Helvetica, Arial, sans-serif;
+  --font-heading: 'Century Gothic', CenturyGothic, 'Questrial', AppleGothic, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --container: 1240px;
+  --gutter: 24px;
+  --header-h: 84px;
+
+  --shadow-menu: 0 24px 48px -24px rgba(var(--shadow-rgb), 0.25);
+  --shadow-card: 0 24px 60px -32px rgba(var(--shadow-rgb), 0.25);
+  --shadow-pop: 0 24px 48px -24px rgba(var(--shadow-rgb), 0.3);
+}
+
+/* On a dark band the titles go white; the green buttons and ticks stay as they are. */
+/* White type over a photo: the only dark surface left on the site. */
+.on-photo {
+  --on-band: var(--white);
+  --on-band-muted: var(--white);
+  --on-band-faint: var(--white);
+  --on-band-accent: var(--white);
+  --on-band-line: rgba(255, 255, 255, 0.22);
+  --on-band-line-2: rgba(255, 255, 255, 0.32);
+}
+
+[data-band='dark'] {
+  --heading: var(--on-band);
+  --heading-plain: var(--on-band);
+  --h2: var(--on-band);
+  --accent-text: var(--on-band);
+  --accent-text-hover: var(--on-band);
+  --focus: var(--on-band);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--ink-2);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  /* Phones in landscape must not inflate the type on their own; anchors land clear of the sticky bar. */
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 24px);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent-text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-text-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+.h-display,
+.h-page,
+.h-section,
+.eyebrow {
+  font-family: var(--font-heading);
+  font-synthesis: none;
+}
+
+/* Headings, section titles and card titles are navy; white on a green band. */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--heading-plain);
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+video,
+iframe,
+canvas {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Shared layout helpers */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+/* The page label: a grey hairline after the eyebrow that ends in a green dot. */
+.eyebrow--rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow--rule::after {
+  content: '';
+  width: 56px;
+  height: 7px;
+  background:
+    radial-gradient(circle, var(--accent) 2.6px, transparent 3.2px) right center / 7px 7px no-repeat,
+    linear-gradient(var(--line-2), var(--line-2)) left center / calc(100% - 9px) 1px no-repeat;
+}
+
+[data-band='dark'] .eyebrow--rule::after {
+  background:
+    radial-gradient(circle, var(--on-band-accent) 2.6px, transparent 3.2px) right center / 7px 7px no-repeat,
+    linear-gradient(var(--on-band-line-2), var(--on-band-line-2)) left center / calc(100% - 9px) 1px no-repeat;
+}
+
+/* The chip flavour: a green pill for a card's or a story's kind. */
+.eyebrow--chip {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+}
+
+.eyebrow--bright {
+  color: var(--on-band-accent);
+}
+
+.eyebrow--muted {
+  color: var(--ink-3);
+}
+
+.h-display {
+  font-size: clamp(40px, 4.6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.h-page {
+  font-size: clamp(36px, 4.2vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.h-section {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.h-section--lg {
+  font-size: clamp(32px, 3.6vw, 50px);
+  line-height: 1.08;
+}
+
+.h-display,
+.h-page,
+.h-section {
+  color: var(--heading);
+}
+
+/* Every h2 is charcoal (#212529), whatever heading class it carries. The exception is an h2 on a
+   green band, a photo or the navy, where --h2 is white. */
+h2,
+h2[class] {
+  color: var(--h2);
+}
+
+/* Green panels that are not full bands (the call-to-action panel, the hardware spotlight) opt in. */
+.h2-on-band {
+  --h2: var(--on-band);
+}
+
+/* The guide sets titles as a bold and a regular pair: "Digital & Web: Guidelines". */
+.h-light {
+  font-weight: 400;
+}
+
+/* Key sentences in copy are picked out in green bold. */
+.lead strong,
+p strong {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+[data-band='dark'] .lead strong,
+[data-band='dark'] p strong {
+  color: var(--on-band);
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 18.7px;
+  padding: 15px 28px;
+  border: 0;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.btn--sm {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+
+.btn--primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.btn--primary:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-fg);
+}
+
+.btn--outline {
+  background: var(--white);
+  color: var(--ink);
+  border: 1.5px solid var(--line-2);
+  padding: calc(15px - 1.5px) calc(28px - 1.5px);
+}
+
+.btn--outline:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: var(--on-band);
+  border: 1.5px solid var(--on-band);
+  padding: calc(15px - 1.5px) calc(28px - 1.5px);
+}
+
+.btn--outline-light:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: var(--on-band);
+  color: var(--on-band);
+}
+
+.link-arrow {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/*
+ * Slide-in underline, the "slide" variant of the VengeanceUI line-hover-link
+ * (registry: https://raw.githubusercontent.com/Ashutoshx7/VengeanceUI/main/public/r/line-hover-link.json).
+ * The line grows in from the left on hover and focus and collapses to the right on the way out,
+ * the same stroke the hero's rotating word draws, and it is green under navy type and pale green on a band. Arrow
+ * links carry it by default; anything else opts in with .line-hover.
+ */
+.link-arrow,
+.line-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.link-arrow::before,
+.line-hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(100% + 1px);
+  width: 100%;
+  height: 1.5px;
+  background: var(--accent);
+  pointer-events: none;
+  transform: scale3d(0, 1, 1);
+  transform-origin: 100% 50%;
+  transition: transform 0.3s ease;
+}
+
+[data-band='dark'] .link-arrow::before,
+[data-band='dark'] .line-hover::before {
+  background: var(--on-band);
+}
+
+.link-arrow:hover::before,
+.link-arrow:focus-visible::before,
+.line-hover:hover::before,
+.line-hover:focus-visible::before {
+  transform: scale3d(1, 1, 1);
+  transform-origin: 0% 50%;
+}
+
+.link-arrow--sm {
+  font-size: 14px;
+}
+
+.link-arrow--bright {
+  color: var(--on-band-accent);
+}
+
+.link-arrow--bright:hover {
+  color: var(--on-band);
+}
+
+/* Check list used on home and product sections */
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checklist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.checklist--lg li {
+  font-size: 16px;
+}
+
+.checklist li::before {
+  content: '✓';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--check-bg);
+  color: var(--check-fg);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Hover lift for linked cards */
+
+.lift {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.15s;
+}
+
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Form fields shared by the demo and contact forms */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.field input,
+.field select,
+.field textarea {
+  border: 1.5px solid var(--line-2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--white);
+  outline: none;
+  width: 100%;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(var(--green-rgb), 0.2);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.field-check input {
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Entrance keyframes for menus, panels and overlays */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * No blanket reduced-motion switch here. Android's "Remove animations" (often on in power saving) asks
+ * for reduced motion, and forcing every animation to 0.01ms froze the logo rows and made timed
+ * animations (the slideshow's progress) end instantly. Each component handles reduced motion itself,
+ * dropping zooms, parallax and tilts while keeping the site's content moving.
+ */
+
+/* On the narrowest phones a long unbroken string (the support email address) may break mid-word,
+   so it cannot widen its column and make the page scroll sideways. */
+@media (max-width: 400px) {
+  p,
+  li,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Responsive floors: the smallest phones get a step down in display type and pill padding. */
+
+@media (max-width: 400px) {
+  .h-display {
+    font-size: clamp(34px, 10vw, 40px);
+  }
+
+  .h-page {
+    font-size: clamp(31px, 9.2vw, 36px);
+  }
+
+  .h-section--lg {
+    font-size: clamp(28px, 8.4vw, 32px);
+  }
+
+  .btn {
+    padding: 14px 22px;
+  }
+
+  .btn--outline,
+  .btn--outline-light {
+    padding: calc(14px - 1.5px) calc(22px - 1.5px);
+  }
+}
+
+/*
+ * Touch screens: text links grow a taller hit area without moving in the layout (the margin
+ * hands the padding back), and the slide-in underline stays a hair under the text.
+ */
+@media (pointer: coarse) {
+  .link-arrow,
+  .line-hover {
+    padding: 8px 0;
+    margin: -8px 0;
+  }
+
+  .link-arrow::before,
+  .line-hover::before {
+    top: auto;
+    bottom: 7px;
+  }
+}
+
+/* Hover lifts have nothing to release on a touch screen; a tapped card would stay raised. */
+@media (hover: none) {
+  .lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,16 @@
+.globe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  /* Sideways drags spin the globe; the page still scrolls up and down under a finger. */
+  touch-action: pan-y;
+}
+
+.globe canvas {
+  display: block;
+}
+
+.grabbing {
+  cursor: grabbing;
+}

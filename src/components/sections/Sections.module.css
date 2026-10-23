@@ -1,0 +1,1547 @@
+/* Shared styles for the data-driven page sections. Colour and type come from src/index.css tokens. */
+
+.section {
+  padding-top: 64px;
+  padding-bottom: 8px;
+}
+
+/* Card and logo sections sit on the light band, as in the design; touching bands merge. */
+.bandSurface {
+  background: var(--surface);
+  margin-top: 56px;
+  padding-bottom: 56px;
+}
+
+.bandSurface + .bandSurface {
+  margin-top: 0;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+  margin-bottom: 36px;
+}
+
+.headCenter {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.leadLight {
+  color: var(--on-band-muted);
+}
+
+/* Hero */
+
+/* Heroes are white; a soft pale-green glow bleeds in at the right edge,
+   behind the image, and the eyebrow carries the guide's hairline-and-dot. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  color: var(--ink);
+  padding: 88px 0 96px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -14vw;
+  width: 62vw;
+  height: 160%;
+  background: radial-gradient(closest-side, var(--green-100) 0%, var(--green-50) 42%, transparent 100%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.heroCopy :global(.eyebrow) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* A catch phrase typed out in a frosted pill above the page label. Its width is held by the full
+   line from the first frame, so nothing below it shifts while the letters are typed. */
+.heroAnnounce {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px 10px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(10, 22, 44, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  font-size: clamp(17px, 1.55vw, 22px);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  max-width: 100%;
+}
+
+@media (max-width: 520px) {
+  .heroAnnounce {
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 10px 16px 10px 10px;
+  }
+}
+
+.heroAnnounceIcon {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+}
+
+/* The page label ("Products · Tracking & Telematics") reads in the wordmark's navy on the white hero. */
+.heroCopy :global(.eyebrow)::after {
+  content: '';
+  width: 56px;
+  height: 7px;
+  background:
+    radial-gradient(circle, var(--accent) 2.6px, transparent 3.2px) right center / 7px 7px no-repeat,
+    linear-gradient(var(--line-2), var(--line-2)) left center / calc(100% - 9px) 1px no-repeat;
+}
+
+.heroPhoto {
+  background-size: cover;
+  /* The photo's subject, the truck and its lit e-lock, sits left of the copy column. */
+  background-position: right 55%;
+  color: var(--on-band);
+}
+
+.heroPhoto::before {
+  inset: 0;
+  width: auto;
+  height: auto;
+  opacity: 1;
+}
+
+/*
+ * No colour wash over the photo: the copy takes the right-hand column, and a shade in the brand black
+ * falls in from that edge only, fading out before the truck and its lit e-lock on the left, which stay
+ * true to life. On narrow screens the copy spans the photo, so the shade covers it all and a light blur
+ * turns the container's stencilled lettering into texture behind the type.
+ */
+.heroPhoto::before {
+  background: linear-gradient(270deg, rgba(10, 11, 9, 0.66) 0%, rgba(10, 11, 9, 0.62) 48%, transparent 55%);
+}
+
+@media (min-width: 901px) {
+  .heroPhoto .heroCopy {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroPhoto {
+    background-position: 40% center;
+  }
+
+  .heroPhoto::before {
+    background: linear-gradient(180deg, rgba(10, 11, 9, 0.7), rgba(10, 11, 9, 0.84));
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+}
+
+.heroPhoto h1,
+.heroPhoto .heroLead,
+.heroPhoto :global(.eyebrow) {
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Pale green is lost over a busy photo; the page label goes white there. */
+.heroPhoto :global(.eyebrow) {
+  color: var(--on-band);
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  position: relative;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 640px;
+}
+
+.heroLead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 560px;
+  text-wrap: pretty;
+}
+
+.heroPhoto .heroLead {
+  color: var(--on-band);
+}
+
+/* A hairline outline vanishes on a photo; a solid white rim and a frosted fill hold it. */
+.heroPhoto :global(.btn--outline-light) {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.heroPhoto :global(.btn--outline-light):hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* The corner frame sits outside the pill; pull it back so the pill lines up with the copy. The right
+   side keeps the frame's room, which spaces the next button. */
+.heroDemo {
+  margin: -14px 0 -14px -18px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Sticky rail */
+
+.rail {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.railInner {
+  display: flex;
+  gap: 6px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.railInner::-webkit-scrollbar {
+  display: none;
+}
+
+/* While more pills sit off to the right (data-more, set by the component) the edge dissolves as a cue. */
+.railInner[data-more] {
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent);
+}
+
+.railPill {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.railPill:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.railPillOn {
+  background: var(--accent-solid);
+  color: var(--on-accent);
+}
+
+.railPillOn:hover {
+  background: var(--accent-solid);
+  color: var(--on-accent);
+}
+
+/* Proof strip */
+
+.proof {
+  padding-top: 36px;
+  font-size: 14px;
+  color: var(--ink-3);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Cards */
+
+.cards {
+  display: grid;
+  gap: 16px;
+}
+
+.cols1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* A centred set: a single card keeps a readable width in the middle of the page, its text centred. */
+.cardsCenter {
+  justify-content: center;
+}
+
+.cols1.cardsCenter {
+  grid-template-columns: minmax(0, 560px);
+}
+
+.cardsCenter .card {
+  align-items: center;
+  text-align: center;
+}
+
+.cardsCenter .cardImage {
+  align-self: stretch;
+}
+
+.cols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cols4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* White cards with a hairline. */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  box-shadow: inset 0 3px 0 var(--card-accent);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.cardLink:hover {
+  border-color: #e3e9e1;
+  color: var(--ink);
+  box-shadow:
+    var(--shadow-card),
+    inset 0 3px 0 var(--card-accent);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--green-50);
+  color: var(--green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  margin: -8px -8px 6px;
+}
+
+.cardRelated {
+  padding: 8px 8px 20px;
+}
+
+.cardRelated .cardTitle,
+.cardRelated .cardBody,
+.cardRelated .cardMore {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.cardRelated .cardImage {
+  margin: 0 0 8px;
+}
+
+/* The statement above a card grid: no box of its own, set like a section title under a small label. */
+.card.cardLead {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 32px;
+  gap: 12px;
+}
+
+.cardLead .cardTitle {
+  margin: 0;
+  font-family: inherit;
+}
+
+.cardLeadText {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-synthesis: none;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-wrap: pretty;
+  color: var(--heading);
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.cardBody {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+.cardPoints li {
+  font-size: 14px;
+}
+
+.cardMore {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-text);
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* Bullets */
+
+/* Outranks the global .checklist flex column, which would otherwise
+   leave grid-template-columns inert and stack every list one-up. */
+ul.bullets {
+  display: grid;
+  gap: 12px 32px;
+}
+
+.bulletsCols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bulletsCols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Split */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.splitReverse .splitMedia {
+  order: 2;
+}
+
+/* The image runs the full height of the copy beside it. */
+.splitFill {
+  align-items: stretch;
+}
+
+.splitFill .splitMedia {
+  height: 100%;
+  min-height: 360px;
+}
+
+.splitCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.splitTitle {
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-wrap: pretty;
+  color: var(--heading);
+}
+
+/* Without an eyebrow, a short green dash opens the copy. */
+.splitTitle:first-child::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+
+.points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.point {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.pointTitle {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.pointBody {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+/* Story: a long company story as lede and facts, themed cards, then the named clients */
+
+/* Dt sits after dd visually: the figure leads, the label explains it. */
+.storyFacts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.storyFact {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.storyFactValue {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--heading);
+}
+
+.storyFactLabel {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+.storyThemes {
+  margin-top: 56px;
+}
+
+.storyClients {
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+/* On the light band the panel drops its own box and joins the band. */
+.storyClients.storyClientsFlat {
+  margin-top: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+
+/* Doubled class outranks .logos, which is declared further down. */
+.logos.storyLogos {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+/* Taller than the name tiles so a wordmark sets at a legible size. */
+.storyLogos .logo {
+  height: 84px;
+  padding: 0 18px;
+  background: var(--white);
+  border-color: var(--line);
+}
+
+.logoImg {
+  max-width: 100%;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.storyClosing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.storyClosing .lead {
+  max-width: 720px;
+}
+
+/* Stats */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.stat {
+  background: var(--white);
+  box-shadow: inset 0 4px 0 var(--card-accent);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statValue {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.statLabel {
+  font-size: 14px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+/* Before / after */
+
+/* A module graphic (the source site's dashboard mockups) sits beside the heading at its own size. */
+.baIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.baHeadCopy {
+  margin-bottom: 0;
+}
+
+.baMedia {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .baIntro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .baMedia {
+    max-width: 360px;
+  }
+}
+
+.ba {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.baCol {
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.baBefore {
+  background: var(--surface);
+}
+
+/* The improved state sits on a pale green tint; its ticks are the ordinary green ones. */
+.baAfter {
+  background: var(--green-100);
+  color: var(--ink-2);
+}
+
+.baHead {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.baBefore .baHead {
+  color: var(--ink-3);
+}
+
+.baAfter .baHead {
+  color: var(--accent-text);
+}
+
+.baList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.baList li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.baList li::before {
+  content: '✕';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--line-2);
+  color: var(--ink);
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Tabs */
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tab {
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tabOn,
+.tabOn:hover {
+  background: var(--accent-solid);
+  color: var(--on-accent);
+}
+
+.tabPanel {
+  animation: fade-in-up 0.25s ease both;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.tabTitle {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Steps */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  counter-reset: step;
+  /* An ordered list: the global reset only clears <ul>, and the browser's own indent overflowed phones. */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stepNum {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepTitle {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.stepBody {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+/* Spotlight */
+
+/* The hardware spotlight is a plain white panel with a hairline. */
+.spotlight {
+  background: var(--band);
+  border: 1px solid var(--line);
+  color: var(--on-band);
+  --heading: var(--on-band);
+  --heading-plain: var(--on-band);
+  border-radius: 24px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.spotlightCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.spotlight :focus-visible,
+.ctaBand :focus-visible {
+  outline-color: var(--on-band-accent);
+}
+
+.spotlightBody {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--on-band-muted);
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 16px;
+  border-top: 1px solid var(--on-band-line);
+  padding-top: 18px;
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.specValue {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--on-band-accent);
+}
+
+.specLabel {
+  font-size: 13px;
+  color: var(--on-band-muted);
+}
+
+/* Links */
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.linkColTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+}
+
+.linkColTitle::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: var(--accent-text-hover);
+}
+
+/* FAQ */
+
+.faq {
+  max-width: 860px;
+  border-top: 1px solid var(--line);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+.faqBtn {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.faqBtn:hover {
+  color: var(--accent-text-hover);
+}
+
+/* A green disc with a white plus, which makes a quarter turn into a minus as the answer opens. */
+.faqIcon {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faqIconOpen {
+  transform: rotate(90deg);
+}
+
+.faqIcon::before,
+.faqIcon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+.faqIcon::before {
+  left: 8px;
+  right: 8px;
+  top: 13px;
+  height: 2px;
+}
+
+.faqIcon::after {
+  top: 8px;
+  bottom: 8px;
+  left: 13px;
+  width: 2px;
+}
+
+.faqIconOpen::before {
+  transform: scaleX(0);
+}
+
+/*
+ * The answer eases open and shut on the grid-template-rows transition the VengeanceUI
+ * faq-accordion uses (registry: .../public/r/faq-accordion.json), the same trick as the
+ * header's mobile accordion. The clip row is what actually grows; the copy fades in a beat later.
+ */
+.faqPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faqPanelOpen {
+  grid-template-rows: 1fr;
+}
+
+.faqPanelClip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faqPanelBody {
+  padding: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 720px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.faqPanelOpen .faqPanelBody {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.06s;
+}
+
+/* Logos */
+
+.logosSection {
+  padding-top: 56px;
+}
+
+.logosTitle {
+  margin-bottom: 16px;
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.logo {
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.logoDark {
+  border-color: var(--on-band-line);
+  background: var(--surface);
+  color: var(--on-band-muted);
+}
+
+/* CTA band */
+
+/* The closing panel is plain white with a hairline, navy titles and the navy button. */
+.ctaBand {
+  border: 1px solid var(--line);
+  --heading: var(--on-band);
+  --heading-plain: var(--on-band);
+  background: var(--band);
+  color: var(--on-band-muted);
+  border-radius: 24px;
+  padding: 56px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.ctaCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.ctaBody {
+  font-size: 16px;
+  color: var(--on-band-muted);
+  line-height: 1.5;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* The corner frame sits outside the pill; cancel it so the pill lines up with its neighbour. */
+.ctaCorner {
+  margin: -14px -18px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+  }
+
+  .bandSurface {
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .hero {
+    padding: 56px 0 64px;
+  }
+
+  .heroInner,
+  .split,
+  .spotlight,
+  .ba {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .splitReverse .splitMedia {
+    order: 0;
+  }
+
+  /* Stacked, it goes back to a 4 : 3 frame. */
+  .splitFill .splitMedia {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .cols3,
+  .cols4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bulletsCols3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .links,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight {
+    padding: 28px;
+  }
+
+  .ctaBand {
+    padding: 36px 28px;
+  }
+
+  .logos,
+  .logos.storyLogos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .storyThemes {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cols2,
+  .cols3,
+  .cols4,
+  .bulletsCols2,
+  .bulletsCols3,
+  .points {
+    grid-template-columns: 1fr;
+  }
+
+  .logos,
+  .logos.storyLogos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Seven logos: the last one sits centred under the pairs. */
+  .storyLogos .logo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 6px);
+  }
+
+  .storyFacts {
+    grid-template-columns: 1fr;
+  }
+
+  .storyClients {
+    padding: 20px;
+  }
+
+  .storyThemes {
+    margin-top: 32px;
+  }
+
+  .tabPanel {
+    padding: 20px;
+  }
+
+  .hero {
+    padding: 40px 0 56px;
+  }
+
+  .heroCopy {
+    gap: 18px;
+  }
+
+  .heroLead {
+    font-size: 17px;
+  }
+
+  .card,
+  .step,
+  .baCol,
+  .stat {
+    padding: 20px;
+  }
+
+  .statValue {
+    font-size: 32px;
+  }
+
+  .spotlight {
+    padding: 24px 20px;
+    gap: 24px;
+  }
+
+  .ctaBand {
+    padding: 32px 20px;
+    gap: 24px;
+  }
+
+  .ctaActions {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .link {
+    display: inline-block;
+    padding: 6px 0;
+    margin: -6px 0;
+  }
+
+  .faqBtn {
+    padding: 20px 0;
+  }
+}
+
+/* Product cards */
+
+/*
+ * The Products page's platform grid. Seven products wrap four to a row and the short last row sits
+ * centred, so no card is left alone at the left edge. Each card leads with a large icon tile that
+ * turns green on hover, and closes on the page-label hairline and dot.
+ */
+.cards.cardsProduct {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card.cardProduct {
+  flex: 0 1 calc(25% - 15px);
+  min-width: 0;
+  gap: 0;
+  padding: 28px 28px 24px;
+  border-radius: 20px;
+}
+
+.cardProduct .cardIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+  background: var(--green-50);
+  color: var(--green);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.cardProduct:hover .cardIcon {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.cardProduct .cardTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--heading-plain);
+  margin-bottom: 10px;
+  text-wrap: pretty;
+}
+
+.cardProduct .cardBody {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.cardProduct .cardMore {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* The page-label hairline, ending in its green dot, leads into the link. */
+.cardProduct .cardMore::before {
+  content: '';
+  flex: 1;
+  height: 7px;
+  background:
+    radial-gradient(circle, var(--accent) 2.6px, transparent 3.2px) right center / 7px 7px no-repeat,
+    linear-gradient(var(--line-2), var(--line-2)) left center / calc(100% - 9px) 1px no-repeat;
+}
+
+@media (max-width: 1100px) {
+  .card.cardProduct {
+    flex-basis: calc(33.333% - 13.334px);
+  }
+}
+
+@media (max-width: 900px) {
+  .card.cardProduct {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 520px) {
+  .card.cardProduct {
+    flex-basis: 100%;
+    padding: 24px 24px 20px;
+  }
+}
+
+/* A compact hero: a long headline set smaller so the copy stands about as tall as the image beside it. */
+.heroCompact .heroCopy {
+  gap: 18px;
+}
+
+.heroCompact :global(.h-page) {
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heroCompact .heroLead {
+  font-size: 16px;
+}
+
+/* ---------- Revenue authorities panel (About overview, Oct 2026) ----------
+   Sits above the client logos in the same pale panel; six emblem-style marks, so the tiles run
+   taller than the client wordmarks and the logos set larger. */
+.storyAuthorities + .storyClients {
+  margin-top: 24px;
+}
+
+.logos.authorityLogos {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.authorityLogos .logo {
+  height: 116px;
+  padding: 12px 16px;
+  background: var(--white);
+  border-color: var(--line);
+}
+
+.authorityImg {
+  max-width: 100%;
+  max-height: 84px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.authorityNote {
+  margin-top: 24px;
+  max-width: 860px;
+}
+
+@media (max-width: 900px) {
+  .logos.authorityLogos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .logos.authorityLogos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .authorityLogos .logo {
+    height: 96px;
+  }
+
+  .authorityImg {
+    max-height: 68px;
+  }
+}
+
+/* ---------- One logo panel (Oct 2026) ----------
+   The revenue authorities and the clients share one pale panel. Each authority carries its
+   country in quiet small type under the tile, and a soft divider separates the two groups. */
+.authorityLogos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.authorityItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.authorityItem .logo {
+  width: 100%;
+}
+
+.authorityCountry {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+/* A hairline that fades in from both ends, with a small green diamond at its centre. */
+.logoDivider {
+  position: relative;
+  height: 1px;
+  margin: 88px 0 80px;
+  background: linear-gradient(90deg, transparent, var(--line-2) 18%, var(--line-2) 82%, transparent);
+}
+
+.logoDivider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border: 3px solid var(--surface);
+  box-sizing: content-box;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 2px;
+}
+
+@media (max-width: 520px) {
+  .logoDivider {
+    margin: 60px 0 54px;
+  }
+}
+
+/* The country label underlines itself as the pointer arrives on the tile or the word: a green
+   line draws in from the left, and on leaving it carries on out to the right. */
+.authorityCountry {
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.3s ease;
+}
+
+.authorityCountry::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.authorityItem:hover .authorityCountry {
+  color: var(--ink);
+}
+
+.authorityItem:hover .authorityCountry::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}

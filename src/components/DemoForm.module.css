@@ -1,0 +1,138 @@
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 4px 0 var(--card-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Full-width corner button; the frame's padding is pulled back so the pill spans the form. */
+.submit {
+  align-self: stretch;
+  margin: -8px -18px -14px;
+}
+
+/* The same corner as the header's demo pill: ends rounded over the button's full height, 12px deep.
+   (The pill's own percentage radius would round a third of this full-width button.) It keeps that
+   corner on hover and press; 52px keeps a comfortable touch target. */
+.submit button,
+.submit button:hover,
+.submit button:active {
+  width: 100%;
+  border-radius: 12px / 50%;
+  min-height: 52px;
+}
+
+.finePrint {
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+/* Sent state */
+
+.check {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.thanks {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.thanksBody {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.survey {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.surveyQuestion {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.surveyHint {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: var(--white);
+  color: var(--ink);
+  border: 1.5px solid var(--line-2);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chipOn {
+  background: var(--green-100);
+  color: var(--navy);
+  border-color: var(--green-300);
+}
+
+.surveySent {
+  font-size: 13px;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.again {
+  background: transparent;
+  border: 0;
+  color: var(--ink-3);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+.again:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 24px;
+  }
+}
