@@ -302,14 +302,15 @@
     flex: 1;
   }
 
-  /* On phones the video is a portrait 3:4 frame. */
+  /* On phones the whole 16:9 film shows, so its title reads in full; the badge and the alert sit in the
+     dark bands above and below it. */
   .media {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1 / 1;
+    background: #050805;
   }
 
-  /* Keep the truck's e-lock, on the right of the footage, in the narrower frame. */
   .video {
-    object-position: 72% center;
+    object-fit: contain;
   }
 
   .alert {
