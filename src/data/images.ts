@@ -229,11 +229,10 @@ export const img = {
     height: 438,
   },
   maintenanceAppSchedule: {
-    src: '/images/maintenance-app-schedule.webp',
-    alt: 'Preventive maintenance schedule and service calendar in the mobile app',
-    width: 505,
-    height: 572,
-    fit: 'contain',
+    src: '/images/inspection-records-app.webp',
+    alt: 'OnTrack app showing a pre-trip checklist with driver signature and a list of completed vehicle inspection records',
+    width: 1440,
+    height: 1080,
   },
   maintenanceChecklist: {
     src: '/images/maintenance-checklist.webp',
