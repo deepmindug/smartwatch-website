@@ -1,6 +1,6 @@
 import { img } from './images'
 import { routes } from './site'
-import type { IconName, Img } from './types'
+import type { IconName, Img, Video } from './types'
 
 export type Pillar = {
   slug: string
@@ -13,6 +13,8 @@ export type Pillar = {
   body: string
   points: string[]
   image?: Img
+  /** Plays in the image's place when set. */
+  video?: Video
   /** Placeholder label when no image exists yet. */
   imageLabel: string
 }
@@ -56,6 +58,11 @@ export const pillars: Pillar[] = [
       'Driver app for inspections and reports',
     ],
     image: img.inspectionClipboard,
+    video: {
+      src: '/images/compliance-glass.mp4',
+      poster: '/images/compliance-glass-poster.webp',
+      alt: 'Hours of Service dashboard on glass panels: drive time left, HOS violations, driver score and a compliant ELD badge',
+    },
     imageLabel: 'compliance dashboard screenshot',
   },
   {

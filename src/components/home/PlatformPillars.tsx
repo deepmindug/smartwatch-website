@@ -124,7 +124,9 @@ export default function PlatformPillars() {
             </div>
           </div>
           <Media
+            key={pillar.slug}
             image={pillar.image}
+            video={pillar.video}
             label={pillar.imageLabel}
             ratio="4 / 3"
             radius={20}
