@@ -331,10 +331,10 @@ export const img = {
     height: 333,
   },
   partnerFistBump: {
-    src: '/images/partner-fist-bump.webp',
-    alt: 'Three partners bumping fists over business reports',
-    width: 500,
-    height: 750,
+    src: '/images/expert-community-map.webp',
+    alt: 'Glowing green contour map linking a community of experts, new ideas and training around one central point',
+    width: 1600,
+    height: 1200,
   },
   appOnPhone: {
     src: '/images/app-on-phone.webp',
