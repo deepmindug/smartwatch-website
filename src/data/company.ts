@@ -56,7 +56,7 @@ export const leadership: DetailPage = {
         'Smartwatch Solutions, established in Uganda and Kenya in 2011, is a leading provider of mobile asset management and fleet management software and services in the East and Horn of Africa region, including Ethiopia and Djibouti.',
         'Serving sectors such as transport, energy and utilities, we support commercial fleets, remote generators and smart metering, with a strong client base of oil and gas firms, telecoms, NGOs and government institutions.',
       ],
-      media: img.truckConvoyHighway,
+      media: img.heritageEvolutionWide,
       cta: { label: 'Read our full heritage', to: `${routes.about}#${anchors.heritage}` },
     },
     { kind: 'related', id: 'related', title: 'More about the company', slugs: [routes.about, routes.careers, routes.partners] },

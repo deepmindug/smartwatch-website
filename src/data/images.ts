@@ -317,6 +317,13 @@ export const img = {
     width: 880,
     height: 1168,
   },
+  /** The heritage picture widened to 4 : 3 with its own backdrop, for frames that show it landscape. */
+  heritageEvolutionWide: {
+    src: '/images/heritage-evolution-wide.webp',
+    alt: 'Fleet tracking through the years: a rotary phone and paper map, then satellite GPS over a map of Africa on a desktop window, then an AI dashboard with a live map on a smartphone',
+    width: 1253,
+    height: 940,
+  },
   yardSupervisorTablet: {
     src: '/images/yard-supervisor-tablet.webp',
     alt: 'Fleet supervisor checking a tablet in front of parked blue trucks',
