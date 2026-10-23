@@ -166,10 +166,10 @@ export const img = {
     height: 880,
   },
   routePlanning: {
-    src: '/images/route-planning.webp',
-    alt: 'Model truck and parcels laid out on a route map',
-    width: 667,
-    height: 1000,
+    src: '/images/route-optimisation.webp',
+    alt: 'Container truck on a highway outside the city, with an optimised green route, stops and a fuel point traced in the sky above',
+    width: 1168,
+    height: 880,
   },
   complianceTablet: {
     src: '/images/driver-scorecard-tablet.webp',
