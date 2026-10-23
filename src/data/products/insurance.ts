@@ -17,10 +17,10 @@ export const page: DetailPage = {
     tone: 'dark',
     balanced: true,
     media: {
-      src: '/images/insurance-shield.webp',
-      alt: 'Glowing green check on a black shield ringed by data lines, beside a car key and a phone showing a protected policy dashboard',
-      width: 1000,
-      height: 750,
+      src: '/images/insurance-claim-roadside.webp',
+      alt: 'Roadside accident scene with broken glass and a traffic cone, a claim form on a clipboard and a phone showing the vehicle’s tracked location and crash alert',
+      width: 1168,
+      height: 880,
     },
   },
   sections: [
