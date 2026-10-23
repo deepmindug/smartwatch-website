@@ -393,10 +393,10 @@ export const img = {
     height: 880,
   },
   mapPinMacro: {
-    src: '/images/map-pin-macro.webp',
-    alt: 'Glossy red location pin hovering over a city map',
-    width: 670,
-    height: 1200,
+    src: '/images/driver-ontrack-app.webp',
+    alt: 'Smiling delivery driver beside his refrigerated van, holding up the OnTrack app showing his verified profile and live route',
+    width: 1168,
+    height: 880,
   },
   phoneRouteMap: {
     src: '/images/phone-route-map.webp',
