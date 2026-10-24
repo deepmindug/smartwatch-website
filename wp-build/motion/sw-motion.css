@@ -1,0 +1,47 @@
+/* Smartwatch Solutions motion layer: targets semantic classes only, never content. */
+:root { --sw-header-h: 0px; }
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: calc(var(--sw-header-h) + 64px); }
+
+/* Headline words */
+.sw-js .hero-headline .sw-word { display: inline-block; opacity: 0; transform: translateY(0.45em); animation: sw-rise .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--i) * 70ms + 150ms); }
+@keyframes sw-rise { to { opacity: 1; transform: none; } }
+
+/* Hero word chips */
+.hero-words .hero-word .elementor-button { transition: background-color .3s, color .3s, box-shadow .3s; }
+.hero-words .hero-word.is-active .elementor-button { box-shadow: inset 0 -3px 0 var(--e-global-color-primary); color: var(--e-global-color-secondary); }
+
+/* Hero media accents */
+.sw-js .hero-alert { opacity: 0; transform: translateY(16px); animation: sw-rise .6s ease-out 1.1s forwards; box-shadow: 0 18px 40px rgba(17,26,46,.18); }
+.sw-js .hero-badge { opacity: 0; transform: scale(.9); animation: sw-pop .6s ease-out .8s forwards; }
+@keyframes sw-pop { to { opacity: 1; transform: none; } }
+.hero-media video { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* Scroll reveal */
+.sw-reveal-armed { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.sw-reveal-armed.is-in { opacity: 1; transform: none; }
+
+/* Cards lift */
+.sw-card { transition: transform .25s ease, box-shadow .25s ease; }
+.sw-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(27,40,69,.08); }
+
+/* Section rail: sticky under the header, highlights the section in view */
+.sw-rail { position: sticky; top: var(--sw-header-h); z-index: 20; }
+.sw-rail .elementor-button { white-space: nowrap; }
+.sw-rail .is-current .elementor-button, .sw-rail .elementor-button.is-current { background: var(--e-global-color-primary) !important; color: #fff !important; }
+.sw-rail a.is-current { background: var(--e-global-color-primary) !important; color: #fff !important; }
+
+/* Logo carousel: even logo heights */
+.logo-row .swiper-slide-image { height: 64px; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; }
+
+/* Media in fixed frames */
+.sw-media-video video { display: block; width: 100%; height: auto; }
+
+/* Header: keep buttons on one line */
+.sw-header-actions .xpro-elementor-button { white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sw-js .hero-headline .sw-word, .sw-js .hero-alert, .sw-js .hero-badge { animation: none; opacity: 1; transform: none; }
+  .sw-reveal-armed { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
