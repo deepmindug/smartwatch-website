@@ -223,3 +223,7 @@ body.sw-drawer-open { overflow: hidden; }
   .sw-mega .sw-promo { flex-basis: 260px !important; width: 260px !important; }
 }
 @media (max-width: 1100px) { .sw-mega .sw-promo { display: none !important; } }
+
+/* floating panels keep their own widths: the content-width cap on inner boxes is for page layout only */
+.sw-contact-pop, .sw-mega, .sw-drawer, .sw-wa, .sw-wa > .e-con, .sw-cov-grid > .sw-cov-map { max-width: none !important; }
+.sw-contact-pop { width: 300px !important; }
