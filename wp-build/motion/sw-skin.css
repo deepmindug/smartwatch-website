@@ -715,3 +715,4 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 @media (max-width: 520px) { .res-post > .e-con:first-child { flex-basis: 96px !important; width: 96px !important; } .res-thumb img { width: 96px !important; height: 72px !important; } }
 /* fixed-width inner boxes never run past their parent on narrow screens */
 .e-con.e-child { max-width: 100%; }
+.sw-checklist .elementor-icon-list-text { min-width: 0; overflow-wrap: anywhere; }
