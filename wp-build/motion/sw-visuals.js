@@ -642,12 +642,22 @@
       }
       raf = requestAnimationFrame(frame);
     }
+    // The footer sits pinned under the page for its reveal, so it always "intersects" the viewport.
+    // It only animates once the page above has actually scrolled off it.
+    var page = el.closest('.sw-footer') ? (document.getElementById('content') || document.querySelector('.site-content')) : null;
+    var uncovered = function () { return !page || page.getBoundingClientRect().bottom < window.innerHeight - 8; };
+    var wasUncovered = uncovered();
+    if (page) window.addEventListener('scroll', function () {
+      var u = uncovered();
+      if (u !== wasUncovered) { wasUncovered = u; start(); }
+    }, { passive: true });
     function start() {
       cancelAnimationFrame(raf);
-      if (!visible || document.hidden) { draw(); return; }
+      if (!visible || document.hidden || !uncovered()) { return; }
       last = performance.now();
       raf = requestAnimationFrame(frame);
     }
+    draw();
     start();
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(function () { fit(); draw(); }).observe(canvas);
     if (typeof IntersectionObserver !== 'undefined') {
