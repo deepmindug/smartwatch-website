@@ -725,3 +725,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
   .sw-bento > .sw-bento-row { display: contents !important; }
   .sw-bento .sw-bento-card { scroll-snap-align: start; flex: 0 0 min(84vw, 360px) !important; width: min(84vw, 360px) !important; max-width: none !important; min-height: 320px; }
 }
+/* forms: paired fields stack at phone width, as on the React page */
+@media (max-width: 520px) {
+  .sw-wpform .wpforms-field.wpforms-one-half { width: 100% !important; margin-left: 0 !important; float: none !important; clear: both; }
+}
