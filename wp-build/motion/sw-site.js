@@ -40,6 +40,12 @@
       (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
     }
     window.swLenis = lenis;
+    // Panels with their own scroll keep the wheel to themselves.
+    $$('.sw-drawer-scroll, .sw-mega').forEach(function (el) { el.setAttribute('data-lenis-prevent', ''); });
+    // The page stands still while the drawer is open.
+    new MutationObserver(function () {
+      if (document.body.classList.contains('sw-drawer-open')) lenis.stop(); else lenis.start();
+    }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   }
   // In-page anchors glide to their section and land clear of the sticky bars.
   document.addEventListener('click', function (e) {

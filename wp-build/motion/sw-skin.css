@@ -733,3 +733,15 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-disclaimer-band > .e-con-inner, .sw-disclaimer-band { padding-top: 0 !important; padding-bottom: 24px !important; }
 .sw-disclaimer-band > .e-con-inner { padding-bottom: 0 !important; }
 .sw-disclaimer-band p, .sw-disclaimer-band .elementor-widget-container { font-size: 12px !important; line-height: normal !important; margin: 0; }
+
+/* smooth scrolling: Lenis drives the page, so the browser's own smooth scroll must be off (Astra turns it on).
+   These are Lenis's own base rules, as the React site ships them. */
+html, html.lenis { scroll-behavior: auto !important; }
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent], .lenis [data-lenis-prevent-wheel], .lenis [data-lenis-prevent-touch] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* checklist ticks: the icon box carries no padding, so the tick sits dead centre in its green disc */
+.sw-checklist .elementor-icon-list-icon { padding: 0 !important; margin: 2px 0 0 0 !important; box-sizing: border-box; line-height: 0 !important; }
+.sw-checklist .elementor-icon-list-icon svg { display: block; position: static !important; top: auto !important; }
