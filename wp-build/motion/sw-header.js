@@ -132,10 +132,12 @@
       var from = reduce ? { autoAlpha: 0 } : { autoAlpha: 0, scale: 0.94, transformOrigin: origin, filter: function () { return window.innerWidth > 900 ? 'blur(10px)' : 'blur(0px)'; } };
       var to = reduce ? { autoAlpha: 1 } : { autoAlpha: 1, scale: 1, filter: 'blur(0px)' };
       if (!apple) {
-        var measure = function () { footer.style.setProperty('--footer-h', footer.offsetHeight + 'px'); };
+        // Pin the outermost footer box: sticky only holds inside a parent taller than itself.
+        var pin = footer.closest('#xpro-theme-builder-footer') || footer;
+        var measure = function () { pin.style.setProperty('--footer-h', pin.offsetHeight + 'px'); };
         measure();
-        footer.setAttribute('data-pinned', '');
-        if (window.ResizeObserver) new ResizeObserver(measure).observe(footer);
+        pin.setAttribute('data-pinned', '');
+        if (window.ResizeObserver) new ResizeObserver(measure).observe(pin);
         G.fromTo(inner, from, Object.assign({}, to, { ease: 'none', scrollTrigger: { trigger: page, start: 'bottom bottom', end: function () { return '+=' + Math.round(hold() * 0.85); }, scrub: true, invalidateOnRefresh: true, onRefreshInit: measure } }));
       } else {
         var tl = G.timeline({ scrollTrigger: { trigger: footer, start: 'top bottom', end: function () { return '+=' + hold(); }, scrub: true, invalidateOnRefresh: true } });

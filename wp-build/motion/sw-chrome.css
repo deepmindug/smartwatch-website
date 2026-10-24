@@ -122,8 +122,8 @@ body.sw-drawer-open { overflow: hidden; }
 /* ---------------------------------------------------------------- footer */
 #content, .site-content { position: relative; z-index: 1; background: var(--white); }
 .sw-footer { position: relative; color: #fff; }
-.sw-footer[data-pinned] { position: sticky !important; bottom: min(0px, calc(100vh - var(--sw-header-h, 84px) - var(--footer-h, 0px))); bottom: min(0px, calc(100svh - var(--sw-header-h, 84px) - var(--footer-h, 0px))); z-index: 0; }
-.xpro-theme-builder-footer, footer.site-footer { position: relative; z-index: 0; }
+#xpro-theme-builder-footer[data-pinned], .sw-footer[data-pinned] { position: sticky !important; bottom: min(0px, calc(100vh - var(--sw-header-h, 84px) - var(--footer-h, 0px))); bottom: min(0px, calc(100svh - var(--sw-header-h, 84px) - var(--footer-h, 0px))); z-index: 0; }
+#xpro-theme-builder-footer, .xpro-theme-builder-footer, footer.site-footer { position: relative; z-index: 0; }
 .sw-ft-reveal { transform-origin: 50% 100%; will-change: opacity, transform, filter; }
 .sw-ft-upper { position: relative; }
 .sw-ft-upper > .sw-pf {
