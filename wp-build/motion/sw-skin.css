@@ -681,3 +681,14 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-legal-bullets ul { padding-left: 20px; list-style: disc; display: flex; flex-direction: column; gap: 6px; margin: 0; }
 .sw-legal-bullets li { font-size: 16px; line-height: 1.6; }
 .sw-office-city .elementor-heading-title { font-size: 18px !important; }
+/* RECTS grid: the map frame runs under the boxes either side, as in the React grid */
+.sw-cov-grid { position: relative; }
+.sw-cov-grid > .sw-cov-pillar { position: relative; z-index: 1; }
+.sw-cov-mapslot { min-height: 360px; }
+.sw-cov-grid > .sw-cov-map { position: absolute !important; z-index: 0; top: 0; bottom: 0; left: 18%; right: 18%; width: auto !important; min-height: 0 !important; }
+@media (max-width: 1180px) {
+  .sw-cov-mapslot { display: none; }
+  .sw-cov-grid > .sw-cov-map { position: relative !important; order: -1; flex: 0 0 100%; left: auto; right: auto; margin: -20px -28px 0; min-height: 560px !important; width: calc(100% + 56px) !important; }
+}
+.sw-cov-num { color: var(--cov-mid); }
+@media (max-width: 1180px) and (min-width: 521px) { .sw-cov-grid > .sw-cov-pillar { width: calc((100% - 14px) / 2) !important; } }
