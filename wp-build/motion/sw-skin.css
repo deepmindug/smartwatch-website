@@ -271,6 +271,9 @@ h1, h2, h3, h4, .elementor-heading-title { font-synthesis: none; text-wrap: pret
   .sw-split-media-wrap:has(.sw-split-fill) { position: relative; min-height: 360px; align-self: stretch; }
   .sw-split-media-wrap .sw-split-fill { position: absolute; inset: 0; }
   .sw-split-fill img, .sw-split-fill video { height: 100% !important; aspect-ratio: auto !important; }
+  /* a split video fills its whole rounded frame, as the photos do (the player box was only 4:3 tall) */
+  .sw-split-fill.sw-video div { height: 100% !important; aspect-ratio: auto !important; }
+  .sw-split-fill.sw-video video { width: 100% !important; object-fit: cover; display: block; }
 }
 
 /* Cards */
