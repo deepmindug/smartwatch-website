@@ -1,0 +1,1962 @@
+{
+"/images/ai-road-detection.webp": {
+"kind": "img",
+"file": "images__ai-road-detection.webp",
+"w": 825,
+"h": 550,
+"alpha": false,
+"size": 155518
+},
+"/images/app-on-phone.webp": {
+"kind": "img",
+"file": "images__app-on-phone.webp",
+"w": 673,
+"h": 1200,
+"alpha": false,
+"size": 35622
+},
+"/images/bluetruct.webp": {
+"kind": "img",
+"file": "images__bluetruct.webp",
+"w": 1200,
+"h": 1056,
+"alpha": false,
+"size": 108330
+},
+"/images/bus-people-counter-diagram.webp": {
+"kind": "img",
+"file": "images__bus-people-counter-diagram.webp",
+"w": 722,
+"h": 664,
+"alpha": false,
+"size": 54050
+},
+"/images/bus-shelter-boarding.webp": {
+"kind": "img",
+"file": "images__bus-shelter-boarding.webp",
+"w": 521,
+"h": 383,
+"alpha": false,
+"size": 21594
+},
+"/images/bus-smart-transit-43.webp": {
+"kind": "img",
+"file": "images__bus-smart-transit-43.webp",
+"w": 852,
+"h": 639,
+"alpha": false,
+"size": 151594
+},
+"/images/cargo-convoy-tracking.webp": {
+"kind": "img",
+"file": "images__cargo-convoy-tracking.webp",
+"w": 1000,
+"h": 563,
+"alpha": false,
+"size": 41270
+},
+"/images/cargo-elock-centered.webp": {
+"kind": "img",
+"file": "images__cargo-elock-centered.webp",
+"w": 1000,
+"h": 747,
+"alpha": false,
+"size": 42426
+},
+"/images/cargo-elock-trailer.webp": {
+"kind": "img",
+"file": "images__cargo-elock-trailer.webp",
+"w": 900,
+"h": 1200,
+"alpha": false,
+"size": 56040
+},
+"/images/cargo-truck-eseal-night.webp": {
+"kind": "img",
+"file": "images__cargo-truck-eseal-night.webp",
+"w": 1745,
+"h": 1080,
+"alpha": false,
+"size": 83142
+},
+"/images/charging.webp": {
+"kind": "img",
+"file": "images__charging.webp",
+"w": 1200,
+"h": 1056,
+"alpha": false,
+"size": 40398
+},
+"/images/compliance-auto-poster.webp": {
+"kind": "img",
+"file": "images__compliance-auto-poster.webp",
+"w": 1600,
+"h": 1200,
+"alpha": false,
+"size": 23438
+},
+"/images/compliance-auto.mp4": {
+"kind": "mp4",
+"raw": "/images/compliance-auto.mp4"
+},
+"/images/compliance-glass-poster.webp": {
+"kind": "img",
+"file": "images__compliance-glass-poster.webp",
+"w": 1600,
+"h": 1200,
+"alpha": false,
+"size": 34462
+},
+"/images/compliance-glass.mp4": {
+"kind": "mp4",
+"raw": "/images/compliance-glass.mp4"
+},
+"/images/compliance-hos-poster.webp": {
+"kind": "img",
+"file": "images__compliance-hos-poster.webp",
+"w": 960,
+"h": 720,
+"alpha": false,
+"size": 33558
+},
+"/images/compliance-hos.mp4": {
+"kind": "mp4",
+"raw": "/images/compliance-hos.mp4"
+},
+"/images/container-trucks-assets.webp": {
+"kind": "img",
+"file": "images__container-trucks-assets.webp",
+"w": 563,
+"h": 375,
+"alpha": false,
+"size": 26414
+},
+"/images/dashcam-instant-alert.webp": {
+"kind": "img",
+"file": "images__dashcam-instant-alert.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 98988
+},
+"/images/delivery-truck-3d.webp": {
+"kind": "img",
+"file": "images__delivery-truck-3d.webp",
+"w": 500,
+"h": 500,
+"alpha": true,
+"size": 19344
+},
+"/images/device-telematics.webp": {
+"kind": "img",
+"file": "images__device-telematics.webp",
+"w": 700,
+"h": 440,
+"alpha": true,
+"size": 14018
+},
+"/images/driver-dashcam-cutout.webp": {
+"kind": "img",
+"file": "images__driver-dashcam-cutout.webp",
+"w": 1000,
+"h": 799,
+"alpha": true,
+"size": 31918
+},
+"/images/driver-dashcam.webp": {
+"kind": "img",
+"file": "images__driver-dashcam.webp",
+"w": 683,
+"h": 683,
+"alpha": false,
+"size": 12600
+},
+"/images/driver-leaderboard.webp": {
+"kind": "img",
+"file": "images__driver-leaderboard.webp",
+"w": 725,
+"h": 276,
+"alpha": false,
+"size": 17016
+},
+"/images/driver-mirror.webp": {
+"kind": "img",
+"file": "images__driver-mirror.webp",
+"w": 1200,
+"h": 800,
+"alpha": false,
+"size": 40730
+},
+"/images/driver-ontrack-app.webp": {
+"kind": "img",
+"file": "images__driver-ontrack-app.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 63210
+},
+"/images/driver-safety-scorecard.webp": {
+"kind": "img",
+"file": "images__driver-safety-scorecard.webp",
+"w": 1024,
+"h": 688,
+"alpha": false,
+"size": 42788
+},
+"/images/driver-scorecard-tablet.webp": {
+"kind": "img",
+"file": "images__driver-scorecard-tablet.webp",
+"w": 1024,
+"h": 688,
+"alpha": false,
+"size": 43554
+},
+"/images/driver-thumbs-up.webp": {
+"kind": "img",
+"file": "images__driver-thumbs-up.webp",
+"w": 1024,
+"h": 688,
+"alpha": false,
+"size": 48144
+},
+"/images/ea-highway-traffic.webp": {
+"kind": "img",
+"file": "images__ea-highway-traffic.webp",
+"w": 500,
+"h": 333,
+"alpha": false,
+"size": 25318
+},
+"/images/engine-service-diagnostics.webp": {
+"kind": "img",
+"file": "images__engine-service-diagnostics.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 121438
+},
+"/images/engine-telematics-link.webp": {
+"kind": "img",
+"file": "images__engine-telematics-link.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 57188
+},
+"/images/ev-charge-alert.webp": {
+"kind": "img",
+"file": "images__ev-charge-alert.webp",
+"w": 900,
+"h": 792,
+"alpha": false,
+"size": 34564
+},
+"/images/ev-charging-cost.webp": {
+"kind": "img",
+"file": "images__ev-charging-cost.webp",
+"w": 900,
+"h": 792,
+"alpha": false,
+"size": 36986
+},
+"/images/expert-community-map.webp": {
+"kind": "img",
+"file": "images__expert-community-map.webp",
+"w": 1600,
+"h": 1200,
+"alpha": false,
+"size": 172488
+},
+"/images/field-dispatch-map.webp": {
+"kind": "img",
+"file": "images__field-dispatch-map.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 92354
+},
+"/images/field-task-board.webp": {
+"kind": "img",
+"file": "images__field-task-board.webp",
+"w": 1138,
+"h": 786,
+"alpha": false,
+"size": 33126
+},
+"/images/fleet-control-room.webp": {
+"kind": "img",
+"file": "images__fleet-control-room.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 71240
+},
+"/images/fleet-dashboard-screen.webp": {
+"kind": "img",
+"file": "images__fleet-dashboard-screen.webp",
+"w": 1200,
+"h": 672,
+"alpha": false,
+"size": 51868
+},
+"/images/fleet-feature-road.webp": {
+"kind": "img",
+"file": "images__fleet-feature-road.webp",
+"w": 567,
+"h": 567,
+"alpha": false,
+"size": 29122
+},
+"/images/fleet-fuel-dashboard.webp": {
+"kind": "img",
+"file": "images__fleet-fuel-dashboard.webp",
+"w": 1500,
+"h": 695,
+"alpha": false,
+"size": 46262
+},
+"/images/food-cold-chain.webp": {
+"kind": "img",
+"file": "images__food-cold-chain.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 81782
+},
+"/images/fuel-fill-drain-chart.webp": {
+"kind": "img",
+"file": "images__fuel-fill-drain-chart.webp",
+"w": 1300,
+"h": 936,
+"alpha": false,
+"size": 25126
+},
+"/images/fuel-nozzle-hd.webp": {
+"kind": "img",
+"file": "images__fuel-nozzle-hd.webp",
+"w": 1190,
+"h": 1029,
+"alpha": true,
+"size": 65412
+},
+"/images/fuel-sensor-truck.webp": {
+"kind": "img",
+"file": "images__fuel-sensor-truck.webp",
+"w": 736,
+"h": 736,
+"alpha": false,
+"size": 42110
+},
+"/images/fuel-tanker-truck.webp": {
+"kind": "img",
+"file": "images__fuel-tanker-truck.webp",
+"w": 735,
+"h": 490,
+"alpha": false,
+"size": 45068
+},
+"/images/fuel-theft-refuel-alert.webp": {
+"kind": "img",
+"file": "images__fuel-theft-refuel-alert.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 107456
+},
+"/images/government-fleet.svg": {
+"kind": "svg",
+"raw": "/images/government-fleet.svg"
+},
+"/images/gps-handheld.webp": {
+"kind": "img",
+"file": "images__gps-handheld.webp",
+"w": 686,
+"h": 502,
+"alpha": true,
+"size": 27910
+},
+"/images/hardware-devices-card.webp": {
+"kind": "img",
+"file": "images__hardware-devices-card.webp",
+"w": 1298,
+"h": 811,
+"alpha": false,
+"size": 26618
+},
+"/images/hardware-devices.webp": {
+"kind": "img",
+"file": "images__hardware-devices.webp",
+"w": 1000,
+"h": 751,
+"alpha": false,
+"size": 26376
+},
+"/images/hardware/ai-dashcam.webp": {
+"kind": "img",
+"file": "images__hardware__ai-dashcam.webp",
+"w": 760,
+"h": 480,
+"alpha": true,
+"size": 16744
+},
+"/images/hardware/axle-weight-sensors.webp": {
+"kind": "img",
+"file": "images__hardware__axle-weight-sensors.webp",
+"w": 380,
+"h": 240,
+"alpha": false,
+"size": 7680
+},
+"/images/hardware/bus-driver-monitoring.webp": {
+"kind": "img",
+"file": "images__hardware__bus-driver-monitoring.webp",
+"w": 1000,
+"h": 800,
+"alpha": true,
+"size": 36872
+},
+"/images/hardware/dashboard-camera.webp": {
+"kind": "img",
+"file": "images__hardware__dashboard-camera.webp",
+"w": 380,
+"h": 240,
+"alpha": false,
+"size": 2670
+},
+"/images/hardware/eco-panel.webp": {
+"kind": "img",
+"file": "images__hardware__eco-panel.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 1158
+},
+"/images/hardware/engine-block-relay.webp": {
+"kind": "img",
+"file": "images__hardware__engine-block-relay.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 1090
+},
+"/images/hardware/external-antenna.webp": {
+"kind": "img",
+"file": "images__hardware__external-antenna.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 1846
+},
+"/images/hardware/fatigue-sensor.webp": {
+"kind": "img",
+"file": "images__hardware__fatigue-sensor.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 1586
+},
+"/images/hardware/fms-harness.webp": {
+"kind": "img",
+"file": "images__hardware__fms-harness.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 2650
+},
+"/images/hardware/fuel-level-sensor.webp": {
+"kind": "img",
+"file": "images__hardware__fuel-level-sensor.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 1144
+},
+"/images/hardware/gps-tracker.webp": {
+"kind": "img",
+"file": "images__hardware__gps-tracker.webp",
+"w": 380,
+"h": 240,
+"alpha": false,
+"size": 3842
+},
+"/images/hardware/mdvr.webp": {
+"kind": "img",
+"file": "images__hardware__mdvr.webp",
+"w": 760,
+"h": 480,
+"alpha": true,
+"size": 26914
+},
+"/images/hardware/monitor.webp": {
+"kind": "img",
+"file": "images__hardware__monitor.webp",
+"w": 380,
+"h": 240,
+"alpha": false,
+"size": 5206
+},
+"/images/hardware/push-to-talk.webp": {
+"kind": "img",
+"file": "images__hardware__push-to-talk.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 1124
+},
+"/images/hardware/rfid-sensor.webp": {
+"kind": "img",
+"file": "images__hardware__rfid-sensor.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 2306
+},
+"/images/hardware/smart-key.webp": {
+"kind": "img",
+"file": "images__hardware__smart-key.webp",
+"w": 500,
+"h": 200,
+"alpha": false,
+"size": 4502
+},
+"/images/hardware/snapshot-camera.webp": {
+"kind": "img",
+"file": "images__hardware__snapshot-camera.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 2066
+},
+"/images/hardware/splitter-harness.webp": {
+"kind": "img",
+"file": "images__hardware__splitter-harness.webp",
+"w": 180,
+"h": 180,
+"alpha": false,
+"size": 2848
+},
+"/images/heritage-evolution-wide.webp": {
+"kind": "img",
+"file": "images__heritage-evolution-wide.webp",
+"w": 1253,
+"h": 940,
+"alpha": false,
+"size": 32268
+},
+"/images/heritage-evolution.webp": {
+"kind": "img",
+"file": "images__heritage-evolution.webp",
+"w": 880,
+"h": 1168,
+"alpha": false,
+"size": 33322
+},
+"/images/highway-interchange.webp": {
+"kind": "img",
+"file": "images__highway-interchange.webp",
+"w": 1600,
+"h": 1200,
+"alpha": false,
+"size": 260324
+},
+"/images/highway-pair.webp": {
+"kind": "img",
+"file": "images__highway-pair.webp",
+"w": 600,
+"h": 400,
+"alpha": false,
+"size": 19748
+},
+"/images/hw-ai-dashcam.avif": {
+"kind": "img",
+"file": "images__hw-ai-dashcam.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 22924
+},
+"/images/hw-axle-weight-sensors.avif": {
+"kind": "img",
+"file": "images__hw-axle-weight-sensors.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 28778
+},
+"/images/hw-dashboard-camera.avif": {
+"kind": "img",
+"file": "images__hw-dashboard-camera.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 13864
+},
+"/images/hw-eco-panel.avif": {
+"kind": "img",
+"file": "images__hw-eco-panel.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 12612
+},
+"/images/hw-engine-block-relay.avif": {
+"kind": "img",
+"file": "images__hw-engine-block-relay.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 12760
+},
+"/images/hw-external-antenna.avif": {
+"kind": "img",
+"file": "images__hw-external-antenna.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 39084
+},
+"/images/hw-fatigue-sensor.avif": {
+"kind": "img",
+"file": "images__hw-fatigue-sensor.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 16154
+},
+"/images/hw-fms-harness.avif": {
+"kind": "img",
+"file": "images__hw-fms-harness.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 29612
+},
+"/images/hw-fuel-level-sensor.avif": {
+"kind": "img",
+"file": "images__hw-fuel-level-sensor.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 23208
+},
+"/images/hw-gps-tracker.avif": {
+"kind": "img",
+"file": "images__hw-gps-tracker.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 19466
+},
+"/images/hw-mdvr.avif": {
+"kind": "img",
+"file": "images__hw-mdvr.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 35552
+},
+"/images/hw-monitor.avif": {
+"kind": "img",
+"file": "images__hw-monitor.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 28586
+},
+"/images/hw-push-to-talk.avif": {
+"kind": "img",
+"file": "images__hw-push-to-talk.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 11980
+},
+"/images/hw-rfid-sensor.avif": {
+"kind": "img",
+"file": "images__hw-rfid-sensor.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 21988
+},
+"/images/hw-smart-key.avif": {
+"kind": "img",
+"file": "images__hw-smart-key.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 31284
+},
+"/images/hw-snapshot-camera.avif": {
+"kind": "img",
+"file": "images__hw-snapshot-camera.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 26602
+},
+"/images/hw-splitter-harness.avif": {
+"kind": "img",
+"file": "images__hw-splitter-harness.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 32846
+},
+"/images/hw-temperature-sensor.avif": {
+"kind": "img",
+"file": "images__hw-temperature-sensor.webp",
+"w": 800,
+"h": 500,
+"alpha": true,
+"size": 28592
+},
+"/images/inspection-clipboard.webp": {
+"kind": "img",
+"file": "images__inspection-clipboard.webp",
+"w": 500,
+"h": 333,
+"alpha": false,
+"size": 12580
+},
+"/images/inspection-records-app.webp": {
+"kind": "img",
+"file": "images__inspection-records-app.webp",
+"w": 1440,
+"h": 1080,
+"alpha": false,
+"size": 70592
+},
+"/images/installer-laptop.webp": {
+"kind": "img",
+"file": "images__installer-laptop.webp",
+"w": 736,
+"h": 981,
+"alpha": false,
+"size": 100158
+},
+"/images/insurance-claim-roadside.webp": {
+"kind": "img",
+"file": "images__insurance-claim-roadside.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 152914
+},
+"/images/kpmg-top100-seal.webp": {
+"kind": "img",
+"file": "images__kpmg-top100-seal.webp",
+"w": 560,
+"h": 616,
+"alpha": true,
+"size": 50956
+},
+"/images/kra-approved-badge.webp": {
+"kind": "img",
+"file": "images__kra-approved-badge.webp",
+"w": 600,
+"h": 385,
+"alpha": true,
+"size": 19672
+},
+"/images/kra-approved-vendor-clear.webp": {
+"kind": "img",
+"file": "images__kra-approved-vendor-clear.webp",
+"w": 640,
+"h": 406,
+"alpha": true,
+"size": 33008
+},
+"/images/kra-approved-vendor-tile.webp": {
+"kind": "img",
+"file": "images__kra-approved-vendor-tile.webp",
+"w": 520,
+"h": 317,
+"alpha": false,
+"size": 18320
+},
+"/images/kra-approved-vendor.webp": {
+"kind": "img",
+"file": "images__kra-approved-vendor.webp",
+"w": 480,
+"h": 304,
+"alpha": true,
+"size": 16080
+},
+"/images/kra-logo.webp": {
+"kind": "img",
+"file": "images__kra-logo.webp",
+"w": 600,
+"h": 183,
+"alpha": false,
+"size": 13928
+},
+"/images/kra-white.svg": {
+"kind": "svg",
+"raw": "/images/kra-white.svg"
+},
+"/images/laptop.webp": {
+"kind": "img",
+"file": "images__laptop.webp",
+"w": 700,
+"h": 440,
+"alpha": false,
+"size": 10922
+},
+"/images/live-map-tracking-poster.webp": {
+"kind": "img",
+"file": "images__live-map-tracking-poster.webp",
+"w": 932,
+"h": 700,
+"alpha": false,
+"size": 51648
+},
+"/images/live-map-tracking.mp4": {
+"kind": "mp4",
+"raw": "/images/live-map-tracking.mp4"
+},
+"/images/logos/absa.webp": {
+"kind": "img",
+"file": "images__logos__absa.webp",
+"w": 125,
+"h": 120,
+"alpha": false,
+"size": 3336
+},
+"/images/logos/achelis.webp": {
+"kind": "img",
+"file": "images__logos__achelis.webp",
+"w": 323,
+"h": 120,
+"alpha": false,
+"size": 5366
+},
+"/images/logos/airtel.webp": {
+"kind": "img",
+"file": "images__logos__airtel.webp",
+"w": 346,
+"h": 120,
+"alpha": false,
+"size": 4660
+},
+"/images/logos/alpha-logistics.webp": {
+"kind": "img",
+"file": "images__logos__alpha-logistics.webp",
+"w": 168,
+"h": 120,
+"alpha": false,
+"size": 2918
+},
+"/images/logos/amity-finance.webp": {
+"kind": "img",
+"file": "images__logos__amity-finance.webp",
+"w": 420,
+"h": 77,
+"alpha": false,
+"size": 3906
+},
+"/images/logos/aramex.webp": {
+"kind": "img",
+"file": "images__logos__aramex.webp",
+"w": 240,
+"h": 120,
+"alpha": false,
+"size": 4200
+},
+"/images/logos/ashland-motors-africa.webp": {
+"kind": "img",
+"file": "images__logos__ashland-motors-africa.webp",
+"w": 420,
+"h": 87,
+"alpha": false,
+"size": 5012
+},
+"/images/logos/atacama-consulting.webp": {
+"kind": "img",
+"file": "images__logos__atacama-consulting.webp",
+"w": 402,
+"h": 120,
+"alpha": false,
+"size": 6400
+},
+"/images/logos/atc-uganda.webp": {
+"kind": "img",
+"file": "images__logos__atc-uganda.webp",
+"w": 196,
+"h": 120,
+"alpha": false,
+"size": 2372
+},
+"/images/logos/autocheck.webp": {
+"kind": "img",
+"file": "images__logos__autocheck.webp",
+"w": 116,
+"h": 120,
+"alpha": false,
+"size": 2016
+},
+"/images/logos/avenue-insurance-brokers.webp": {
+"kind": "img",
+"file": "images__logos__avenue-insurance-brokers.webp",
+"w": 355,
+"h": 120,
+"alpha": false,
+"size": 7492
+},
+"/images/logos/baker-hughes.webp": {
+"kind": "img",
+"file": "images__logos__baker-hughes.webp",
+"w": 201,
+"h": 120,
+"alpha": false,
+"size": 4312
+},
+"/images/logos/barclays.webp": {
+"kind": "img",
+"file": "images__logos__barclays.webp",
+"w": 209,
+"h": 120,
+"alpha": false,
+"size": 4008
+},
+"/images/logos/british-american-tobacco.webp": {
+"kind": "img",
+"file": "images__logos__british-american-tobacco.webp",
+"w": 207,
+"h": 120,
+"alpha": false,
+"size": 4440
+},
+"/images/logos/british-gas.webp": {
+"kind": "img",
+"file": "images__logos__british-gas.webp",
+"w": 301,
+"h": 120,
+"alpha": false,
+"size": 4536
+},
+"/images/logos/bs-produce.webp": {
+"kind": "img",
+"file": "images__logos__bs-produce.webp",
+"w": 130,
+"h": 120,
+"alpha": false,
+"size": 3544
+},
+"/images/logos/capital-outdoor.webp": {
+"kind": "img",
+"file": "images__logos__capital-outdoor.webp",
+"w": 256,
+"h": 120,
+"alpha": false,
+"size": 7066
+},
+"/images/logos/centenary-bank.webp": {
+"kind": "img",
+"file": "images__logos__centenary-bank.webp",
+"w": 113,
+"h": 120,
+"alpha": false,
+"size": 2600
+},
+"/images/logos/city-ambulance.webp": {
+"kind": "img",
+"file": "images__logos__city-ambulance.webp",
+"w": 320,
+"h": 120,
+"alpha": false,
+"size": 6194
+},
+"/images/logos/cnooc.webp": {
+"kind": "img",
+"file": "images__logos__cnooc.webp",
+"w": 420,
+"h": 119,
+"alpha": false,
+"size": 5508
+},
+"/images/logos/cpecc.webp": {
+"kind": "img",
+"file": "images__logos__cpecc.webp",
+"w": 109,
+"h": 120,
+"alpha": false,
+"size": 2652
+},
+"/images/logos/dar.webp": {
+"kind": "img",
+"file": "images__logos__dar.webp",
+"w": 240,
+"h": 120,
+"alpha": false,
+"size": 752
+},
+"/images/logos/davis-and-shirtliff.webp": {
+"kind": "img",
+"file": "images__logos__davis-and-shirtliff.webp",
+"w": 397,
+"h": 120,
+"alpha": false,
+"size": 6570
+},
+"/images/logos/eapiling.webp": {
+"kind": "img",
+"file": "images__logos__eapiling.webp",
+"w": 105,
+"h": 120,
+"alpha": false,
+"size": 3626
+},
+"/images/logos/east-african-medical-vitals.webp": {
+"kind": "img",
+"file": "images__logos__east-african-medical-vitals.webp",
+"w": 420,
+"h": 106,
+"alpha": false,
+"size": 7080
+},
+"/images/logos/education-partner.webp": {
+"kind": "img",
+"file": "images__logos__education-partner.webp",
+"w": 124,
+"h": 120,
+"alpha": false,
+"size": 3548
+},
+"/images/logos/enviroserve.webp": {
+"kind": "img",
+"file": "images__logos__enviroserve.webp",
+"w": 420,
+"h": 56,
+"alpha": false,
+"size": 4914
+},
+"/images/logos/food-for-the-hungry.webp": {
+"kind": "img",
+"file": "images__logos__food-for-the-hungry.webp",
+"w": 420,
+"h": 117,
+"alpha": false,
+"size": 6532
+},
+"/images/logos/gardaworld.webp": {
+"kind": "img",
+"file": "images__logos__gardaworld.webp",
+"w": 121,
+"h": 120,
+"alpha": false,
+"size": 5026
+},
+"/images/logos/ieng.webp": {
+"kind": "img",
+"file": "images__logos__ieng.webp",
+"w": 221,
+"h": 120,
+"alpha": false,
+"size": 1786
+},
+"/images/logos/kcb-bank.webp": {
+"kind": "img",
+"file": "images__logos__kcb-bank.webp",
+"w": 420,
+"h": 95,
+"alpha": false,
+"size": 4076
+},
+"/images/logos/kenya-revenue-authority.webp": {
+"kind": "img",
+"file": "images__logos__kenya-revenue-authority.webp",
+"w": 840,
+"h": 225,
+"alpha": true,
+"size": 51564
+},
+"/images/logos/kia.webp": {
+"kind": "img",
+"file": "images__logos__kia.webp",
+"w": 234,
+"h": 120,
+"alpha": false,
+"size": 4462
+},
+"/images/logos/kiira-motors.webp": {
+"kind": "img",
+"file": "images__logos__kiira-motors.webp",
+"w": 204,
+"h": 120,
+"alpha": false,
+"size": 6380
+},
+"/images/logos/klm.webp": {
+"kind": "img",
+"file": "images__logos__klm.webp",
+"w": 203,
+"h": 120,
+"alpha": false,
+"size": 2754
+},
+"/images/logos/kra-mark.webp": {
+"kind": "img",
+"file": "images__logos__kra-mark.webp",
+"w": 160,
+"h": 160,
+"alpha": true,
+"size": 11276
+},
+"/images/logos/lifewater.webp": {
+"kind": "img",
+"file": "images__logos__lifewater.webp",
+"w": 321,
+"h": 120,
+"alpha": false,
+"size": 3864
+},
+"/images/logos/maiu.webp": {
+"kind": "img",
+"file": "images__logos__maiu.webp",
+"w": 112,
+"h": 120,
+"alpha": false,
+"size": 2260
+},
+"/images/logos/medserv-regis.webp": {
+"kind": "img",
+"file": "images__logos__medserv-regis.webp",
+"w": 237,
+"h": 120,
+"alpha": false,
+"size": 5412
+},
+"/images/logos/mota-engil.webp": {
+"kind": "img",
+"file": "images__logos__mota-engil.webp",
+"w": 239,
+"h": 120,
+"alpha": false,
+"size": 1514
+},
+"/images/logos/motorcare.webp": {
+"kind": "img",
+"file": "images__logos__motorcare.webp",
+"w": 158,
+"h": 120,
+"alpha": false,
+"size": 3652
+},
+"/images/logos/msl-logistics.webp": {
+"kind": "img",
+"file": "images__logos__msl-logistics.webp",
+"w": 233,
+"h": 120,
+"alpha": false,
+"size": 4934
+},
+"/images/logos/mtn.webp": {
+"kind": "img",
+"file": "images__logos__mtn.webp",
+"w": 240,
+"h": 120,
+"alpha": false,
+"size": 4044
+},
+"/images/logos/mu-jhu.webp": {
+"kind": "img",
+"file": "images__logos__mu-jhu.webp",
+"w": 174,
+"h": 120,
+"alpha": false,
+"size": 5830
+},
+"/images/logos/multichoice.webp": {
+"kind": "img",
+"file": "images__logos__multichoice.webp",
+"w": 195,
+"h": 120,
+"alpha": false,
+"size": 5068
+},
+"/images/logos/nexus-green.webp": {
+"kind": "img",
+"file": "images__logos__nexus-green.webp",
+"w": 228,
+"h": 120,
+"alpha": false,
+"size": 3402
+},
+"/images/logos/nic-group.webp": {
+"kind": "img",
+"file": "images__logos__nic-group.webp",
+"w": 146,
+"h": 120,
+"alpha": false,
+"size": 2446
+},
+"/images/logos/nissan.webp": {
+"kind": "img",
+"file": "images__logos__nissan.webp",
+"w": 140,
+"h": 120,
+"alpha": false,
+"size": 2960
+},
+"/images/logos/ntv.webp": {
+"kind": "img",
+"file": "images__logos__ntv.webp",
+"w": 177,
+"h": 120,
+"alpha": false,
+"size": 4558
+},
+"/images/logos/overseas-freight-and-logistics.webp": {
+"kind": "img",
+"file": "images__logos__overseas-freight-and-logistics.webp",
+"w": 186,
+"h": 120,
+"alpha": false,
+"size": 4538
+},
+"/images/logos/pel.webp": {
+"kind": "img",
+"file": "images__logos__pel.webp",
+"w": 125,
+"h": 120,
+"alpha": false,
+"size": 1306
+},
+"/images/logos/pinnacle-security.webp": {
+"kind": "img",
+"file": "images__logos__pinnacle-security.webp",
+"w": 122,
+"h": 120,
+"alpha": false,
+"size": 4456
+},
+"/images/logos/posta-uganda.webp": {
+"kind": "img",
+"file": "images__logos__posta-uganda.webp",
+"w": 87,
+"h": 120,
+"alpha": false,
+"size": 3406
+},
+"/images/logos/quality-chemicals.webp": {
+"kind": "img",
+"file": "images__logos__quality-chemicals.webp",
+"w": 191,
+"h": 120,
+"alpha": false,
+"size": 3314
+},
+"/images/logos/rapid-rescue-health-care.webp": {
+"kind": "img",
+"file": "images__logos__rapid-rescue-health-care.webp",
+"w": 120,
+"h": 120,
+"alpha": false,
+"size": 4768
+},
+"/images/logos/rubis.webp": {
+"kind": "img",
+"file": "images__logos__rubis.webp",
+"w": 158,
+"h": 120,
+"alpha": false,
+"size": 6410
+},
+"/images/logos/rwenzori.webp": {
+"kind": "img",
+"file": "images__logos__rwenzori.webp",
+"w": 284,
+"h": 120,
+"alpha": false,
+"size": 7396
+},
+"/images/logos/schlumberger.webp": {
+"kind": "img",
+"file": "images__logos__schlumberger.webp",
+"w": 420,
+"h": 103,
+"alpha": false,
+"size": 4898
+},
+"/images/logos/serena-hotels.webp": {
+"kind": "img",
+"file": "images__logos__serena-hotels.webp",
+"w": 197,
+"h": 120,
+"alpha": false,
+"size": 4734
+},
+"/images/logos/seyani-brothers.webp": {
+"kind": "img",
+"file": "images__logos__seyani-brothers.webp",
+"w": 106,
+"h": 120,
+"alpha": false,
+"size": 4638
+},
+"/images/logos/sicpa.webp": {
+"kind": "img",
+"file": "images__logos__sicpa.webp",
+"w": 136,
+"h": 120,
+"alpha": false,
+"size": 1580
+},
+"/images/logos/sinopec.webp": {
+"kind": "img",
+"file": "images__logos__sinopec.webp",
+"w": 153,
+"h": 120,
+"alpha": false,
+"size": 4044
+},
+"/images/logos/strakon.webp": {
+"kind": "img",
+"file": "images__logos__strakon.webp",
+"w": 379,
+"h": 120,
+"alpha": false,
+"size": 4238
+},
+"/images/logos/strong-minds.webp": {
+"kind": "img",
+"file": "images__logos__strong-minds.webp",
+"w": 234,
+"h": 120,
+"alpha": false,
+"size": 6102
+},
+"/images/logos/threeways-shipping.webp": {
+"kind": "img",
+"file": "images__logos__threeways-shipping.webp",
+"w": 200,
+"h": 120,
+"alpha": false,
+"size": 5096
+},
+"/images/logos/totalenergies.webp": {
+"kind": "img",
+"file": "images__logos__totalenergies.webp",
+"w": 160,
+"h": 120,
+"alpha": false,
+"size": 3820
+},
+"/images/logos/trademark-africa.webp": {
+"kind": "img",
+"file": "images__logos__trademark-africa.webp",
+"w": 145,
+"h": 120,
+"alpha": false,
+"size": 4568
+},
+"/images/logos/uganda-batteries.webp": {
+"kind": "img",
+"file": "images__logos__uganda-batteries.webp",
+"w": 153,
+"h": 120,
+"alpha": false,
+"size": 3306
+},
+"/images/logos/uict.webp": {
+"kind": "img",
+"file": "images__logos__uict.webp",
+"w": 122,
+"h": 120,
+"alpha": false,
+"size": 4730
+},
+"/images/logos/uneb.webp": {
+"kind": "img",
+"file": "images__logos__uneb.webp",
+"w": 119,
+"h": 120,
+"alpha": false,
+"size": 5164
+},
+"/images/logos/unoc.webp": {
+"kind": "img",
+"file": "images__logos__unoc.webp",
+"w": 386,
+"h": 120,
+"alpha": false,
+"size": 6886
+},
+"/images/logos/vaell-leasing.webp": {
+"kind": "img",
+"file": "images__logos__vaell-leasing.webp",
+"w": 181,
+"h": 120,
+"alpha": false,
+"size": 4420
+},
+"/images/logos/watoto-church.webp": {
+"kind": "img",
+"file": "images__logos__watoto-church.webp",
+"w": 242,
+"h": 120,
+"alpha": false,
+"size": 5212
+},
+"/images/logos/wavah-water.webp": {
+"kind": "img",
+"file": "images__logos__wavah-water.webp",
+"w": 173,
+"h": 120,
+"alpha": false,
+"size": 4990
+},
+"/images/logos/weafri.webp": {
+"kind": "img",
+"file": "images__logos__weafri.webp",
+"w": 107,
+"h": 120,
+"alpha": false,
+"size": 3282
+},
+"/images/logos/weatherford.webp": {
+"kind": "img",
+"file": "images__logos__weatherford.webp",
+"w": 281,
+"h": 120,
+"alpha": false,
+"size": 3294
+},
+"/images/logos/world-vision.webp": {
+"kind": "img",
+"file": "images__logos__world-vision.webp",
+"w": 289,
+"h": 120,
+"alpha": false,
+"size": 3312
+},
+"/images/logos/yalelo.webp": {
+"kind": "img",
+"file": "images__logos__yalelo.webp",
+"w": 420,
+"h": 113,
+"alpha": false,
+"size": 7758
+},
+"/images/lower-fuel-cost.webp": {
+"kind": "img",
+"file": "images__lower-fuel-cost.webp",
+"w": 1200,
+"h": 630,
+"alpha": false,
+"size": 54594
+},
+"/images/maintenance-checklist.webp": {
+"kind": "img",
+"file": "images__maintenance-checklist.webp",
+"w": 1000,
+"h": 1009,
+"alpha": false,
+"size": 39252
+},
+"/images/maintenance-robot-lab.webp": {
+"kind": "img",
+"file": "images__maintenance-robot-lab.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 72638
+},
+"/images/mixed-fleet-telematics.webp": {
+"kind": "img",
+"file": "images__mixed-fleet-telematics.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 38906
+},
+"/images/newsroom-team.webp": {
+"kind": "img",
+"file": "images__newsroom-team.webp",
+"w": 1200,
+"h": 800,
+"alpha": false,
+"size": 133544
+},
+"/images/ngo-convoy.webp": {
+"kind": "img",
+"file": "images__ngo-convoy.webp",
+"w": 500,
+"h": 333,
+"alpha": false,
+"size": 40996
+},
+"/images/ngo-fleet-yard.webp": {
+"kind": "img",
+"file": "images__ngo-fleet-yard.webp",
+"w": 640,
+"h": 640,
+"alpha": false,
+"size": 59742
+},
+"/images/obd-tracker.webp": {
+"kind": "img",
+"file": "images__obd-tracker.webp",
+"w": 1000,
+"h": 1000,
+"alpha": false,
+"size": 21386
+},
+"/images/oil-gas-logistics.webp": {
+"kind": "img",
+"file": "images__oil-gas-logistics.webp",
+"w": 800,
+"h": 643,
+"alpha": false,
+"size": 61258
+},
+"/images/oil-gas-warehouse.webp": {
+"kind": "img",
+"file": "images__oil-gas-warehouse.webp",
+"w": 1498,
+"h": 936,
+"alpha": false,
+"size": 71662
+},
+"/images/partner-handshake.webp": {
+"kind": "img",
+"file": "images__partner-handshake.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 59426
+},
+"/images/phone-route-map.webp": {
+"kind": "img",
+"file": "images__phone-route-map.webp",
+"w": 640,
+"h": 1120,
+"alpha": false,
+"size": 58872
+},
+"/images/phone-truck-map.webp": {
+"kind": "img",
+"file": "images__phone-truck-map.webp",
+"w": 736,
+"h": 552,
+"alpha": false,
+"size": 68266
+},
+"/images/platform-devices.webp": {
+"kind": "img",
+"file": "images__platform-devices.webp",
+"w": 545,
+"h": 444,
+"alpha": true,
+"size": 37364
+},
+"/images/port-container-truck.webp": {
+"kind": "img",
+"file": "images__port-container-truck.webp",
+"w": 540,
+"h": 360,
+"alpha": false,
+"size": 26568
+},
+"/images/port-container-yard.webp": {
+"kind": "img",
+"file": "images__port-container-yard.webp",
+"w": 700,
+"h": 541,
+"alpha": false,
+"size": 99544
+},
+"/images/port-dusk.webp": {
+"kind": "img",
+"file": "images__port-dusk.webp",
+"w": 735,
+"h": 420,
+"alpha": false,
+"size": 33850
+},
+"/images/ra-dgda.webp": {
+"kind": "img",
+"file": "images__ra-dgda.webp",
+"w": 640,
+"h": 183,
+"alpha": false,
+"size": 14726
+},
+"/images/ra-kra.webp": {
+"kind": "img",
+"file": "images__ra-kra.webp",
+"w": 614,
+"h": 200,
+"alpha": false,
+"size": 13548
+},
+"/images/ra-obr.webp": {
+"kind": "img",
+"file": "images__ra-obr.webp",
+"w": 446,
+"h": 200,
+"alpha": false,
+"size": 8712
+},
+"/images/ra-rra.webp": {
+"kind": "img",
+"file": "images__ra-rra.webp",
+"w": 425,
+"h": 200,
+"alpha": false,
+"size": 6268
+},
+"/images/ra-ssra.webp": {
+"kind": "img",
+"file": "images__ra-ssra.webp",
+"w": 200,
+"h": 200,
+"alpha": false,
+"size": 11204
+},
+"/images/ra-ura.webp": {
+"kind": "img",
+"file": "images__ra-ura.webp",
+"w": 322,
+"h": 200,
+"alpha": false,
+"size": 5954
+},
+"/images/rects-chain.webp": {
+"kind": "img",
+"file": "images__rects-chain.webp",
+"w": 360,
+"h": 163,
+"alpha": false,
+"size": 9354
+},
+"/images/rects-cmc.webp": {
+"kind": "img",
+"file": "images__rects-cmc.webp",
+"w": 500,
+"h": 266,
+"alpha": false,
+"size": 14400
+},
+"/images/rects-dvr.webp": {
+"kind": "img",
+"file": "images__rects-dvr.webp",
+"w": 420,
+"h": 287,
+"alpha": false,
+"size": 16364
+},
+"/images/rects-efuel.webp": {
+"kind": "img",
+"file": "images__rects-efuel.webp",
+"w": 420,
+"h": 288,
+"alpha": false,
+"size": 21742
+},
+"/images/rects-eseal.webp": {
+"kind": "img",
+"file": "images__rects-eseal.webp",
+"w": 420,
+"h": 285,
+"alpha": false,
+"size": 15610
+},
+"/images/rects-gate.webp": {
+"kind": "img",
+"file": "images__rects-gate.webp",
+"w": 420,
+"h": 312,
+"alpha": false,
+"size": 15836
+},
+"/images/rects-gnss.webp": {
+"kind": "img",
+"file": "images__rects-gnss.webp",
+"w": 360,
+"h": 204,
+"alpha": false,
+"size": 8890
+},
+"/images/rects-iot.webp": {
+"kind": "img",
+"file": "images__rects-iot.webp",
+"w": 360,
+"h": 184,
+"alpha": false,
+"size": 9330
+},
+"/images/remote-immobiliser.webp": {
+"kind": "img",
+"file": "images__remote-immobiliser.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 33100
+},
+"/images/route-map.webp": {
+"kind": "img",
+"file": "images__route-map.webp",
+"w": 735,
+"h": 367,
+"alpha": false,
+"size": 25694
+},
+"/images/route-optimisation.webp": {
+"kind": "img",
+"file": "images__route-optimisation.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 104090
+},
+"/images/service-required-cluster.webp": {
+"kind": "img",
+"file": "images__service-required-cluster.webp",
+"w": 780,
+"h": 438,
+"alpha": false,
+"size": 23682
+},
+"/images/site-telecom-towers.webp": {
+"kind": "img",
+"file": "images__site-telecom-towers.webp",
+"w": 500,
+"h": 750,
+"alpha": false,
+"size": 47318
+},
+"/images/site-tower-technician.webp": {
+"kind": "img",
+"file": "images__site-tower-technician.webp",
+"w": 426,
+"h": 611,
+"alpha": false,
+"size": 28066
+},
+"/images/site/analytics.webp": {
+"kind": "img",
+"file": "images__site__analytics.webp",
+"w": 394,
+"h": 178,
+"alpha": true,
+"size": 6800
+},
+"/images/site/energy-asset-health.webp": {
+"kind": "img",
+"file": "images__site__energy-asset-health.webp",
+"w": 450,
+"h": 357,
+"alpha": true,
+"size": 23546
+},
+"/images/site/energy-optimization.webp": {
+"kind": "img",
+"file": "images__site__energy-optimization.webp",
+"w": 450,
+"h": 357,
+"alpha": true,
+"size": 32604
+},
+"/images/site/generator-monitoring.webp": {
+"kind": "img",
+"file": "images__site__generator-monitoring.webp",
+"w": 364,
+"h": 178,
+"alpha": true,
+"size": 5284
+},
+"/images/site/live.webp": {
+"kind": "img",
+"file": "images__site__live.webp",
+"w": 330,
+"h": 186,
+"alpha": true,
+"size": 8234
+},
+"/images/site/operational-cost-savings.webp": {
+"kind": "img",
+"file": "images__site__operational-cost-savings.webp",
+"w": 451,
+"h": 357,
+"alpha": true,
+"size": 21446
+},
+"/images/site/overarching-visibility.webp": {
+"kind": "img",
+"file": "images__site__overarching-visibility.webp",
+"w": 448,
+"h": 355,
+"alpha": true,
+"size": 34472
+},
+"/images/site/remote-management.webp": {
+"kind": "img",
+"file": "images__site__remote-management.webp",
+"w": 451,
+"h": 356,
+"alpha": true,
+"size": 23664
+},
+"/images/site/sustainability-outlook.webp": {
+"kind": "img",
+"file": "images__site__sustainability-outlook.webp",
+"w": 450,
+"h": 357,
+"alpha": true,
+"size": 33842
+},
+"/images/speed-violation-detection.webp": {
+"kind": "img",
+"file": "images__speed-violation-detection.webp",
+"w": 1300,
+"h": 1396,
+"alpha": false,
+"size": 188630
+},
+"/images/team-on-phone.webp": {
+"kind": "img",
+"file": "images__team-on-phone.webp",
+"w": 500,
+"h": 333,
+"alpha": false,
+"size": 22194
+},
+"/images/technician-in-cab.webp": {
+"kind": "img",
+"file": "images__technician-in-cab.webp",
+"w": 1000,
+"h": 750,
+"alpha": false,
+"size": 55290
+},
+"/images/track-vehicles.svg": {
+"kind": "svg",
+"raw": "/images/track-vehicles.svg"
+},
+"/images/tracking-orb-map.webp": {
+"kind": "img",
+"file": "images__tracking-orb-map.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 19694
+},
+"/images/trip-playback.webp": {
+"kind": "img",
+"file": "images__trip-playback.webp",
+"w": 736,
+"h": 581,
+"alpha": false,
+"size": 35728
+},
+"/images/truck-route-map.webp": {
+"kind": "img",
+"file": "images__truck-route-map.webp",
+"w": 1600,
+"h": 1200,
+"alpha": false,
+"size": 27944
+},
+"/images/truck-tipper.webp": {
+"kind": "img",
+"file": "images__truck-tipper.webp",
+"w": 665,
+"h": 375,
+"alpha": true,
+"size": 42272
+},
+"/images/uma-certificate-framed.webp": {
+"kind": "img",
+"file": "images__uma-certificate-framed.webp",
+"w": 1372,
+"h": 1021,
+"alpha": true,
+"size": 82428
+},
+"/images/van-fleet-yard.webp": {
+"kind": "img",
+"file": "images__van-fleet-yard.webp",
+"w": 900,
+"h": 792,
+"alpha": false,
+"size": 121130
+},
+"/images/why-smartwatch-sketch.webp": {
+"kind": "img",
+"file": "images__why-smartwatch-sketch.webp",
+"w": 1168,
+"h": 880,
+"alpha": false,
+"size": 217044
+},
+"/images/yard-supervisor-tablet.webp": {
+"kind": "img",
+"file": "images__yard-supervisor-tablet.webp",
+"w": 612,
+"h": 408,
+"alpha": false,
+"size": 25484
+},
+"/videos/cargo-spotlight-poster.webp": {
+"kind": "img",
+"file": "videos__cargo-spotlight-poster.webp",
+"w": 1080,
+"h": 1080,
+"alpha": false,
+"size": 60266
+},
+"/videos/cargo-spotlight.mp4": {
+"kind": "mp4",
+"raw": "/videos/cargo-spotlight.mp4"
+},
+"/videos/cargo-tracking-poster.webp": {
+"kind": "img",
+"file": "videos__cargo-tracking-poster.webp",
+"w": 1800,
+"h": 1012,
+"alpha": false,
+"size": 57350
+},
+"/videos/cargo-tracking.mp4": {
+"kind": "mp4",
+"raw": "/videos/cargo-tracking.mp4"
+},
+"/videos/dash-cameras-poster.webp": {
+"kind": "img",
+"file": "videos__dash-cameras-poster.webp",
+"w": 1800,
+"h": 1012,
+"alpha": false,
+"size": 78896
+},
+"/videos/dash-cameras.mp4": {
+"kind": "mp4",
+"raw": "/videos/dash-cameras.mp4"
+},
+"/videos/heritage-poster.webp": {
+"kind": "img",
+"file": "videos__heritage-poster.webp",
+"w": 960,
+"h": 720,
+"alpha": false,
+"size": 42200
+},
+"/videos/heritage.mp4": {
+"kind": "mp4",
+"raw": "/videos/heritage.mp4"
+},
+"/videos/hero-poster.webp": {
+"kind": "img",
+"file": "videos__hero-poster.webp",
+"w": 1800,
+"h": 1012,
+"alpha": false,
+"size": 33540
+},
+"/videos/hero.mp4": {
+"kind": "mp4",
+"raw": "/videos/hero.mp4"
+}
+}
