@@ -55,3 +55,6 @@ html { scroll-behavior: smooth; }
 
 /* Entrance safety net (set by JS after the intro has had time to play) */
 .sw-anim-done .hero-headline .sw-word, .sw-anim-done .hero-alert, .sw-anim-done .hero-badge { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+/* Floating chat: use the brand colour set in Elementor instead of the add-on's default gradient */
+.sw-social-chat .xpro-social-chat-main-btn { background-image: none; }
