@@ -48,3 +48,7 @@ html { scroll-behavior: smooth; }
 
 /* Highlighted words inside a headline (markup provides the span, CSS only colours it) */
 .hero-headline-key { color: var(--e-global-color-primary); }
+
+/* Long unbroken strings (emails, URLs) never push the page sideways on phones */
+.elementor-icon-list-text, .elementor-widget-text-editor, .elementor-heading-title { overflow-wrap: anywhere; }
+@media (max-width: 767px) { .elementor-button { white-space: normal; } .elementor-button-text { overflow-wrap: anywhere; } }
