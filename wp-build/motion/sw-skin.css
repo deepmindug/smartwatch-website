@@ -610,7 +610,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 /* Legal */
 .sw-legal-body ul { padding-left: 20px; list-style: disc; margin: 0 0 12px; }
 .sw-legal-body li { margin-bottom: 6px; }
-.sw-legal-h { margin-top: 18px; }
+.sw-legal-h .elementor-heading-title { line-height: normal !important; font-weight: 700 !important; }
 
 /* ---------------------------------------------------------------- motion states (set by sw-site.js) */
 .sw-motion .sw-reveal-armed, .sw-motion .sw-enter-armed { visibility: hidden; }
