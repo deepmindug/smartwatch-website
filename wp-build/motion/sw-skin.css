@@ -704,3 +704,6 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-authority-note .elementor-widget-container, .sw-authority-note p { max-width: 860px; }
 .sw-flat .sw-story-closing { margin-top: 8px !important; }
 .sw-flat .sw-story-closing .sw-story-closing-text { max-width: none !important; width: 100% !important; }
+/* CTA band: the actions sit to the right of the copy */
+.sw-cta-band > .sw-cta-actions { width: auto !important; flex: 0 0 auto; }
+@media (max-width: 520px) { .sw-cta-band > .sw-cta-actions { width: 100% !important; } }
