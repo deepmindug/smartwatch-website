@@ -45,3 +45,6 @@ html { scroll-behavior: smooth; }
   .sw-reveal-armed { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* Highlighted words inside a headline (markup provides the span, CSS only colours it) */
+.hero-headline-key { color: var(--e-global-color-primary); }
