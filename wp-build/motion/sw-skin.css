@@ -708,3 +708,8 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-cta-band > .sw-cta-actions { width: auto !important; flex: 0 0 auto; }
 @media (max-width: 520px) { .sw-cta-band > .sw-cta-actions { width: 100% !important; } }
 .sw-marquee .sw-marquee-track { margin: 0 !important; padding: 0 !important; list-style: none; }
+/* home resources: 120 x 90 cover thumbnails, as on the React page */
+.res-post > .e-con:first-child { flex: 0 0 120px !important; width: 120px !important; }
+.res-thumb, .res-thumb .elementor-widget-container { width: 100%; }
+.res-thumb img { width: 120px !important; height: 90px !important; aspect-ratio: 4 / 3 !important; object-fit: cover !important; border-radius: 12px; display: block; }
+@media (max-width: 520px) { .res-post > .e-con:first-child { flex-basis: 96px !important; width: 96px !important; } .res-thumb img { width: 96px !important; height: 72px !important; } }
