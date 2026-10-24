@@ -693,3 +693,9 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 }
 .sw-cov-num { color: var(--cov-mid); }
 @media (max-width: 1180px) and (min-width: 521px) { .sw-cov-grid > .sw-cov-pillar { width: calc((100% - 14px) / 2) !important; } }
+
+/* story facts: the label is regular weight, as on the React page */
+.sw-fact-label .elementor-heading-title { font-weight: 400 !important; }
+/* eyebrows sit in a 13px line, as on the React page (no inherited body strut) */
+.sw-eyebrow, .sw-eyebrow > .elementor-widget-container { line-height: 0; }
+.sw-eyebrow .elementor-heading-title { line-height: 13px !important; vertical-align: top; }
