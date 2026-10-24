@@ -748,3 +748,20 @@ html.lenis, html.lenis body { height: auto; }
 /* checklist ticks: the icon box carries no padding, so the tick sits dead centre in its green disc */
 .sw-checklist .elementor-icon-list-icon { padding: 0 !important; margin: 2px 0 0 0 !important; box-sizing: border-box; line-height: 0 !important; }
 .sw-checklist .elementor-icon-list-icon svg { display: block; position: static !important; top: auto !important; }
+
+/* ---------------------------------------------------------------- coverage (RECTS) panel, current React look:
+   no blue panel, green accents, white pillar cards with the site's tint line and a soft green shadow. */
+.sw-cov-panel { --cov-tint: #e3e9e1; background: none !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important;
+  padding: 16px 0 8px !important; margin: 0 !important; overflow: visible !important; }
+@media (max-width: 680px) { .sw-cov-panel { padding: 8px 0 !important; } }
+.sw-cov-accent, .sw-cov-num { color: var(--green) !important; }
+.sw-cov-title .elementor-heading-title { font-family: var(--e-global-typography-primary-font-family), 'Century Gothic', CenturyGothic, Questrial, sans-serif !important; }
+.sw-cov-subtitle, .sw-cov-subtitle p { color: var(--cov-ink) !important; }
+.sw-cov-pillar { background: #fff !important; border: 1px solid #e3e9e1 !important; box-shadow: 0 10px 24px -20px rgba(79, 184, 72, .45) !important; }
+.sw-cov-pillar-title .elementor-heading-title { font-family: 'Century Gothic', CenturyGothic, Questrial, sans-serif !important; }
+.sw-cov-pillar-img, .sw-cov-tech-img { background: #f3f9f3; border-radius: 10px; overflow: hidden; }
+.sw-cov-points .elementor-icon-list-icon { background: var(--green) !important; border-radius: 50%; padding: 0 !important; }
+.sw-cov-points .elementor-icon-list-text { color: var(--cov-ink) !important; }
+.sw-cov-office .elementor-heading-title::before { background: var(--green); }
+.sw-cov-centre-img img { border-color: #e3e9e1; }
+.sw-cov-subtitle, .sw-cov-subtitle p, .sw-cov-subtitle .elementor-widget-container { font-size: clamp(17px, 1.7vw, 24px) !important; line-height: 1.5 !important; }
