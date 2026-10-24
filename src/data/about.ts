@@ -60,6 +60,7 @@ export const about: DetailPage = {
         alt: 'Smartwatch over the years: a tracked truck crossing East Africa at sunset, a control room following fleets on a wall map, and the live fleet app with AI route insights',
       },
       mediaLabel: 'Fleet tracking through the years',
+      mediaFill: true,
       reverse: true,
     },
     {
