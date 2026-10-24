@@ -716,3 +716,12 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 /* fixed-width inner boxes never run past their parent on narrow screens */
 .e-con.e-child { max-width: 100%; }
 .sw-checklist .elementor-icon-list-text { min-width: 0; overflow-wrap: anywhere; }
+/* home bento: below 680px the cards become a snap carousel, as on the React page */
+@media (max-width: 680px) {
+  .sw-bento { flex-direction: row !important; flex-wrap: nowrap !important; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 24px;
+    margin-left: -24px !important; margin-right: -24px !important; padding: 4px 24px 12px !important; gap: 12px !important; width: auto !important; max-width: none !important;
+    scrollbar-width: none; overscroll-behavior-x: contain; }
+  .sw-bento::-webkit-scrollbar { display: none; }
+  .sw-bento > .sw-bento-row { display: contents !important; }
+  .sw-bento .sw-bento-card { scroll-snap-align: start; flex: 0 0 min(84vw, 360px) !important; width: min(84vw, 360px) !important; max-width: none !important; min-height: 320px; }
+}
