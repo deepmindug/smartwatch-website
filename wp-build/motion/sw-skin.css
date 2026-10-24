@@ -308,7 +308,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 @media (max-width: 520px) { .sw-stat-counter-lg .elementor-counter-number-wrapper { font-size: 34px !important; } }
 
 /* Tabs (sector tabs and the home platform tabs) */
-.sw-tabs .e-n-tabs-heading { justify-content: center; flex-wrap: wrap !important; gap: 6px !important; margin-bottom: 24px; }
+.sw-tabs .e-n-tabs-heading { justify-content: center; flex-wrap: wrap !important; gap: 6px !important; }
 .sw-tabs .e-n-tab-title {
   background: var(--surface) !important; border: 1px solid transparent !important; border-radius: 999px !important;
   padding: 10px 18px !important; color: var(--ink-2) !important; font-weight: 600 !important; flex: 0 0 auto !important;
