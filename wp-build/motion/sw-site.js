@@ -215,3 +215,12 @@
   /* ---------------------------------------------------------- expose for header/footer modules */
   window.SW = { $: $, $$: $$, reduce: reduce, motion: motion, editor: editor, lenis: lenis };
 })();
+
+/* The platform strap sits between the product tabs and the product detail, as on the React page. */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('.pillars'), function (sec) {
+    var strap = sec.querySelector('.pillars-strap');
+    var heading = sec.querySelector('.sw-pillar-tabs .e-n-tabs-heading');
+    if (strap && heading && heading.parentNode) heading.parentNode.insertBefore(strap, heading.nextSibling);
+  });
+})();
