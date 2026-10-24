@@ -44,7 +44,7 @@
   // In-page anchors glide to their section and land clear of the sticky bars.
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="#"]');
-    if (!a) return;
+    if (!a || a.closest('.sw-burger, .sw-wa-badge, .sw-marquee-toggle')) return;
     var u = new URL(a.href, location.href);
     if (u.pathname !== location.pathname || !u.hash || u.hash.length < 2) return;
     var t = document.getElementById(decodeURIComponent(u.hash.slice(1)));

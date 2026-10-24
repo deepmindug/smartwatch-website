@@ -634,3 +634,9 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-fineprint p { font-size: 12px; line-height: 1.5; }
 .sw-fineprint a { color: var(--navy); }
 .sw-form-card { gap: 18px; }
+@media (max-width: 520px) {
+  .hero-actions .hero-cta, .cargo-actions .cargo-cta { max-width: none !important; width: calc(100% + 36px) !important; display: flex !important; }
+  .hero-actions .hero-cta .elementor-button, .cargo-actions .cargo-cta .elementor-button { flex: 1; width: 100%; }
+}
+.hero-pill { width: auto !important; max-width: 100%; }
+.hero-pill-text .elementor-heading-title { display: flex; justify-content: space-between; gap: 10px; }

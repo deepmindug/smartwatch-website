@@ -40,7 +40,7 @@
 .sw-header-demo { margin: 0 -8px !important; }
 .sw-burger { display: none !important; width: 44px !important; height: 44px; margin-right: -8px; border-radius: 10px; align-items: center; justify-content: center; }
 .sw-burger:hover { background: var(--surface); }
-.sw-burger-line, .sw-burger-line::before, .sw-burger-line::after { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s, background .25s; }
+.sw-burger-line, .sw-burger-line::before, .sw-burger-line::after { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s, background .25s; transform-origin: center; }
 .sw-burger-line { position: relative; }
 .sw-burger-line::before, .sw-burger-line::after { content: ''; position: absolute; left: 0; }
 .sw-burger-line::before { top: -6px; }
@@ -108,10 +108,11 @@
 .sw-drawer-acc .e-n-accordion-item-title-text { font-size: 18px !important; font-weight: 600 !important; }
 .sw-drawer-acc .e-n-accordion-item-title-icon svg { width: 12px; fill: var(--ink); }
 .sw-drawer-panel { padding: 0 0 12px 12px !important; border: 0 !important; background: none !important; }
-.sw-drawer-links .elementor-icon-list-item a, .sw-drawer-links .elementor-icon-list-item { padding: 8px 0 !important; }
+.sw-drawer-links .elementor-icon-list-item { padding: 0 !important; margin: 0 !important; }
+.sw-drawer-links .elementor-icon-list-item a { padding: 8px 0 !important; display: flex; }
 .sw-drawer-links .elementor-icon-list-text { font-size: 15px !important; color: var(--ink-2) !important; }
 .sw-drawer-links .elementor-icon-list-item a:hover .elementor-icon-list-text { color: var(--navy-btn) !important; }
-@media (pointer: coarse) { .sw-drawer-links .elementor-icon-list-item a, .sw-drawer-links .elementor-icon-list-item { padding: 11px 0 !important; } }
+@media (pointer: coarse) { .sw-drawer-links .elementor-icon-list-item a { padding: 11px 0 !important; } }
 .sw-drawer-portals .sw-mega-eyebrow { margin-bottom: 6px; }
 .sw-drawer-footer { flex-shrink: 0; padding-bottom: env(safe-area-inset-bottom, 0px) !important; }
 .sw-drawer-contact .xpro-elementor-button { font-size: 16px !important; font-weight: 500 !important; }
@@ -210,3 +211,6 @@ body.sw-drawer-open { overflow: hidden; }
 }
 @media (max-width: 900px) { .sw-ft-br { display: none; } }
 .sw-ft-legal-left, .sw-ft-social { flex: 0 1 auto !important; }
+
+@media (max-width: 520px) { .sw-logo img { width: 168px !important; } }
+.sw-drawer-links .elementor-icon-list-items { gap: 0 !important; }
