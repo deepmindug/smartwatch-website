@@ -523,7 +523,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 @media (max-width: 520px) { .sw-marquee { --item-w: 130px; --item-h: 66px; --gap: 28px; --pitch: 158; --per-logo: 3.2s;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); } }
 @media (prefers-reduced-motion: reduce) { .sw-marquee .sw-marquee-item { animation-duration: calc(var(--count) * var(--per-logo) * 2); } }
-.sw-marquee:not(.sw-marquee-ready) .gallery { display: none; }
+.sw-marquee.sw-marquee-ready .elementor-image-gallery, .sw-marquee.sw-marquee-ready .gallery, .sw-motion .sw-marquee .elementor-image-gallery { display: none !important; }
 .sw-marquee-toggle .elementor-button { font-size: 13px !important; padding: 8px 14px !important; color: var(--ink-3) !important; }
 .sw-marquee-toggle .elementor-button::before { content: ''; width: 10px; height: 10px; margin-right: 8px; display: inline-block; vertical-align: -1px;
   background: currentColor; clip-path: polygon(0 0, 35% 0, 35% 100%, 0 100%, 0 0, 65% 0, 100% 0, 100% 100%, 65% 100%, 65% 0); }
