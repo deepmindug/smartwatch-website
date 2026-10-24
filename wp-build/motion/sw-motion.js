@@ -10,6 +10,8 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var inEditor = document.body && document.body.classList.contains('elementor-editor-active');
   doc.classList.add('sw-js');
+  /* Safety net: entrance animations always end visible, even where the browser pauses animations. */
+  setTimeout(function () { doc.classList.add('sw-anim-done'); }, 2600);
 
   function each(sel, fn, root) { Array.prototype.forEach.call((root || document).querySelectorAll(sel), fn); }
 

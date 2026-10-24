@@ -52,3 +52,6 @@ html { scroll-behavior: smooth; }
 /* Long unbroken strings (emails, URLs) never push the page sideways on phones */
 .elementor-icon-list-text, .elementor-widget-text-editor, .elementor-heading-title { overflow-wrap: anywhere; }
 @media (max-width: 767px) { .elementor-button { white-space: normal; } .elementor-button-text { overflow-wrap: anywhere; } }
+
+/* Entrance safety net (set by JS after the intro has had time to play) */
+.sw-anim-done .hero-headline .sw-word, .sw-anim-done .hero-alert, .sw-anim-done .hero-badge { animation: none !important; opacity: 1 !important; transform: none !important; }
