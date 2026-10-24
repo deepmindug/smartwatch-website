@@ -1,0 +1,191 @@
+/*
+ * Smartwatch Solutions: RECTS coverage map (decorative), mounted by sw-map.js.
+ * Port of the React CoverageSection map: the host (.sw-viz-coverage-map) is the map frame, a dark
+ * navy panel with a dot grid and soft glow; the SVG is centred in it and scales to its width.
+ * Desktop: the SVG is 100% of the frame width and the frame feathers away in an oval mask.
+ * At 1180px and below: a clean rounded panel, SVG at 190% of the width (zoomed in on the six
+ * countries), 560px tall; at 680px and below, 440px tall.
+ * Like the original there is no reduced-motion override: the corridor flow and pin pulses keep running.
+ */
+.sw-viz-coverage-map {
+  --sw-green: var(--e-global-color-primary, #4FB848);
+  --sw-navy: var(--e-global-color-secondary, #1B2845);
+  --sw-line: var(--e-global-color-swline, #E3E9E1);
+  --sw-line2: var(--e-global-color-swline2, #CDD6CA);
+  --sw-surface: var(--e-global-color-swtint, #F4F7F3);
+  --sw-green50: var(--e-global-color-swpale, #F3F9F3);
+  --sw-green100: var(--e-global-color-swgreen100, #E8F4E7);
+  --sw-green200: var(--e-global-color-swgreenlight, #D3E9D0);
+  --sw-ink2: var(--e-global-color-text, #4D4D4D);
+  --sw-ink3: var(--e-global-color-swmuted, #5C5C5A);
+  --sw-font: 'Open Sans', sans-serif;
+  --sw-font-heading: 'Century Gothic', CenturyGothic, Questrial, sans-serif;
+  /* The map's own navy palette (fixed in the original, not site tokens). */
+  --sw-map-ink: #163864;
+  --sw-map-deep: #0b1d38;
+  --sw-map-glow: #a9ccff;
+
+  position: relative;
+  overflow: hidden;
+  min-height: var(--sw-map-min-h, 360px);
+  background:
+    radial-gradient(circle, rgba(169, 204, 255, 0.12) 1px, transparent 1.3px) 0 0 / 14px 14px,
+    radial-gradient(60% 50% at 50% 50%, rgba(80, 140, 220, 0.4), transparent 75%),
+    linear-gradient(180deg, #17386a, var(--sw-map-deep));
+  /* An oval fade: solid in the middle, easing out to nothing at every edge. */
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 0, #000 46%, rgba(0, 0, 0, 0.55) 72%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 0, #000 46%, rgba(0, 0, 0, 0.55) 72%, transparent 100%);
+}
+
+/* The stage fills the frame whatever the container's padding or flex settings. */
+.sw-viz-coverage-map > .e-con-inner {
+  position: static;
+}
+
+.sw-viz-coverage-map .sw-map-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sw-viz-coverage-map .sw-map-svg {
+  display: block;
+  flex: none;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  overflow: visible;
+}
+
+.sw-viz-coverage-map .sw-map-context path {
+  fill: rgba(120, 160, 220, 0.06);
+  stroke: rgba(169, 204, 255, 0.6);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.sw-viz-coverage-map .sw-map-routes path {
+  fill: none;
+  stroke: #d8e9ff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 7 7;
+  animation: sw-map-flow 1.6s linear infinite;
+}
+
+@keyframes sw-map-flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+.sw-viz-coverage-map .sw-map-towns circle {
+  fill: #fff;
+  stroke: var(--sw-map-glow);
+  stroke-width: 2.5;
+}
+
+.sw-viz-coverage-map .sw-map-labels text {
+  font-family: var(--sw-font);
+  font-size: 23px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  fill: #eaf2ff;
+  paint-order: stroke;
+  stroke: rgba(11, 29, 56, 0.7);
+  stroke-width: 4px;
+}
+
+.sw-viz-coverage-map .sw-map-leader {
+  stroke: #eaf2ff;
+  stroke-width: 1.8;
+}
+
+.sw-viz-coverage-map .sw-map-pill-leader {
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.sw-viz-coverage-map .sw-map-leader-dot {
+  fill: #eaf2ff;
+}
+
+.sw-viz-coverage-map .sw-map-pin-ring {
+  fill: var(--sw-map-deep);
+  stroke: #fff;
+  stroke-width: 3.5;
+}
+
+.sw-viz-coverage-map .sw-map-pin-core {
+  fill: var(--sw-green);
+}
+
+.sw-viz-coverage-map .sw-map-pulse {
+  fill: rgba(79, 184, 72, 0.55);
+  fill: color-mix(in srgb, var(--sw-green) 55%, transparent);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sw-map-pulse 2.4s ease-out infinite;
+}
+
+@keyframes sw-map-pulse {
+  from {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.sw-viz-coverage-map .sw-map-pill {
+  fill: #fff;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.sw-viz-coverage-map .sw-map-pill-dot {
+  fill: var(--sw-green);
+}
+
+/* The original asks for 800, but its page loads Open Sans only up to 700, so it renders at 700.
+   Elementor loads the heavier cuts, so 700 is set here to keep the same look. */
+.sw-viz-coverage-map .sw-map-pill-text {
+  font-family: var(--sw-font);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: normal;
+  fill: var(--sw-map-ink);
+}
+
+/* Tablets and phones: a clean rounded panel, zoomed in on the six countries. */
+@media (max-width: 1180px) {
+  .sw-viz-coverage-map {
+    min-height: var(--sw-map-min-h-tablet, 560px);
+    border-radius: 16px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .sw-viz-coverage-map .sw-map-svg {
+    width: 190%;
+  }
+}
+
+@media (max-width: 680px) {
+  .sw-viz-coverage-map {
+    min-height: var(--sw-map-min-h-mobile, 440px);
+  }
+
+  .sw-viz-coverage-map .sw-map-labels text {
+    font-size: 21px;
+  }
+}
