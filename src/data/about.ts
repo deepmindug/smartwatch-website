@@ -53,9 +53,13 @@ export const about: DetailPage = {
         'What started as a basic Telematics software provider has evolved into a full-stack Telematics SaaS platform company. Driven by commercially viable Oil & Gas discoveries in Uganda, Tanzania, Mozambique, Kenya, Ethiopia, and South Sudan, and the implementation of the Regional Electronic Cargo Tracking System (RECTS) across East African Community (EAC) Member States, the company has strategically positioned itself as a technology partner of choice.',
         'Our journey has been defined by continuous innovation, strategic alliances, and an unwavering commitment to customer success. We have remained true to our founding principle: **Technology must deliver measurable value.**',
       ],
-      media: { ...img.truckConvoyHighway, focus: 'center 45%' },
+      media: img.truckConvoyHighway,
+      video: {
+        src: '/videos/heritage.mp4',
+        poster: '/videos/heritage-poster.webp',
+        alt: 'Smartwatch over the years: a tracked truck crossing East Africa at sunset, a control room following fleets on a wall map, and the live fleet app with AI route insights',
+      },
       mediaLabel: 'Fleet tracking through the years',
-      mediaFill: true,
       reverse: true,
     },
     {
