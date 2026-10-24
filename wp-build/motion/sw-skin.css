@@ -729,3 +729,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 @media (max-width: 520px) {
   .sw-wpform .wpforms-field.wpforms-one-half { width: 100% !important; margin-left: 0 !important; float: none !important; clear: both; }
 }
+/* home disclaimer line: 12px, 24px under it, as on the React page */
+.sw-disclaimer-band > .e-con-inner, .sw-disclaimer-band { padding-top: 0 !important; padding-bottom: 24px !important; }
+.sw-disclaimer-band > .e-con-inner { padding-bottom: 0 !important; }
+.sw-disclaimer-band p, .sw-disclaimer-band .elementor-widget-container { font-size: 12px !important; line-height: normal !important; margin: 0; }
