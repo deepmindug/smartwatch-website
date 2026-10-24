@@ -214,3 +214,12 @@ body.sw-drawer-open { overflow: hidden; }
 
 @media (max-width: 520px) { .sw-logo img { width: 168px !important; } }
 .sw-drawer-links .elementor-icon-list-items { gap: 0 !important; }
+
+/* wide mega menus span the window (up to 1360px), not just the content column, as on the React site */
+.sw-mega.sw-mega-wide { width: min(1360px, calc(100vw - 48px)) !important; max-width: none !important; }
+@media (max-width: 1240px) {
+  .sw-mega { border-radius: 24px !important; gap: 24px !important; padding: 24px !important; }
+  .sw-mega .sw-mega-featured { flex-basis: 200px !important; width: 200px !important; padding-left: 24px !important; }
+  .sw-mega .sw-promo { flex-basis: 260px !important; width: 260px !important; }
+}
+@media (max-width: 1100px) { .sw-mega .sw-promo { display: none !important; } }

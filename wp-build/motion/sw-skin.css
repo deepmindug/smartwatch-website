@@ -765,3 +765,11 @@ html.lenis, html.lenis body { height: auto; }
 .sw-cov-office .elementor-heading-title::before { background: var(--green); }
 .sw-cov-centre-img img { border-color: #e3e9e1; }
 .sw-cov-subtitle, .sw-cov-subtitle p, .sw-cov-subtitle .elementor-widget-container { font-size: clamp(17px, 1.7vw, 24px) !important; line-height: 1.5 !important; }
+/* RECTS at tablet width: map sits inside the content width with rounded corners; the lower blocks stack */
+@media (max-width: 1180px) {
+  .sw-cov-grid > .sw-cov-map { margin: -20px 0 0 !important; width: 100% !important; border-radius: 16px; overflow: hidden; }
+  .sw-cov-grid > .sw-cov-map .sw-map-frame, .sw-cov-grid > .sw-cov-map { -webkit-mask-image: none !important; mask-image: none !important; }
+  .sw-cov-lower { flex-direction: column !important; }
+  .sw-cov-lower > .e-con { width: 100% !important; }
+}
+@media (max-width: 680px) { .sw-cov-grid > .sw-cov-map { margin: 0 !important; min-height: 440px !important; } }
