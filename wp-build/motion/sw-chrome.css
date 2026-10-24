@@ -192,7 +192,7 @@ body.sw-drawer-open { overflow: hidden; }
 .sw-wa-line { color: var(--ink); transition: border-color .15s; }
 .sw-wa-line:hover { border-color: var(--accent) !important; }
 .sw-wa-country .elementor-heading-title, .sw-wa-number .elementor-heading-title { font-weight: 600; white-space: nowrap; }
-.sw-wa-badge { width: 56px !important; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: flex !important; align-items: center; justify-content: center;
+.sw-wa-badge { width: 56px !important; height: 56px; border-radius: 50%; background: #25d366; color: #fff !important; display: flex !important; align-items: center; justify-content: center;
   box-shadow: 0 12px 28px -8px rgba(var(--shadow-rgb), .45); transition: background .2s; animation: sw-fade-in-up .25s ease both; }
 .sw-wa-badge:hover { background: #1ebe5d; }
 .sw-wa.is-open .sw-wa-badge { background: var(--navy-btn); }
@@ -208,3 +208,5 @@ body.sw-drawer-open { overflow: hidden; }
 @media (max-width: 420px) {
   .sw-wa-line { flex-direction: column !important; align-items: flex-start !important; gap: 2px !important; padding: 10px 18px !important; border-radius: 18px !important; }
 }
+@media (max-width: 900px) { .sw-ft-br { display: none; } }
+.sw-ft-legal-left, .sw-ft-social { flex: 0 1 auto !important; }

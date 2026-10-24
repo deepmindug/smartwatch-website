@@ -615,3 +615,9 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-motion .sw-reveal-armed, .sw-motion .sw-enter-armed { visibility: hidden; }
 .sw-word-mask { display: inline-block; overflow: hidden; vertical-align: top; padding: .1em 0 .16em; margin: -.1em 0 -.16em; }
 .sw-word { display: inline-block; }
+.sw-corner .elementor-button { display: inline-flex !important; align-items: center; justify-content: center; }
+.sw-checklist .elementor-icon-list-icon { justify-content: center !important; text-align: center; }
+.sw-checklist .elementor-icon-list-icon svg { width: 10px !important; height: 10px !important; flex: none; margin: 0 !important; }
+.sw-faq .e-n-accordion-item-title, .sw-drawer-acc .e-n-accordion-item-title { flex-direction: row !important; display: flex !important; align-items: center; }
+.sw-faq .e-n-accordion-item-title-header, .sw-drawer-acc .e-n-accordion-item-title-header { flex: 1 1 auto; justify-content: flex-start !important; text-align: left; }
+.sw-faq .e-n-accordion-item-title-icon, .sw-drawer-acc .e-n-accordion-item-title-icon { order: 2; margin-left: auto; }
