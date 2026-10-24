@@ -699,3 +699,8 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 /* eyebrows sit in a 13px line, as on the React page (no inherited body strut) */
 .sw-eyebrow, .sw-eyebrow > .elementor-widget-container { line-height: 0; }
 .sw-eyebrow .elementor-heading-title { line-height: 13px !important; vertical-align: top; }
+/* about: flat trust panel spacing as on the React page */
+.sw-authority-note { margin-top: 8px !important; }
+.sw-authority-note .elementor-widget-container, .sw-authority-note p { max-width: 860px; }
+.sw-flat .sw-story-closing { margin-top: 8px !important; }
+.sw-flat .sw-story-closing .sw-story-closing-text { max-width: none !important; width: 100% !important; }
