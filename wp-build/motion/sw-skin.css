@@ -707,3 +707,4 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 /* CTA band: the actions sit to the right of the copy */
 .sw-cta-band > .sw-cta-actions { width: auto !important; flex: 0 0 auto; }
 @media (max-width: 520px) { .sw-cta-band > .sw-cta-actions { width: 100% !important; } }
+.sw-marquee .sw-marquee-track { margin: 0 !important; padding: 0 !important; list-style: none; }
