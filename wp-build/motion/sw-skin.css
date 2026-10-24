@@ -680,3 +680,4 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-legal-p p { font-size: 16px; line-height: 1.7; }
 .sw-legal-bullets ul { padding-left: 20px; list-style: disc; display: flex; flex-direction: column; gap: 6px; margin: 0; }
 .sw-legal-bullets li { font-size: 16px; line-height: 1.6; }
+.sw-office-city .elementor-heading-title { font-size: 18px !important; }
