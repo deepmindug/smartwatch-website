@@ -215,7 +215,7 @@ h1, h2, h3, h4, .elementor-heading-title { font-synthesis: none; text-wrap: pret
 
 /* Detail hero: soft green glow behind the image */
 .sw-hero { position: relative; overflow: hidden; }
-.sw-hero::before {
+.sw-hero::after {
   content: ''; position: absolute; top: -30%; right: -14vw; width: 62vw; height: 160%;
   background: radial-gradient(closest-side, var(--green-100) 0%, var(--green-50) 42%, transparent 100%);
   opacity: .9; pointer-events: none; z-index: 0;
@@ -234,13 +234,13 @@ h1, h2, h3, h4, .elementor-heading-title { font-synthesis: none; text-wrap: pret
 .sw-hero-actions .sw-hero-demo { margin: -14px 0 -14px -18px; }
 /* Photo hero */
 .sw-hero-photo { background-position: right 55%; }
-.sw-hero-photo::before { inset: 0; width: auto; height: auto; top: 0; right: 0; opacity: 1;
+.sw-hero-photo::after { inset: 0; width: auto; height: auto; top: 0; right: 0; opacity: 1;
   background: linear-gradient(270deg, rgba(10, 11, 9, .66) 0%, rgba(10, 11, 9, .62) 48%, transparent 55%); }
 .sw-hero-photo .elementor-heading-title, .sw-hero-photo .sw-hero-lead { text-shadow: 0 1px 18px rgba(0,0,0,.45); }
 .sw-hero-photo .sw-btn-outline-light .elementor-button { background: rgba(255,255,255,.08) !important; backdrop-filter: blur(6px); }
 @media (max-width: 900px) {
   .sw-hero-photo { background-position: 40% center !important; }
-  .sw-hero-photo::before { background: linear-gradient(180deg, rgba(10,11,9,.7), rgba(10,11,9,.84)); backdrop-filter: blur(3px); }
+  .sw-hero-photo::after { background: linear-gradient(180deg, rgba(10,11,9,.7), rgba(10,11,9,.84)); backdrop-filter: blur(3px); }
   .sw-hero-spacer { display: none; }
 }
 .sw-hero-announce {
@@ -323,8 +323,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 .sw-pillar-tabs .e-n-tabs-heading { display: flex; gap: 10px !important; margin-bottom: 48px; counter-reset: pillar; flex-wrap: nowrap !important; }
 .sw-pillar-tabs .e-n-tab-title {
   position: relative; z-index: 1; flex: 1 1 0 !important; min-width: 0;
-  background: var(--white) !important; border: 1px solid var(--line) !important; border-radius: 14px !important;
-  padding: 18px 16px !important; color: var(--ink) !important;
+  border-radius: 14px !important; padding: 18px 16px !important; color: var(--ink);
   display: flex !important; flex-direction: column; align-items: center !important; gap: 10px; text-align: center;
   transition: background .2s, border-color .25s, color .2s;
 }
@@ -335,9 +334,7 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
   transition: background-color .3s, color .3s;
 }
 .sw-pillar-tabs .e-n-tab-title .e-n-tab-title-text { font-weight: 700 !important; font-size: 14px !important; line-height: 1.3; color: inherit !important; }
-.sw-pillar-tabs .e-n-tab-title[aria-selected='true'] { background: var(--green) !important; border-color: transparent !important; color: #fff !important; }
 .sw-pillar-tabs .e-n-tab-title[aria-selected='true']::before { background: rgba(255,255,255,.24); color: #fff; }
-.sw-pillar-tabs .e-n-tab-title[aria-selected='true']::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 44px; height: 3px; transform: translateX(-50%); border-radius: 3px 3px 0 0; background: #fff; }
 .sw-pillar-tabs .e-n-tabs-content > .e-con { animation: sw-swap .5s ease both; }
 @keyframes sw-swap { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
 @media (max-width: 680px) {
@@ -542,8 +539,8 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 
 /* home: industries / solution cards */
 .sw-solution-photo-wrap { position: relative; }
-.sw-solution-photo-wrap::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.32)); opacity: 0; transition: opacity .35s ease; }
-.sw-solution-card:hover .sw-solution-photo-wrap::before { opacity: 1; }
+.sw-solution-photo-wrap::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.32)); opacity: 0; transition: opacity .35s ease; }
+.sw-solution-card:hover .sw-solution-photo-wrap::after { opacity: 1; }
 .sw-solution-body { flex: 1; }
 .sw-solution-name .elementor-heading-title { font-family: var(--e-global-typography-text-font-family), sans-serif !important; font-size: 19px !important; transition: color .2s; }
 .sw-solution-card:hover .sw-solution-name .elementor-heading-title { color: var(--navy-btn) !important; }

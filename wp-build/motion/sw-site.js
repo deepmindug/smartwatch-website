@@ -123,15 +123,7 @@
     });
   }
 
-  /* ---------------------------------------------------------- hero words: the underline walks the key words */
-  $$('.hero-lead').forEach(function (lead) {
-    var words = $$('a.hero-word', lead);
-    if (!words.length) return;
-    var i = 0;
-    function on(k) { words.forEach(function (w, j) { w.classList.toggle('is-active', j === k); }); }
-    on(0);
-    setInterval(function () { i = (i + 1) % words.length; on(i); }, 3000);
-  });
+  /* hero words: the underline walk and the hover preview live in sw-visuals.js (cursor card) */
 
   /* ---------------------------------------------------------- rail: the pill of the section in view */
   $$('.sw-rail').forEach(function (rail) {

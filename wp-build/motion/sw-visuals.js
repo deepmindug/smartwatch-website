@@ -248,8 +248,8 @@
     { source: 'Tracker 0412', event: 'Ignition on, leaving Kampala depot', status: 'synced', t: '0.3s' },
     { source: 'Dashcam 88', event: 'Harsh-braking clip uploaded', status: 'synced', t: '1.8s' },
     { source: 'Fuel sensor', event: 'Tank level streaming from CAN bus', status: 'live', t: '2.6s' },
-    { source: 'Reefer probe', event: 'Holding 4.1 °C, next reading queued', status: 'queued', t: '—' },
-    { source: 'Trailer tag', event: 'Parked, reporting every 6 hours', status: 'idle', t: '—' },
+    { source: 'Reefer probe', event: 'Holding 4.1 \u00b0C, next reading queued', status: 'queued', t: '\u2014' },
+    { source: 'Trailer tag', event: 'Parked, reporting every 6 hours', status: 'idle', t: '\u2014' },
   ];
   var STACK_Y = { '-2': -68, '-1': -38, '0': 0, '1': 38, '2': 68 };
 
@@ -388,7 +388,7 @@
   var SENSORS = [
     { name: 'GPS', glyph: 'pin', tone: 'green', rate: 60, unit: 'every 1s' },
     { name: 'CAN bus', glyph: 'engine', tone: 'deep', rate: 42, unit: 'engine data' },
-    { name: 'Temperature', glyph: 'thermo', tone: 'sky', rate: 12, unit: '±0.5 °C' },
+    { name: 'Temperature', glyph: 'thermo', tone: 'sky', rate: 12, unit: '\u00b10.5 \u00b0C' },
     { name: 'Fuel level', glyph: 'fuel', tone: 'amber', rate: 30, unit: '0.1 L steps' },
   ];
 
@@ -440,8 +440,8 @@
     { lit: 'output', wire: 'w5', pass: 'false' },
   ];
   var READOUT = {
-    'true': 'UBH 412K · speed 84 km/h · over the 80 limit → buzzer + alert sent',
-    'false': 'UBH 412K · speed 62 km/h · within limit → logged',
+    'true': 'UBH 412K \u00b7 speed 84 km/h \u00b7 over the 80 limit \u2192 buzzer + alert sent',
+    'false': 'UBH 412K \u00b7 speed 62 km/h \u00b7 within limit \u2192 logged',
   };
   var WIDE = {
     viewBox: '0 0 600 290',
