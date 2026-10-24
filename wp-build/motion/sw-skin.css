@@ -640,3 +640,8 @@ a.sw-card-link, a.e-con.sw-card-link { text-decoration: none; }
 }
 .hero-pill { width: auto !important; max-width: 100%; }
 .hero-pill-text .elementor-heading-title { display: flex; justify-content: space-between; gap: 10px; }
+/* The site's own line icons (uploaded SVG): stroke only, coloured by the widget's icon colour */
+.sw-line-icon svg, .sw-line-icon svg * { fill: none !important; stroke: currentColor; }
+.sw-line-icon .elementor-icon svg { stroke: var(--green); }
+.sw-card-product:hover .sw-card-icon .elementor-icon svg, .sw-card-product:hover .sw-card-icon .elementor-icon svg * { stroke: #fff; fill: none !important; }
+.sw-contact-link svg, .sw-drawer-contact svg { stroke: var(--navy); width: 16px; height: 16px; }
