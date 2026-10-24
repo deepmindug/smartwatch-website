@@ -228,7 +228,7 @@ body.sw-drawer-open { overflow: hidden; }
 .sw-contact-pop, .sw-mega, .sw-drawer, .sw-wa, .sw-wa > .e-con, .sw-cov-grid > .sw-cov-map { max-width: none !important; }
 .sw-contact-pop { width: 300px !important; }
 /* contact popover text, as the React popover: a long address wraps inside the card instead of running past it */
-.sw-contact-pop .sw-pop-link, .sw-contact-pop .sw-pop-link * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; word-break: break-word; white-space: normal !important; }
+.sw-contact-pop .sw-pop-link, .sw-contact-pop .sw-pop-link * { min-width: 0; max-width: 100%; overflow-wrap: break-word; white-space: normal !important; }
 .sw-contact-pop .sw-pop-link .elementor-heading-title, .sw-contact-pop .sw-pop-link a { font-size: 14px !important; font-weight: 500 !important; color: var(--ink-2, #4d4d4d) !important; }
 .sw-contact-pop .sw-pop-call a, .sw-contact-pop .sw-pop-help a, .sw-contact-pop .sw-pop-call .elementor-button, .sw-contact-pop .sw-pop-help .elementor-button { font-size: 14px !important; }
 .sw-contact-pop > .elementor-element, .sw-contact-pop .elementor-widget { width: 100% !important; max-width: 100% !important; min-width: 0; }
