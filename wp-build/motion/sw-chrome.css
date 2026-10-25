@@ -232,3 +232,11 @@ body.sw-drawer-open { overflow: hidden; }
 .sw-contact-pop .sw-pop-link .elementor-heading-title, .sw-contact-pop .sw-pop-link a { font-size: 14px !important; font-weight: 500 !important; color: var(--ink-2, #4d4d4d) !important; }
 .sw-contact-pop .sw-pop-call a, .sw-contact-pop .sw-pop-help a, .sw-contact-pop .sw-pop-call .elementor-button, .sw-contact-pop .sw-pop-help .elementor-button { font-size: 14px !important; }
 .sw-contact-pop > .elementor-element, .sw-contact-pop .elementor-widget { width: 100% !important; max-width: 100% !important; min-width: 0; }
+
+/* Mobile header: bigger logo. Tighter header gutters and action gap make room, logo grows with the screen (≈193px at 375px, capped at 204px). */
+@media (max-width: 520px) {
+  .sw-header-bar { padding-left: 16px !important; padding-right: 16px !important; }
+  .sw-logo { margin-right: 8px; }
+  .sw-actions { gap: 4px !important; }
+  .sw-logo img { width: min(204px, calc(100vw - 182px)) !important; }
+}
