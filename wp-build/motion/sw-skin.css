@@ -773,3 +773,8 @@ html.lenis, html.lenis body { height: auto; }
   .sw-cov-lower > .e-con { width: 100% !important; }
 }
 @media (max-width: 680px) { .sw-cov-grid > .sw-cov-map { margin: 0 !important; min-height: 440px !important; } }
+
+/* Hero pill: the green tag now names the product ("Cargo Tracking") rather than saying NEW, so it keeps its case. */
+.hero-pill-tag .elementor-heading-title { text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; white-space: nowrap; }
+.hero-pill { flex-wrap: nowrap !important; }
+@media (max-width: 520px) { .hero-pill-tag .elementor-heading-title { font-size: 12px !important; } }
