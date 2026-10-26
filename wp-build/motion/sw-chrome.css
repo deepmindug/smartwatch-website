@@ -212,7 +212,7 @@ body.sw-drawer-open { overflow: hidden; }
 @media (max-width: 900px) { .sw-ft-br { display: none; } }
 .sw-ft-legal-left, .sw-ft-social { flex: 0 1 auto !important; }
 
-@media (max-width: 520px) { .sw-logo img { width: 168px !important; } }
+
 .sw-drawer-links .elementor-icon-list-items { gap: 0 !important; }
 
 /* wide mega menus span the window (up to 1360px), not just the content column, as on the React site */
@@ -233,15 +233,7 @@ body.sw-drawer-open { overflow: hidden; }
 .sw-contact-pop .sw-pop-call a, .sw-contact-pop .sw-pop-help a, .sw-contact-pop .sw-pop-call .elementor-button, .sw-contact-pop .sw-pop-help .elementor-button { font-size: 14px !important; }
 .sw-contact-pop > .elementor-element, .sw-contact-pop .elementor-widget { width: 100% !important; max-width: 100% !important; min-width: 0; }
 
-/* Mobile header: bigger logo. Tighter header gutters and action gap make room, logo grows with the screen (≈193px at 375px, capped at 204px). */
-@media (max-width: 520px) {
-  .sw-header-bar { padding-left: 16px !important; padding-right: 16px !important; }
-  .sw-logo { margin-right: 8px; }
-  .sw-actions { gap: 4px !important; }
-  .sw-logo img { width: min(204px, calc(100vw - 182px)) !important; }
-}
-
-/* WhatsApp lines on phones: country sits as a small label on the top border, the number fills the button. */
+/* Mobile header: bigger logo. Tighter header gutters and action gap maborder, the number fills the button. */
 @media (max-width: 520px) {
   .sw-wa-card { width: 244px !important; gap: 14px !important; }
   .sw-wa-card .sw-wa-line { position: relative; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0 !important; padding: 15px 10px 11px !important; border-radius: 16px !important; margin-top: 4px; }
@@ -249,4 +241,19 @@ body.sw-drawer-open { overflow: hidden; }
   .sw-wa-card .sw-wa-country .elementor-heading-title { font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .08em; text-transform: uppercase; color: var(--accent, #4FB848) !important; line-height: 1 !important; }
   .sw-wa-card .sw-wa-number { width: auto !important; }
   .sw-wa-card .sw-wa-number .elementor-heading-title { font-size: 18.5px !important; font-weight: 700 !important; letter-spacing: -.01em; line-height: 1.2 !important; text-align: center; }
+}
+
+/* Mobile header: logo, demo pill and menu button sized and spaced exactly as on the React site
+   (logo = screen width minus the actions, capped at 220px: 206px on a 412px phone, 170px on 375px). */
+@media (max-width: 520px) {
+  .sw-logo img { width: min(220px, calc(100vw - 206px)) !important; max-width: none !important; }
+  .sw-burger { flex-shrink: 0; }
+}
+@media (max-width: 360px) { .sw-logo img { width: calc(100vw - 198px) !important; } }
+
+/* Product tabs on phones: each card sizes to its label (min 156px) in a sideways-scrolling row,
+   as on the React site. Elementor's nested tabs otherwise give every title the full row width. */
+@media (max-width: 680px) {
+  .sw-pillar-tabs .e-n-tabs-heading { --n-tabs-title-width: auto; }
+  .sw-pillar-tabs .e-n-tab-title { width: auto !important; }
 }
