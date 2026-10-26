@@ -778,3 +778,4 @@ html.lenis, html.lenis body { height: auto; }
 .hero-pill-tag .elementor-heading-title { text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; white-space: nowrap; }
 .hero-pill { flex-wrap: nowrap !important; }
 @media (max-width: 520px) { .hero-pill-tag .elementor-heading-title { font-size: 12px !important; } }
+.hero-pill-tag { flex-shrink: 0 !important; min-width: max-content !important; }
