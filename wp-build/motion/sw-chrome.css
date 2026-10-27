@@ -257,3 +257,6 @@ body.sw-drawer-open { overflow: hidden; }
   .sw-pillar-tabs .e-n-tabs-heading { --n-tabs-title-width: auto; }
   .sw-pillar-tabs .e-n-tab-title { width: auto !important; }
 }
+
+/* Menu promo card: show the Intelligence hub illustration whole (square crop of its empty side margins) */
+.sw-promo img[src*="location-intelligence-hub"] { aspect-ratio: 1 / 1 !important; height: auto !important; object-fit: cover !important; }
