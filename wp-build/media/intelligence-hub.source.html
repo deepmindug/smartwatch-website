@@ -2,7 +2,7 @@
 @font-face{font-family:OS;font-weight:500;src:url(fontpkg/package/files/open-sans-latin-500-normal.woff2)}
 @font-face{font-family:OS;font-weight:600;src:url(fontpkg/package/files/open-sans-latin-600-normal.woff2)}
 @font-face{font-family:OS;font-weight:700;src:url(fontpkg/package/files/open-sans-latin-700-normal.woff2)}
-:root{--g:#4FB848;--s:2.2}
+:root{--g:#4FB848;--s:2.75}
 *{box-sizing:border-box;margin:0}
 html,body{width:1600px;height:1200px;overflow:hidden}
 body{position:relative;background:#F4F7F3;font-family:OS,sans-serif}
@@ -11,25 +11,26 @@ body{position:relative;background:#F4F7F3;font-family:OS,sans-serif}
 .m1{-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000 35%,rgba(0,0,0,.8) 42%,rgba(0,0,0,.4) 46%,rgba(0,0,0,.1) 50%,transparent 55%)}
 .m2{-webkit-mask-image:linear-gradient(transparent 0%,rgba(0,0,0,.3) 8%,#000 30%,#000 70%,rgba(0,0,0,.3) 92%,transparent 100%)}
 .dots{background-image:radial-gradient(circle,rgba(79,184,72,.22) 2.2px,transparent 2.4px);background-size:264px 264px;background-position:center center;opacity:.5}
-.glow{background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(79,184,72,.07) 0%,rgba(79,184,72,.045) 35%,rgba(79,184,72,.02) 42%,transparent 55%)}
-.stage{position:absolute;left:50%;top:50%;width:500px;height:500px;transform:translate(-50%,-50%) scale(var(--s));}
+.glow{background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(79,184,72,.10) 0%,rgba(79,184,72,.06) 30%,rgba(79,184,72,.025) 45%,transparent 60%)}
+.wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.stage{position:relative;flex:0 0 auto;width:500px;height:500px;zoom:2.75}
 .ring{position:absolute;inset:0;width:500px;height:500px}
-.hub{position:absolute;left:50%;top:50%;width:128px;height:128px;transform:translate(-50%,-50%);border-radius:50%;background:linear-gradient(to bottom right,#4FB848,rgba(79,184,72,.82));box-shadow:0 25px 50px -12px rgba(79,184,72,.35);display:flex;align-items:center;justify-content:center;z-index:10;color:#fff;text-align:center}
+.hub{position:absolute;left:50%;top:50%;width:128px;height:128px;transform:translate(-50%,-50%);border-radius:50%;background:linear-gradient(to bottom right,#4FB848,rgba(79,184,72,.82));display:flex;align-items:center;justify-content:center;z-index:10;color:#fff;text-align:center}
 .hub svg{width:40px;height:40px;display:block;margin:0 auto 4px}
 .hub span{font-size:12px;font-weight:600;line-height:16px;letter-spacing:.01em}
-.card{position:absolute;width:64px;height:64px;border-radius:12px;background:#fff;border:1px solid #E3E9E1;box-shadow:0 10px 15px -3px rgba(16,24,40,.08),0 4px 6px -4px rgba(16,24,40,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:20}
-.card svg{width:24px;height:24px;color:var(--g)}
-.card span{font-size:9px;font-weight:500;line-height:12px;margin-top:4px;color:#1B2845}
+.hubglow{position:absolute;left:50%;top:50%;width:230px;height:230px;transform:translate(-50%,-40%);border-radius:50%;background:radial-gradient(closest-side,rgba(79,184,72,.34),rgba(79,184,72,.12) 55%,rgba(79,184,72,0));z-index:5}
+.card{position:absolute;width:64px;height:64px;border-radius:12px;background:#fff;border:1px solid #DCE4DA;box-shadow:0 12px 18px -4px rgba(27,40,69,.12),0 4px 8px -4px rgba(27,40,69,.10);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:20}
+.card svg{width:25px;height:25px;color:var(--g)}
+.card span{font-size:9.5px;font-weight:600;line-height:12px;margin-top:4px;color:#1B2845}
 svg.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 </style></head><body>
-<div class="l grid m1"></div><div class="l grid m2"></div><div class="l dots m1"></div><div class="l glow"></div>
-<div class="stage">
-<svg class="ring" viewBox="0 0 500 500"><circle cx="250" cy="250" r="160" fill="none" stroke="#C3CEC0" stroke-width="1" stroke-dasharray="4 4"/></svg>
-<div class="hub"><div><svg class="i" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Intelligence</span></div></div>
+<div class="l glow"></div>
+<div class="wrap"><div class="stage">
+<svg class="ring" viewBox="0 0 500 500"><circle cx="250" cy="250" r="160" fill="none" stroke="#A9BBA5" stroke-width="1.2" stroke-dasharray="4 4"/></svg>
+<div class="hubglow"></div><div class="hub"><div><svg class="i" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Intelligence</span></div></div>
 <div class="card" style="left:calc(50% + 128px);top:calc(50% - 32px)"><svg class="i" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span>Analytics</span></div>
 <div class="card" style="left:calc(50% + 48px);top:calc(50% + 106.564px)"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span>Alerts</span></div>
 <div class="card" style="left:calc(50% - 112px);top:calc(50% + 106.564px)"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg><span>History</span></div>
 <div class="card" style="left:calc(50% - 192px);top:calc(50% - 32px)"><svg class="i" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg><span>Sharing</span></div>
 <div class="card" style="left:calc(50% - 112px);top:calc(50% - 170.564px)"><svg class="i" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg><span>Compliance</span></div>
 <div class="card" style="left:calc(50% + 48px);top:calc(50% - 170.564px)"><svg class="i" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg><span>APIs</span></div>
-</div></body></html>
+</div></div></body></html>
