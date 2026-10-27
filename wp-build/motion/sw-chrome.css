@@ -265,4 +265,4 @@ body.sw-drawer-open { overflow: hidden; }
 img[src*="location-intelligence-hub"] { object-fit: contain !important; background-color: #F4F7F3; }
 
 /* Laptop product image: pale green backdrop wherever it is used */
-img[src*="images__laptop"] { background-color: #F3F9F3 !important; }
+img[src*="laptop-tint"] { background-color: #F3F9F3 !important; }
