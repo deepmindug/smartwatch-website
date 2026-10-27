@@ -260,3 +260,6 @@ body.sw-drawer-open { overflow: hidden; }
 
 /* Menu promo card: show the Intelligence hub illustration whole (square crop of its empty side margins) */
 .sw-promo img[src*="location-intelligence-hub"] { aspect-ratio: 1 / 1 !important; height: auto !important; object-fit: cover !important; }
+
+/* Intelligence hub illustration in cards and wide frames: show it whole, padded with its own background colour */
+img[src*="location-intelligence-hub"] { object-fit: contain !important; background-color: #F4F7F3; }
