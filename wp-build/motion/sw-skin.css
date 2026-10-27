@@ -840,3 +840,4 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width:520px){.sw-purpose{border-radius:22px}.sw-purpose__net{right:-120px;bottom:-110px;width:400px;opacity:.6}.sw-purpose__inner{padding-bottom:190px}.sw-purpose__chip{font-size:13px}}
 @media (prefers-reduced-motion:reduce){.sw-node,.sw-ring,.sw-dash{animation:none}}
 .sw-purpose-band .sw-purpose{max-width:none;width:100%;margin:0}.sw-purpose-widget,.sw-purpose-widget .elementor-widget-container{width:100%}
+.sw-purpose h1.sw-purpose__title{color:#fff !important;margin:0 0 26px !important;font-family:Questrial,sans-serif !important;font-weight:400 !important}.sw-purpose p.sw-purpose__body{margin:0 !important}
