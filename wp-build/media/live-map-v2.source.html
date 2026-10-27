@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:OS;font-weight:400;src:url(/tmp/claude-0/-home-claude/39db023b-e181-5fd7-b19d-284954a90214/scratchpad/illus/fontpkg/package/files/open-sans-latin-400-normal.woff2)}
+@font-face{font-family:OS;font-weight:600;src:url(/tmp/claude-0/-home-claude/39db023b-e181-5fd7-b19d-284954a90214/scratchpad/illus/fontpkg/package/files/open-sans-latin-600-normal.woff2)}
+@font-face{font-family:OS;font-weight:700;src:url(/tmp/claude-0/-home-claude/39db023b-e181-5fd7-b19d-284954a90214/scratchpad/illus/fontpkg/package/files/open-sans-latin-700-normal.woff2)}
+html,body{margin:0;width:1440px;height:1080px;overflow:hidden;background:#F2F1EC;font-family:OS,sans-serif}
+svg{display:block}
+.area{font:600 15px OS;letter-spacing:.22em;fill:#8A8F98;text-anchor:middle}
+.city{font:700 26px OS;letter-spacing:.3em;fill:#5F6670;text-anchor:middle}
+.rl{font:600 14px OS;fill:#7A6A3A;letter-spacing:.02em}
+.water{font:italic 600 22px OS;fill:#5B8DBA;letter-spacing:.08em}
+.ui{position:absolute;font-family:OS}
+#chip{left:28px;top:28px;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:0 8px 24px rgba(27,40,69,.14);display:flex;gap:12px;align-items:center;font:600 17px OS;color:#1B2845}
+#chip i{width:10px;height:10px;border-radius:50%;background:#4FB848;box-shadow:0 0 0 4px rgba(79,184,72,.22)}
+#chip span{color:#5C5C5A;font-weight:400}
+#zoom{right:28px;bottom:28px;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(27,40,69,.14);width:48px;overflow:hidden}
+#zoom div{height:48px;display:flex;align-items:center;justify-content:center;font:400 28px OS;color:#1B2845}
+#zoom div+div{border-top:1px solid #E3E9E1}
+#tip{background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 10px 28px rgba(27,40,69,.18);min-width:190px;transform:translate(-50%,calc(-100% - 30px))}
+#tip b{display:block;font:700 18px OS;color:#1B2845}
+#tip small{display:block;font:400 15px OS;color:#5C5C5A;margin-top:2px}
+#tip:after{content:'';position:absolute;left:50%;bottom:-8px;width:16px;height:16px;background:#fff;transform:translateX(-50%) rotate(45deg);box-shadow:4px 4px 8px rgba(27,40,69,.06)}
+#toast{right:28px;top:28px;background:#1B2845;color:#fff;border-radius:14px;padding:12px 18px;font:600 16px OS;display:flex;gap:10px;align-items:center;box-shadow:0 10px 28px rgba(27,40,69,.25)}
+#toast i{width:10px;height:10px;border-radius:50%;background:#4FB848}
+</style></head><body>
+<svg id="map" width="1440" height="1080" viewBox="0 0 1440 1080">
+<defs><filter id="sh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1B2845" flood-opacity=".28"/></filter></defs>
+<g id="land"></g>
+<path id="waterP" d="M840 1080 C 930 960, 1050 880, 1150 868 C 1230 858, 1270 800, 1350 770 C 1390 752, 1420 742, 1440 738 L1440 1080 Z M1080 1080 C 1120 1000, 1180 950, 1240 940 L1240 1080 Z" fill="#AAD3F2"/>
+<g id="minor"></g><g id="major"></g><g id="labels"></g>
+<g id="fence"><circle cx="760" cy="640" r="118" fill="rgba(79,184,72,.09)" stroke="#4FB848" stroke-width="3" stroke-dasharray="10 8"/></g>
+<path id="trail" fill="none" stroke="#4FB848" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+<g id="veh"></g>
+</svg>
+<div class="ui" id="chip"><i></i>Live fleet <span>· 8 vehicles</span></div>
+<div class="ui" id="toast"><i></i>Geofence · UBK 905P entered Industrial Area</div>
+<div class="ui" id="zoom"><div>+</div><div>−</div></div>
+<div class="ui" id="tip"><b>UBH 412K</b><small id="tipS">Moving · 48 km/h</small></div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||document.getElementById('map')).appendChild(e);return e};
+function spline(pts,closed){ // Catmull-Rom -> cubic bezier
+  const P=closed?[pts[pts.length-1],...pts,pts[0],pts[1]]:[pts[0],...pts,pts[pts.length-1]];
+  let d='M'+pts[0][0]+' '+pts[0][1]; const n=closed?pts.length:pts.length-1;
+  for(let i=1;i<=n;i++){const p0=P[i-1],p1=P[i],p2=P[i+1],p3=P[i+2];
+    d+=' C'+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+' '+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+', '+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+' '+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+', '+p2[0]+' '+p2[1];}
+  return d+(closed?' Z':'');
+}
+let seed=7;const rnd=()=>((seed=(seed*16807)%2147483647)/2147483647);
+const water=document.getElementById('waterP');
+const inWater=(x,y)=>water.isPointInFill(new DOMPoint(x,y));
+// land texture: blocks + parks
+const land=document.getElementById('land');
+for(let i=0;i<260;i++){const x=rnd()*1440,y=rnd()*1080; if(inWater(x,y))continue; const w=40+rnd()*90,h=30+rnd()*70; el('rect',{x,y,width:w,height:h,rx:4,fill:rnd()<.5?'#ECEAE3':'#EFEDE6',transform:'rotate('+(rnd()*30-15)+' '+x+' '+y+')'},land)}
+[[760,330,120,62,-12],[640,600,70,40,10],[300,330,90,55,20],[1060,420,85,50,-20],[200,860,110,60,8],[1180,180,95,48,0],[880,410,60,36,15]].forEach(([x,y,a,b,r])=>el('ellipse',{cx:x,cy:y,rx:a,ry:b,fill:'#CFE7C6',transform:'rotate('+r+' '+x+' '+y+')'},land));
+// minor streets
+const minor=document.getElementById('minor');
+for(let i=0;i<190;i++){let x=rnd()*1480-20,y=rnd()*1120-20; if(inWater(x,y))continue; const base=rnd()<.5?0.32:1.9; const a=base+(rnd()-.5)*.35; const L=60+rnd()*220; const pts=[[x,y]]; for(let s=1;s<=3;s++){const nx=x+Math.cos(a+(rnd()-.5)*.3)*L/3*s,ny=y+Math.sin(a+(rnd()-.5)*.3)*L/3*s; if(inWater(nx,ny))break; pts.push([+nx.toFixed(1),+ny.toFixed(1)])} if(pts.length<2)continue; const d=spline(pts,false); const w=rnd()<.25?9:6; el('path',{d,fill:'none',stroke:'#DADCDF','stroke-width':w+3,'stroke-linecap':'round'},minor); el('path',{d,fill:'none',stroke:'#FFFFFF','stroke-width':w,'stroke-linecap':'round'},minor)}
+// major roads & vehicle loops
+const loops={
+ A:[[560,480],[640,520],[780,540],[900,560],[960,640],[1040,720],[1120,800],[980,792],[860,772],[720,748],[600,728],[480,700],[500,600]],
+ B:[[560,480],[548,380],[535,260],[520,150],[640,124],[780,128],[900,170],[870,260],[820,350],[760,430],[700,505],[640,520]],
+ C:[[900,560],[1040,580],[1180,600],[1320,620],[1300,500],[1270,390],[1260,300],[1120,240],[1000,200],[900,170],[870,260],[820,350],[760,430],[700,505],[780,540]]};
+const opens=[ [[-30,430],[160,442],[300,455],[440,470],[560,480]], [[1320,620],[1400,632],[1470,640]], [[480,700],[455,800],[430,920],[405,1100]], [[520,150],[505,60],[495,-30]], [[520,150],[380,160],[240,190],[90,235],[-30,262]], [[1260,300],[1360,315],[1470,330]], [[1120,800],[1150,830]] ];
+const major=document.getElementById('major'); const paths={};
+const draw=(d,w)=>{el('path',{d,fill:'none',stroke:'#E5C36A','stroke-width':w+4,'stroke-linecap':'round','stroke-linejoin':'round'},major)};
+const draw2=(d,w)=>{el('path',{d,fill:'none',stroke:'#FBDE86','stroke-width':w,'stroke-linecap':'round','stroke-linejoin':'round'},major)};
+const ds=[...Object.values(loops).map(p=>spline(p,true)),...opens.map(p=>spline(p,false))];
+ds.forEach(d=>draw(d,13)); ds.forEach(d=>draw2(d,13));
+for(const k in loops) paths[k]=el('path',{d:spline(loops[k],true),fill:'none',stroke:'none',id:'loop'+k},major);
+// labels
+const lab=document.getElementById('labels');
+const T=(x,y,t,c)=>{const e=el('text',{x,y,class:c},lab);e.textContent=t};
+T(420,330,'KAMPALA','city');T(610,425,'NAKASERO','area');T(745,300,'KOLOLO','area');T(1000,340,'NTINDA','area');T(1040,660,'BUGOLOBI','area');T(760,690,'INDUSTRIAL AREA','area');T(330,620,'MENGO','area');T(240,820,'NDEEBA','area');T(1210,470,'NAGURU','area');T(1040,1030,'Lake Victoria','water');
+const roadLabel=(d,t,off)=>{const id='rl'+Math.random().toString(36).slice(2);el('path',{id,d,fill:'none',stroke:'none'},lab);const tx=el('text',{class:'rl',dy:5},lab);const tp=el('textPath',{href:'#'+id,startOffset:off},tx);tp.textContent=t};
+roadLabel(spline([[160,442],[300,455],[440,470]],false),'Jinja Rd','20%');
+roadLabel(spline([[1040,580],[1180,600],[1300,618]],false),'Jinja Rd','25%');
+roadLabel(spline([[455,780],[430,920],[415,1040]],false),'Entebbe Rd','10%');
+roadLabel(spline([[640,124],[780,128],[880,160]],false),'Northern Bypass','8%');
+roadLabel(spline([[960,640],[1040,720],[1110,792]],false),'Port Bell Rd','12%');
+// vehicles
+const vg=document.getElementById('veh');
+const fleet=[{l:'A',o:0.05,k:1,sel:1},{l:'A',o:0.55,k:1},{l:'B',o:0.15,k:1},{l:'B',o:0.65,k:1},{l:'C',o:0.3,k:1},{l:'C',o:0.8,k:1}];
+const statics=[{x:330,y:655,c:'#F2A33A'},{x:735,y:610,c:'#4FB848'}];
+const mk=(c)=>{const g=el('g',{},vg);const pulse=el('circle',{r:16,fill:c,opacity:.25},g);el('circle',{r:16,fill:'#fff',filter:'url(#sh)'},g);el('circle',{r:12,fill:c},g);const ar=el('path',{d:'M0 -7 L5.5 5 L0 2.2 L-5.5 5 Z',fill:'#fff'},g);return {g,pulse,ar}};
+fleet.forEach(v=>Object.assign(v,mk('#4FB848')));
+statics.forEach(s=>{Object.assign(s,mk(s.c));s.ar.setAttribute('d','M-3.5 -3.5 h7 v7 h-7 z');s.g.setAttribute('transform','translate('+s.x+' '+s.y+')')});
+const trail=document.getElementById('trail'),tip=document.getElementById('tip'),tipS=document.getElementById('tipS'),toast=document.getElementById('toast');
+const PER=12;
+window.render=function(t){
+  for(const v of fleet){const p=paths[v.l],L=p.getTotalLength();const u=((v.o+v.k*t/PER)%1+1)%1;const a=p.getPointAtLength(u*L),b=p.getPointAtLength(((u+0.002)%1)*L);const ang=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI+90;
+    v.g.setAttribute('transform','translate('+a.x.toFixed(2)+' '+a.y.toFixed(2)+')');v.ar.setAttribute('transform','rotate('+ang.toFixed(1)+')');
+    const ph=((t+v.o*3)%1.5)/1.5;v.pulse.setAttribute('r',(16+ph*22).toFixed(1));v.pulse.setAttribute('opacity',(0.28*(1-ph)).toFixed(3));
+    if(v.sel){let d='';for(let i=60;i>=0;i--){const q=p.getPointAtLength((((u-i*0.0035)%1+1)%1)*L);d+=(i===60?'M':'L')+q.x.toFixed(1)+' '+q.y.toFixed(1)}trail.setAttribute('d',d);
+      tip.style.left=a.x+'px';tip.style.top=a.y+'px';tipS.textContent='Moving · '+Math.round(46+6*Math.sin(2*Math.PI*t/PER*2))+' km/h';}}
+  for(const s of statics){const ph=(t%1.5)/1.5;s.pulse.setAttribute('r',(16+ph*22).toFixed(1));s.pulse.setAttribute('opacity',(0.28*(1-ph)).toFixed(3))}
+  // toast: visible 4s..9s with fade
+  const f=t<3.5?0:t<4?(t-3.5)/.5:t<9?1:t<9.5?1-(t-9)/.5:0; toast.style.opacity=f; toast.style.transform='translateY('+((1-f)*-10)+'px)';
+};
+render(0);
+</script></body></html>
