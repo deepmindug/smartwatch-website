@@ -853,3 +853,7 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width:900px){.sw-purpose .sw-purpose__inner{padding:28px 24px;max-width:none}.sw-purpose .sw-purpose__net{width:340px;right:-120px;top:50%;bottom:auto;transform:translateY(-50%);opacity:.28}}
 @media (max-width:520px){.sw-purpose{border-radius:18px}.sw-purpose .sw-purpose__inner{padding:24px 20px}.sw-purpose h1.sw-purpose__title{font-size:23px !important}.sw-purpose p.sw-purpose__body{font-size:15.5px !important}.sw-purpose .sw-purpose__net{width:300px;right:-130px;opacity:.22}}
 .sw-purpose-band{padding-top:36px !important}
+
+/* Revenue authorities strip with a single logo: centred */
+.sw-authority-solo { justify-content: center !important; }
+.sw-authority-note-center .elementor-widget-container, .sw-authority-note-center p { margin-left: auto !important; margin-right: auto !important; text-align: center; }
