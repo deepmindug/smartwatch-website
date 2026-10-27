@@ -783,3 +783,4 @@ html.lenis, html.lenis body { height: auto; }
 .hero-pill-tag { display: flex !important; align-items: center; }
 .hero-pill-tag .elementor-heading-title { display: block !important; line-height: 20px !important; padding: 3px 11px !important; }
 .hero-pill-text .elementor-heading-title { line-height: 20px !important; align-items: center; }
+.hero-pill { align-items: center !important; } .hero-pill-tag { align-self: center !important; }
