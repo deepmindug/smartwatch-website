@@ -794,3 +794,8 @@ html.lenis, html.lenis body { height: auto; }
   .sw-hero-announce .sw-announce-text { max-width: none !important; flex: 0 0 auto !important; }
   .sw-hero-announce .sw-announce-text .elementor-heading-title { white-space: nowrap !important; font-size: clamp(15px, 1.45vw, 19.84px) !important; }
 }
+
+/* Support contact lists: phone and envelope icons in the green check circle, numbers and email clickable. */
+.sw-contactlist .elementor-icon-list-icon svg { width: 13px !important; height: 13px !important; }
+.sw-contactlist a { color: inherit; text-decoration: none; }
+.sw-contactlist a:hover .elementor-icon-list-text { color: var(--e-global-color-primary, #4FB848) !important; text-decoration: underline; text-underline-offset: 3px; }
