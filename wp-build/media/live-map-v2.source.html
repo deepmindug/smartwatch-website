@@ -15,7 +15,7 @@ svg{display:block}
 #zoom{right:28px;bottom:28px;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(27,40,69,.14);width:48px;overflow:hidden}
 #zoom div{height:48px;display:flex;align-items:center;justify-content:center;font:400 28px OS;color:#1B2845}
 #zoom div+div{border-top:1px solid #E3E9E1}
-#tip{background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 10px 28px rgba(27,40,69,.18);min-width:190px;transform:translate(-50%,calc(-100% - 30px))}
+#tip{background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 10px 28px rgba(27,40,69,.18);min-width:190px;transform:translate(-50%,calc(-100% - 44px))}
 #tip b{display:block;font:700 18px OS;color:#1B2845}
 #tip small{display:block;font:400 15px OS;color:#5C5C5A;margin-top:2px}
 #tip:after{content:'';position:absolute;left:50%;bottom:-8px;width:16px;height:16px;background:#fff;transform:translateX(-50%) rotate(45deg);box-shadow:4px 4px 8px rgba(27,40,69,.06)}
@@ -23,12 +23,12 @@ svg{display:block}
 #toast i{width:10px;height:10px;border-radius:50%;background:#4FB848}
 </style></head><body>
 <svg id="map" width="1440" height="1080" viewBox="0 0 1440 1080">
-<defs><filter id="sh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1B2845" flood-opacity=".28"/></filter></defs>
+<defs><filter id="mb" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.6"/></filter><filter id="sh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1B2845" flood-opacity=".28"/></filter></defs>
 <g id="land"></g>
 <path id="waterP" d="M840 1080 C 930 960, 1050 880, 1150 868 C 1230 858, 1270 800, 1350 770 C 1390 752, 1420 742, 1440 738 L1440 1080 Z M1080 1080 C 1120 1000, 1180 950, 1240 940 L1240 1080 Z" fill="#AAD3F2"/>
 <g id="minor"></g><g id="major"></g><g id="labels"></g>
 <g id="fence"><circle cx="760" cy="640" r="118" fill="rgba(79,184,72,.09)" stroke="#4FB848" stroke-width="3" stroke-dasharray="10 8"/></g>
-<path id="trail" fill="none" stroke="#4FB848" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+<path id="trail" fill="none" stroke="#4FB848" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
 <g id="veh"></g>
 </svg>
 <div class="ui" id="chip"><i></i>Live fleet <span>· 8 vehicles</span></div>
@@ -77,23 +77,47 @@ roadLabel(spline([[1040,580],[1180,600],[1300,618]],false),'Jinja Rd','25%');
 roadLabel(spline([[455,780],[430,920],[415,1040]],false),'Entebbe Rd','10%');
 roadLabel(spline([[640,124],[780,128],[880,160]],false),'Northern Bypass','8%');
 roadLabel(spline([[960,640],[1040,720],[1110,792]],false),'Port Bell Rd','12%');
-// vehicles
+// vehicles: top-down truck icons that turn with the road, each with a fading motion trail
 const vg=document.getElementById('veh');
-const fleet=[{l:'A',o:0.05,k:1,sel:1},{l:'A',o:0.55,k:1},{l:'B',o:0.15,k:1},{l:'B',o:0.65,k:1},{l:'C',o:0.3,k:1},{l:'C',o:0.8,k:1}];
-const statics=[{x:330,y:655,c:'#F2A33A'},{x:735,y:610,c:'#4FB848'}];
-const mk=(c)=>{const g=el('g',{},vg);const pulse=el('circle',{r:16,fill:c,opacity:.25},g);el('circle',{r:16,fill:'#fff',filter:'url(#sh)'},g);el('circle',{r:12,fill:c},g);const ar=el('path',{d:'M0 -7 L5.5 5 L0 2.2 L-5.5 5 Z',fill:'#fff'},g);return {g,pulse,ar}};
-fleet.forEach(v=>Object.assign(v,mk('#4FB848')));
-statics.forEach(s=>{Object.assign(s,mk(s.c));s.ar.setAttribute('d','M-3.5 -3.5 h7 v7 h-7 z');s.g.setAttribute('transform','translate('+s.x+' '+s.y+')')});
+const fleet=[{l:'A',o:0.05,k:1,sel:1},{l:'A',o:0.55,k:1},{l:'B',o:0.15,k:1},{l:'B',o:0.65,k:1,car:1},{l:'C',o:0.3,k:1},{l:'C',o:0.8,k:1,car:1}];
+const statics=[{x:330,y:655,c:'#F2A33A',dk:'#C97F1A',a:-30},{x:735,y:610,c:'#4FB848',dk:'#2F8A2A',a:15}];
+const TRN=40, SC=1.35;
+function truck(g,c,dk){ // points along +x, centred on the origin
+  el('rect',{x:-25,y:-11,width:50,height:22,rx:5,fill:'#fff',filter:'url(#sh)'},g);
+  el('rect',{x:-23,y:-9,width:33,height:18,rx:3,fill:c},g);            // trailer
+  el('rect',{x:-21,y:-6.5,width:29,height:1.6,rx:.8,fill:'rgba(255,255,255,.45)'},g);
+  el('rect',{x:-21,y:4.9,width:29,height:1.6,rx:.8,fill:'rgba(255,255,255,.45)'},g);
+  el('rect',{x:12,y:-8,width:11,height:16,rx:3.5,fill:dk},g);          // cab
+  el('rect',{x:18.5,y:-6,width:3.2,height:12,rx:1.2,fill:'#DFF3DC'},g); // windscreen
+}
+function car(g,c,dk){
+  el('rect',{x:-17,y:-9.5,width:34,height:19,rx:7,fill:'#fff',filter:'url(#sh)'},g);
+  el('rect',{x:-15,y:-7.5,width:30,height:15,rx:5.5,fill:c},g);
+  el('rect',{x:3,y:-6,width:6,height:12,rx:2,fill:'#DFF3DC'},g);
+  el('rect',{x:-11,y:-5.5,width:4.5,height:11,rx:1.8,fill:'rgba(255,255,255,.55)'},g);
+  el('rect',{x:-6,y:-6.5,width:9,height:13,rx:2,fill:dk},g);
+}
+for(const v of fleet){
+  v.tg=el('g',{filter:'url(#mb)'},vg); v.segs=[];
+  for(let i=0;i<TRN;i++) v.segs.push(el('line',{stroke:'#4FB848','stroke-linecap':'round'},v.tg));
+  v.g=el('g',{},vg); (v.car?car:truck)(v.g,'#4FB848','#2F8A2A');
+}
+for(const s of statics){ s.g=el('g',{transform:'translate('+s.x+' '+s.y+') rotate('+s.a+') scale('+SC+')'},vg); truck(s.g,s.c,s.dk); }
 const trail=document.getElementById('trail'),tip=document.getElementById('tip'),tipS=document.getElementById('tipS'),toast=document.getElementById('toast');
 const PER=12;
+const at=(p,L,s)=>p.getPointAtLength(((s%L)+L)%L);
 window.render=function(t){
-  for(const v of fleet){const p=paths[v.l],L=p.getTotalLength();const u=((v.o+v.k*t/PER)%1+1)%1;const a=p.getPointAtLength(u*L),b=p.getPointAtLength(((u+0.002)%1)*L);const ang=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI+90;
-    v.g.setAttribute('transform','translate('+a.x.toFixed(2)+' '+a.y.toFixed(2)+')');v.ar.setAttribute('transform','rotate('+ang.toFixed(1)+')');
-    const ph=((t+v.o*3)%1.5)/1.5;v.pulse.setAttribute('r',(16+ph*22).toFixed(1));v.pulse.setAttribute('opacity',(0.28*(1-ph)).toFixed(3));
-    if(v.sel){let d='';for(let i=60;i>=0;i--){const q=p.getPointAtLength((((u-i*0.0035)%1+1)%1)*L);d+=(i===60?'M':'L')+q.x.toFixed(1)+' '+q.y.toFixed(1)}trail.setAttribute('d',d);
+  for(const v of fleet){const p=paths[v.l],L=p.getTotalLength();const s=(((v.o+v.k*t/PER)%1)+1)%1*L;
+    const a=at(p,L,s), f=at(p,L,s+9), b=at(p,L,s-9);
+    const ang=Math.atan2(f.y-b.y,f.x-b.x)*180/Math.PI;
+    v.g.setAttribute('transform','translate('+a.x.toFixed(2)+' '+a.y.toFixed(2)+') rotate('+ang.toFixed(2)+') scale('+SC+')');
+    // motion trail: tapered, fading streak that follows the road behind the vehicle
+    const back=(v.car?20:28)*SC, len=v.sel?170:130;
+    for(let i=0;i<TRN;i++){const s0=s-back-len*i/TRN, s1=s-back-len*(i+1)/TRN; const q0=at(p,L,s0), q1=at(p,L,s1); const k=1-i/TRN;
+      const seg=v.segs[i]; seg.setAttribute('x1',q0.x.toFixed(1));seg.setAttribute('y1',q0.y.toFixed(1));seg.setAttribute('x2',q1.x.toFixed(1));seg.setAttribute('y2',q1.y.toFixed(1));
+      seg.setAttribute('stroke-width',(1.5+(v.car?12:16)*k).toFixed(2)); seg.setAttribute('stroke-opacity',(0.30*Math.pow(k,1.4)).toFixed(3));}
+    if(v.sel){let d='';for(let i=70;i>=0;i--){const q=at(p,L,s-back-i*7);d+=(i===70?'M':'L')+q.x.toFixed(1)+' '+q.y.toFixed(1)}trail.setAttribute('d',d);
       tip.style.left=a.x+'px';tip.style.top=a.y+'px';tipS.textContent='Moving · '+Math.round(46+6*Math.sin(2*Math.PI*t/PER*2))+' km/h';}}
-  for(const s of statics){const ph=(t%1.5)/1.5;s.pulse.setAttribute('r',(16+ph*22).toFixed(1));s.pulse.setAttribute('opacity',(0.28*(1-ph)).toFixed(3))}
-  // toast: visible 4s..9s with fade
   const f=t<3.5?0:t<4?(t-3.5)/.5:t<9?1:t<9.5?1-(t-9)/.5:0; toast.style.opacity=f; toast.style.transform='translateY('+((1-f)*-10)+'px)';
 };
 render(0);
