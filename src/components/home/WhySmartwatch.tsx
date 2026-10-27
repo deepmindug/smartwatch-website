@@ -10,7 +10,7 @@ export default function WhySmartwatch() {
   return (
     <section className={s.section}>
       <div className={cx('container', s.grid)}>
-        <Media image={img.whySketch} ratio="4 / 3" radius={20} className={s.media} />
+        <Media image={img.whyTruck} ratio="4 / 3" radius={20} className={s.media} />
         <div className={s.copy}>
           <div className="eyebrow eyebrow--rule">Why Smartwatch</div>
           <h2 className="h-section">East Africa's leading provider of fleet and mobile asset management since 2011.</h2>

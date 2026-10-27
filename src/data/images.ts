@@ -137,11 +137,11 @@ export const img = {
     width: 1168,
     height: 880,
   },
-  whySketch: {
-    src: '/images/why-smartwatch-sketch.webp',
-    alt: 'Pen sketch of fleet tracking since 2011: a paper map, early tracker and phone, a 2011 calendar and a tablet map, linked by routes across East African hills to a city, a satellite and a mast',
-    width: 1168,
-    height: 880,
+  whyTruck: {
+    src: '/images/why-smartwatch-night-truck.webp',
+    alt: 'Truck driving a desert road at night under the Milky Way, with green signal rings linking it to a mast on a distant hill',
+    width: 1600,
+    height: 1195,
   },
   insuranceShield: {
     src: '/images/insurance-claim-roadside.webp',

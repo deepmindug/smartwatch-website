@@ -10,20 +10,17 @@
   align-items: center;
 }
 
-/* The sketch runs the full height of the copy beside it, cropped to fill, framed in its own ink black. */
+/* The photo runs the full height of the copy beside it, cropped to fill. */
 .grid > .media {
   align-self: stretch;
   height: 100%;
   aspect-ratio: auto !important;
   min-height: 360px;
-  border: 1px solid #0d0d0c;
-  background: var(--surface-alt);
 }
 
-/* Multiplied over the section's pale green, the sketch's white paper takes the page colour and only the
-   ink lines stand out, so the picture blends into the background. */
+/* Keep the truck and the mast in frame when the crop gets tall and narrow. */
 .grid > .media img {
-  mix-blend-mode: multiply;
+  object-position: 55% 60%;
 }
 
 .copy {
