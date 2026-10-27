@@ -266,3 +266,7 @@ img[src*="location-intelligence-hub"] { object-fit: contain !important; backgrou
 
 /* Laptop product image: pale green backdrop wherever it is used */
 img[src*="laptop-tint"] { background-color: #F3F9F3 !important; }
+
+/* Visually hidden text for screen readers and crawlers (link names) */
+.sw-sr { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+.sw-sr-wrap { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; }
