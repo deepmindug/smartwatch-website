@@ -862,3 +862,6 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 767px) {
   .sw-media:not(.sw-mega .sw-media) img[src*="location-intelligence-hub"] { aspect-ratio: 1 / 1 !important; height: auto !important; object-fit: cover !important; }
 }
+
+/* About overview: bring the phone closer */
+#overview img[src*="app-dashboard-cafe"] { transform: scale(1.22); transform-origin: 40% 52%; }
