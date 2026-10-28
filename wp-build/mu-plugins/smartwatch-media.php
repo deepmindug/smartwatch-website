@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Smartwatch Media
- * Description: Serves replacement videos in two sizes (desktop and phone, picked by the browser through <source media>), each encoded with the index at the front so playback starts before the download finishes. Files live in uploads/smartwatch/media. Covers the homepage hero video and the Tracking & Telematics live map.
+ * Description: Serves replacement videos in two sizes (desktop and phone, picked by the browser through <source media>), each encoded with the index at the front so playback starts before the download finishes. Files live in uploads/smartwatch/media. Covers the homepage hero video, the live map and the Electronic Cargo Tracking control-room video.
  */
 if (!defined('ABSPATH')) exit;
 
@@ -9,6 +9,7 @@ function sw_media_videos() {
     return [
         '/hero.mp4'              => ['desktop' => 'hero-v2-1080.mp4', 'mobile' => 'hero-v2-720.mp4', 'poster' => 'hero-v2-poster.webp'],
         '/live-map-tracking.mp4' => ['desktop' => 'live-map-v2-1440.mp4', 'mobile' => 'live-map-v2-960.mp4', 'poster' => 'live-map-v2-poster.webp'],
+        'cargo-tracking.mp4'     => ['desktop' => 'cargo-v2-1080.mp4', 'mobile' => 'cargo-v2-720.mp4', 'poster' => 'cargo-v2-poster.webp'],
     ];
 }
 
