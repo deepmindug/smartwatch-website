@@ -875,6 +875,7 @@ html.lenis, html.lenis body { height: auto; }
 .why-media-video video { position: absolute; inset: 0; width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 20px; }
 @media (max-width: 900px) { .why-media-video, .why-media-video .elementor-widget-container { height: auto !important; } .why-media-video .elementor-wrapper { height: auto !important; min-height: 0; aspect-ratio: 4 / 3 !important; position: relative; } }
 
-/* Why Smartwatch video: 2px white frame */
-.why-media-video .elementor-wrapper { border: 2px solid #fff; box-shadow: none; }
-.why-media-video video { border-radius: 19px; }
+/* Why Smartwatch video: 4px white frame; the wrapper clips the video so no dark corners show */
+.why-media-video .elementor-wrapper { border: 4px solid #fff; box-shadow: none; background: #fff !important; border-radius: 20px !important; overflow: hidden; isolation: isolate; -webkit-mask-image: -webkit-radial-gradient(white, black); }
+.why-media-video video { border-radius: 0 !important; background: #fff !important; }
+.why-media-video .elementor-widget-container { background: transparent !important; border-radius: 20px; }
