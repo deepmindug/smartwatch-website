@@ -868,3 +868,9 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Stats strip: when an odd number of stats wraps into two columns, let the last one span the row (no empty grey cell) */
 @media (max-width: 1024px) { .sw-stats > .e-con:last-child:nth-child(odd) { width: 100% !important; max-width: 100% !important; flex-basis: 100% !important; } }
+
+/* Why Smartwatch: live map video fills the column height like the image did */
+.why-media-video, .why-media-video .elementor-widget-container, .why-media-video .elementor-wrapper { height: 100% !important; }
+.why-media-video .elementor-wrapper { position: relative; aspect-ratio: auto !important; padding: 0 !important; min-height: 360px; border-radius: 20px; overflow: hidden; }
+.why-media-video video { position: absolute; inset: 0; width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 20px; }
+@media (max-width: 900px) { .why-media-video, .why-media-video .elementor-widget-container { height: auto !important; } .why-media-video .elementor-wrapper { height: auto !important; min-height: 0; aspect-ratio: 4 / 3 !important; position: relative; } }
