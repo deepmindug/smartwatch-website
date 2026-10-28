@@ -875,6 +875,6 @@ html.lenis, html.lenis body { height: auto; }
 .why-media-video video { position: absolute; inset: 0; width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 20px; }
 @media (max-width: 900px) { .why-media-video, .why-media-video .elementor-widget-container { height: auto !important; } .why-media-video .elementor-wrapper { height: auto !important; min-height: 0; aspect-ratio: 4 / 3 !important; position: relative; } }
 
-/* Why Smartwatch video: soft green hairline frame that blends with the pale green section */
-.why-media-video .elementor-wrapper { border: 1px solid rgba(79, 184, 72, .28); box-shadow: 0 0 0 6px rgba(255, 255, 255, .7), 0 0 0 7px rgba(79, 184, 72, .14), 0 22px 44px -24px rgba(27, 40, 69, .22); }
+/* Why Smartwatch video: 2px white frame */
+.why-media-video .elementor-wrapper { border: 2px solid #fff; box-shadow: none; }
 .why-media-video video { border-radius: 19px; }
