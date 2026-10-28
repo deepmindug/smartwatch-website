@@ -865,3 +865,6 @@ html.lenis, html.lenis body { height: auto; }
 
 /* About overview: bring the phone closer */
 #overview img[src*="app-dashboard-cafe"] { transform: scale(1.22); transform-origin: 40% 52%; }
+
+/* Stats strip: when an odd number of stats wraps into two columns, let the last one span the row (no empty grey cell) */
+@media (max-width: 1024px) { .sw-stats > .e-con:last-child:nth-child(odd) { width: 100% !important; max-width: 100% !important; flex-basis: 100% !important; } }
