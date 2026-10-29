@@ -10,6 +10,7 @@ function sw_media_videos() {
         '/hero.mp4'              => ['desktop' => 'hero-v2-1080.mp4', 'mobile' => 'hero-v2-720.mp4', 'poster' => 'hero-v2-poster.webp'],
         '/live-map-tracking.mp4' => ['desktop' => 'live-map-v2-1440.mp4', 'mobile' => 'live-map-v2-960.mp4', 'poster' => 'live-map-v2-poster.webp'],
         'cargo-tracking.mp4'     => ['desktop' => 'cargo-v2-1080.mp4', 'mobile' => 'cargo-v2-720.mp4', 'poster' => 'cargo-v2-poster.webp'],
+        'cargo-spotlight.mp4'    => ['desktop' => 'spotlight-v2-1080.mp4', 'mobile' => 'spotlight-v2-720.mp4', 'poster' => 'spotlight-v2-poster.webp'],
     ];
 }
 
