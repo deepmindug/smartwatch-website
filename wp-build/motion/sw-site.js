@@ -231,8 +231,9 @@
   });
 })();
 
-/* RECTS ticker under the homepage hero video: scrolls left on its own, pauses under the mouse,
-   and can be dragged, swiped or moved with a sideways wheel. Stays still for reduced-motion users. */
+/* RECTS ticker under the homepage hero video: scrolls left on its own (on phones too, and at a
+   gentler pace when the device asks for reduced motion), pauses under the mouse, and can be
+   dragged, swiped or moved with a sideways wheel. */
 (function () {
   function init() {
     var el = document.querySelector('.sw-rt');
@@ -241,20 +242,38 @@
     var tr = el.querySelector('.sw-rt-track'), g = tr && tr.firstElementChild;
     if (!g) return;
     var c = g.cloneNode(true); c.setAttribute('aria-hidden', 'true'); tr.appendChild(c);
-    var W = g.getBoundingClientRect().width || 1, x = 0, v = 42, hover = false, drag = false, lx = 0, last = performance.now();
-    var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function set() { x = ((x % W) + W) % W; tr.style.transform = 'translate3d(' + (x - W) + 'px,0,0)'; }
-    function frame(t) { var dt = Math.min(0.05, (t - last) / 1000); last = t; if (!drag && !hover && !rm) x -= v * dt; set(); requestAnimationFrame(frame); }
+    var rm = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var W = 0, x = 0, v = rm ? 22 : 40, hover = false, drag = false, lx = 0, last = 0, resumeAt = 0;
+    function measure() { var w = g.offsetWidth || g.getBoundingClientRect().width; if (w > 4) W = w; return W; }
+    function set() { if (!W && !measure()) return; x = ((x % W) + W) % W; tr.style.transform = 'translate3d(' + (x - W).toFixed(2) + 'px,0,0)'; tr.style.webkitTransform = tr.style.transform; }
+    function frame(t) {
+      if (!last) last = t;
+      var dt = Math.min(0.05, Math.max(0, (t - last) / 1000)); last = t;
+      if (W < 5) measure();
+      if (!drag && !hover && t >= resumeAt) x -= v * dt;
+      set();
+      (window.requestAnimationFrame || function (f) { return setTimeout(function () { f(performance.now()); }, 16); })(frame);
+    }
+    measure();
     requestAnimationFrame(frame);
-    el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
-    el.addEventListener('pointerleave', function () { hover = false; });
-    el.addEventListener('pointerdown', function (e) { drag = true; lx = e.clientX; el.classList.add('is-drag'); try { el.setPointerCapture(e.pointerId); } catch (_) {} });
-    el.addEventListener('pointermove', function (e) { if (!drag) return; x += e.clientX - lx; lx = e.clientX; set(); });
-    function up() { drag = false; el.classList.remove('is-drag'); }
-    el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    function start(cx) { drag = true; lx = cx; el.classList.add('is-drag'); }
+    function move(cx) { if (!drag) return; x += cx - lx; lx = cx; set(); }
+    function end() { if (!drag) return; drag = false; el.classList.remove('is-drag'); resumeAt = performance.now() + 900; }
+    if (window.PointerEvent) {
+      el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
+      el.addEventListener('pointerleave', function () { hover = false; end(); });
+      el.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse' && e.button !== 0) return; start(e.clientX); try { el.setPointerCapture(e.pointerId); } catch (_) {} });
+      el.addEventListener('pointermove', function (e) { move(e.clientX); });
+      el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+    } else {
+      el.addEventListener('touchstart', function (e) { start(e.touches[0].clientX); }, { passive: true });
+      el.addEventListener('touchmove', function (e) { move(e.touches[0].clientX); }, { passive: true });
+      el.addEventListener('touchend', end); el.addEventListener('touchcancel', end);
+    }
     el.addEventListener('wheel', function (e) { var d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0); if (d) { e.preventDefault(); x -= d; set(); } }, { passive: false });
-    window.addEventListener('resize', function () { W = g.getBoundingClientRect().width || W; });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { W = g.getBoundingClientRect().width || W; });
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
