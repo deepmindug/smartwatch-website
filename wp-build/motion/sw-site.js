@@ -243,7 +243,7 @@
     if (!g) return;
     var c = g.cloneNode(true); c.setAttribute('aria-hidden', 'true'); tr.appendChild(c);
     var rm = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
-    var W = 0, x = 0, v = rm ? 22 : 40, hover = false, drag = false, lx = 0, last = 0, resumeAt = 0;
+    var W = 0, x = 0, v = rm ? 40 : 70, hover = false, drag = false, lx = 0, last = 0, resumeAt = 0;
     function measure() { var w = g.offsetWidth || g.getBoundingClientRect().width; if (w > 4) W = w; return W; }
     function set() { if (!W && !measure()) return; x = ((x % W) + W) % W; tr.style.transform = 'translate3d(' + (x - W).toFixed(2) + 'px,0,0)'; tr.style.webkitTransform = tr.style.transform; }
     function frame(t) {
