@@ -879,3 +879,13 @@ html.lenis, html.lenis body { height: auto; }
 .why-media-video .elementor-wrapper { border: 4px solid #fff; box-shadow: none; background: #fff !important; border-radius: 20px !important; overflow: hidden; isolation: isolate; -webkit-mask-image: -webkit-radial-gradient(white, black); }
 .why-media-video video { border-radius: 0 !important; background: #fff !important; }
 .why-media-video .elementor-widget-container { background: transparent !important; border-radius: 20px; }
+
+/* Homepage: RECTS statement scrolling under the hero video (drag / swipe / sideways wheel to move it) */
+.sw-rt-widget { width: 100%; margin-top: 18px !important; }
+.sw-rt { position: relative; overflow: hidden; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: pan-y; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.sw-rt.is-drag { cursor: grabbing; }
+.sw-rt-track { display: flex; width: max-content; will-change: transform; }
+.sw-rt-item { display: inline-flex; align-items: center; gap: 22px; padding-right: 22px; white-space: nowrap; font: 400 16px/1.6 "Open Sans", sans-serif; color: #3A3F47; }
+.sw-rt-item strong { color: #1B2845; font-weight: 700; }
+.sw-rt-dot { width: 7px; height: 7px; border-radius: 50%; background: #4FB848; flex: 0 0 auto; }
+@media (max-width: 520px) { .sw-rt-item { font-size: 15px; } }

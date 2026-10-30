@@ -230,3 +230,31 @@
     if (strap && heading && heading.parentNode) heading.parentNode.insertBefore(strap, heading.nextSibling);
   });
 })();
+
+/* RECTS ticker under the homepage hero video: scrolls left on its own, pauses under the mouse,
+   and can be dragged, swiped or moved with a sideways wheel. Stays still for reduced-motion users. */
+(function () {
+  function init() {
+    var el = document.querySelector('.sw-rt');
+    if (!el || el.dataset.swRt) return;
+    el.dataset.swRt = '1';
+    var tr = el.querySelector('.sw-rt-track'), g = tr && tr.firstElementChild;
+    if (!g) return;
+    var c = g.cloneNode(true); c.setAttribute('aria-hidden', 'true'); tr.appendChild(c);
+    var W = g.getBoundingClientRect().width || 1, x = 0, v = 42, hover = false, drag = false, lx = 0, last = performance.now();
+    var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function set() { x = ((x % W) + W) % W; tr.style.transform = 'translate3d(' + (x - W) + 'px,0,0)'; }
+    function frame(t) { var dt = Math.min(0.05, (t - last) / 1000); last = t; if (!drag && !hover && !rm) x -= v * dt; set(); requestAnimationFrame(frame); }
+    requestAnimationFrame(frame);
+    el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
+    el.addEventListener('pointerleave', function () { hover = false; });
+    el.addEventListener('pointerdown', function (e) { drag = true; lx = e.clientX; el.classList.add('is-drag'); try { el.setPointerCapture(e.pointerId); } catch (_) {} });
+    el.addEventListener('pointermove', function (e) { if (!drag) return; x += e.clientX - lx; lx = e.clientX; set(); });
+    function up() { drag = false; el.classList.remove('is-drag'); }
+    el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    el.addEventListener('wheel', function (e) { var d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0); if (d) { e.preventDefault(); x -= d; set(); } }, { passive: false });
+    window.addEventListener('resize', function () { W = g.getBoundingClientRect().width || W; });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { W = g.getBoundingClientRect().width || W; });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
